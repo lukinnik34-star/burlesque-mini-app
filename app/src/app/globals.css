@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff7ee;
+  --foreground: #2a1717;
+  --tg-viewport-height: 100dvh;
+  --app-bg: #fff7ee;
+  --surface: #fffdf8;
+  --surface-soft: #fff2e3;
+  --cream: #fff7ea;
+  --champagne: #ead0a2;
+  --peach: #f6d9c8;
+  --burgundy: #8f1d2f;
+  --burgundy-strong: #741522;
+  --burgundy-soft: rgba(143, 29, 47, 0.1);
+  --text: #2a1717;
+  --muted: #8a746b;
+  --muted-strong: #614d46;
+  --line-soft: rgba(133, 73, 50, 0.14);
+  --line-strong: rgba(143, 29, 47, 0.22);
+  --shadow-soft: 0 18px 46px rgba(122, 60, 35, 0.1);
+  --shadow-card: 0 14px 34px rgba(122, 60, 35, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--app-bg);
+}
+
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 18% -8%, rgba(246, 217, 200, 0.72), transparent 28rem),
+    radial-gradient(circle at 90% 2%, rgba(234, 208, 162, 0.36), transparent 24rem),
+    linear-gradient(180deg, #fff9f1 0%, #fff5e9 48%, #f9eadb 100%);
+  color: var(--text);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+}
+
+::selection {
+  background: rgba(143, 29, 47, 0.18);
+  color: var(--burgundy-strong);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --tg-viewport-height: 100dvh;
+  }
+}
+
+.min-h-tg {
+  min-height: var(--tg-viewport-height);
+}
+
+.premium-scrollbar {
+  scrollbar-color: rgba(143, 29, 47, 0.36) rgba(255, 247, 238, 0.68);
+}
+
+.premium-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 247, 238, 0.68);
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(143, 29, 47, 0.32);
+}
+
+@keyframes burlesque-float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0) rotate(3deg);
+  }
+}
+
+@keyframes burlesque-pulse-soft {
+  0%,
+  100% {
+    opacity: 0.52;
+  }
+  50% {
+    opacity: 0.78;
+  }
+}
+
+.animate-float-slow {
+  animation: burlesque-float-slow 7s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: burlesque-pulse-soft 5.5s ease-in-out infinite;
+}

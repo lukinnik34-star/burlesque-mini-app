@@ -1,0 +1,77 @@
+# Roadmap
+
+## Текущий порядок этапов
+
+### 1. Visual MVP freeze — current
+
+Статус: текущий этап.
+
+Результат:
+
+- light premium UI зафиксирован;
+- основные экраны готовы;
+- mock data layer работает;
+- Burlesque visual assets подключены;
+- lint и build проходят;
+- проект готов к проверке внутри Telegram.
+
+### 2. Telegram Mini App runtime check
+
+Цель: открыть приложение внутри реального Telegram Mini App окружения и проверить viewport, safe-area, theme params, поведение bottom navigation и базовую стабильность.
+
+### 3. Telegram environment detection
+
+Цель: аккуратно определить, запущено ли приложение внутри Telegram или в browser preview, без вывода лишнего debug UI гостю.
+
+### 4. Safe Telegram initData reading without real auth
+
+Цель: подготовить безопасное чтение `initData` на клиенте без признания пользователя авторизованным и без доверия frontend-данным.
+
+Важно: полноценная валидация `initData` должна выполняться только на backend.
+
+### 5. Backend planning
+
+Цель: описать минимальный backend слой для:
+
+- Telegram `initData` validation;
+- user session mapping;
+- events API;
+- prizes API;
+- game attempt API.
+
+### 6. CRM integration planning
+
+Цель: описать CRM API requirements, ownership данных, ограничения, rate limits и backend-only adapter.
+
+### 7. Prize rules model
+
+Цель: описать правила доступности, лимиты, статусы, срок действия и audit trail для призов.
+
+### 8. Real prize issuing flow
+
+Цель: спроектировать безопасный flow выдачи и погашения призов без доверия frontend.
+
+### 9. Admin/data management
+
+Цель: определить, нужна ли простая админка, CMS, импорт из CRM или ручное управление данными.
+
+### 10. Production deployment
+
+Цель: подготовить production hosting, env vars, monitoring, security checks и rollout plan.
+
+## Архив уже выполненных этапов
+
+- Project documentation bootstrap.
+- Next.js + TypeScript + Tailwind bootstrap.
+- Telegram Mini App shell.
+- UI components and screen skeletons.
+- Mock data layer.
+- Frontend-only demo state.
+- Scratch Card demo UI.
+- Wheel Of Prizes demo UI.
+- UI QA and mobile polish.
+- Light premium redesign.
+- Events MVP screens.
+- Light UI acceptance fixes.
+- Burlesque visual assets integration.
+- Asset visual polish.

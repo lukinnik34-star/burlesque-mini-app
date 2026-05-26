@@ -1,0 +1,47 @@
+# Backlog
+
+## Next
+
+- Проверить приложение внутри Telegram.
+- Добавить Telegram runtime detection.
+- Подготовить safe `initData` validation plan.
+- Описать CRM API requirements.
+- Описать prize issuing rules.
+- Проверить реальные mobile devices.
+
+## Product
+
+- Заменить demo copy перед production.
+- Уточнить реальные события для первого наполнения афиши.
+- Уточнить реальные статусы мероприятий.
+- Описать пользовательский flow бронирования.
+- Описать flow открытия Яндекс.Карт, маршрута и такси.
+- Описать правила отображения призов для разных типов гостей.
+
+## Design
+
+- Добавить fourth prize icon для `Доступ к спецсобытию`.
+- Оптимизировать ассеты по весу.
+- Проверить изображения на реальных экранах iOS и Android.
+- Подготовить fallback visuals для отсутствующих cover assets.
+- Проверить читаемость overlay для event covers.
+- Подготовить empty/loading states.
+
+## Tech
+
+- Подготовить backend architecture для Telegram `initData` validation.
+- Подготовить минимальные API routes.
+- Подготовить PostgreSQL + Prisma plan.
+- Описать модели пользователя, события, приза, game attempt и prize claim.
+- Подготовить CRM adapter plan.
+- Описать security requirements для призов и промокодов.
+
+## Future
+
+- Реальная Telegram-авторизация через backend.
+- Реальная CRM-интеграция.
+- Реальная выдача призов.
+- Claim/redeem flow.
+- Админка или data management.
+- Аналитика событий.
+- Production deployment.
