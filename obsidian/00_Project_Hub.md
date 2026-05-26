@@ -12,9 +12,11 @@ Telegram Mini App для Burlesque — рабочее маркетинговое
 - Основные экраны готовы: Главная, Афиша, Игры, Призы, Профиль.
 - Visual direction зафиксирован как `light premium Burlesque`: теплый светлый фон, бордовый primary accent, cream/champagne cards, мягкие rounded cards и минимальная нижняя навигация.
 - Burlesque visual assets подключены через `app/public/assets/burlesque` и manifest `app/src/data/assets.ts`.
+- Production URL работает на Vercel: `https://burlesque-mini-app.vercel.app/`.
+- Telegram Mini App открывается через тестового бота `n8ntest`.
+- Telegram runtime check пройден: главная, BottomNav, вкладки, demo-игры, призы, профиль и ассеты работают внутри Telegram WebView.
 - Данные мероприятий, игр, призов и профиля остаются mock/demo.
 - Backend, CRM, база данных, реальная Telegram-авторизация и выдача призов еще не реализованы.
-- Telegram runtime еще не проверялся внутри реального Telegram Mini App окружения.
 
 ## Карта документации
 
@@ -54,6 +56,7 @@ Telegram Mini App для Burlesque — рабочее маркетинговое
 - [[05_Codex/Task_Template|Task Template]] — шаблон задач.
 - [[05_Codex/Task_013_Connect_Burlesque_Visual_Assets_Report|Task 013 Report]] — отчет о подключении ассетов.
 - [[05_Codex/Task_014_Asset_Visual_Polish_Report|Task 014 Report]] — отчет о визуальной полировке ассетов.
+- [[05_Codex/Task_016_Telegram_Runtime_Check_Report|Task 016 Report]] — отчет о проверке внутри Telegram.
 
 ### Production
 
@@ -75,4 +78,4 @@ Mobile-first Telegram Mini App с главной, афишей, карточка
 - Реальную выдачу призов.
 - Реальное бронирование.
 - Аналитику.
-- Продакшен-деплой.
+- Production deployment.

@@ -1,9 +1,15 @@
 # Backlog
 
-## Next
+## Done
 
 - Проверить приложение внутри Telegram.
-- Добавить Telegram runtime detection.
+
+Результат: visual MVP успешно открылся внутри Telegram Mini App через Vercel production URL `https://burlesque-mini-app.vercel.app/` и тестового бота `n8ntest`.
+
+## Next
+
+- Добавить Telegram environment detection.
+- Добавить безопасное чтение Telegram WebApp окружения.
 - Подготовить safe `initData` validation plan.
 - Описать CRM API requirements.
 - Описать prize issuing rules.

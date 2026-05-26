@@ -2,9 +2,7 @@
 
 ## Текущий порядок этапов
 
-### 1. Visual MVP freeze — current
-
-Статус: текущий этап.
+### 1. Visual MVP freeze — done
 
 Результат:
 
@@ -13,15 +11,39 @@
 - mock data layer работает;
 - Burlesque visual assets подключены;
 - lint и build проходят;
-- проект готов к проверке внутри Telegram.
+- production URL опубликован на Vercel.
 
-### 2. Telegram Mini App runtime check
+### 2. Telegram Mini App runtime check — done
 
-Цель: открыть приложение внутри реального Telegram Mini App окружения и проверить viewport, safe-area, theme params, поведение bottom navigation и базовую стабильность.
+Результат проверки:
 
-### 3. Telegram environment detection
+- приложение открылось внутри Telegram Mini App;
+- главная отображается корректно;
+- BottomNav виден;
+- вкладки кликаются;
+- Афиша, Игры, Призы и Профиль открываются;
+- Scratch Card demo и Wheel Of Prizes demo кликаются;
+- ассеты грузятся;
+- Vercel production URL подошел для Telegram WebView.
+
+Использованный URL:
+
+- `https://burlesque-mini-app.vercel.app/`
+
+Telegram test bot:
+
+- `n8ntest`
+
+### 3. Telegram environment detection — next
 
 Цель: аккуратно определить, запущено ли приложение внутри Telegram или в browser preview, без вывода лишнего debug UI гостю.
+
+Ожидаемый результат:
+
+- безопасные client-side helpers для чтения Telegram WebApp окружения;
+- понятное различение Telegram runtime и browser preview;
+- без реальной авторизации;
+- без доверия frontend-данным.
 
 ### 4. Safe Telegram initData reading without real auth
 
@@ -75,3 +97,5 @@
 - Light UI acceptance fixes.
 - Burlesque visual assets integration.
 - Asset visual polish.
+- MVP visual freeze and project state update.
+- Telegram Mini App runtime check.
