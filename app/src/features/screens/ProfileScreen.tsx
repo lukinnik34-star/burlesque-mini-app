@@ -242,15 +242,6 @@ export function ProfileScreen({
         </div>
       </Card>
 
-      <Card className="bg-[var(--surface-soft)]">
-        <p className="text-sm font-semibold text-[var(--burgundy)]">
-          Демо-профиль
-        </p>
-        <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-          Данные профиля показаны для примера. Реальные привилегии и история
-          появятся после безопасной проверки Telegram.
-        </p>
-      </Card>
     </div>
   );
 }

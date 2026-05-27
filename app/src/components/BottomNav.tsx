@@ -9,11 +9,11 @@ type BottomNavItem = {
 };
 
 const items: BottomNavItem[] = [
-  { id: "home", label: "Главная", mark: "B" },
-  { id: "events", label: "Афиша", mark: "A" },
-  { id: "games", label: "Игры", mark: "G" },
-  { id: "prizes", label: "Призы", mark: "P" },
-  { id: "profile", label: "Профиль", mark: "U" },
+  { id: "home", label: "Главная", mark: "•" },
+  { id: "events", label: "Афиша", mark: "◇" },
+  { id: "games", label: "Игры", mark: "✦" },
+  { id: "prizes", label: "Призы", mark: "□" },
+  { id: "profile", label: "Профиль", mark: "○" },
 ];
 
 type BottomNavProps = {

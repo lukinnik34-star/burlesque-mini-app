@@ -10,15 +10,12 @@ export function ScreenHeader({
   className = "",
 }: ScreenHeaderProps) {
   return (
-    <header className={["space-y-3.5", className].filter(Boolean).join(" ")}>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--burgundy)]">
-        Burlesque Mini App
-      </p>
-      <h2 className="font-serif text-[38px] font-semibold leading-[0.98] text-[var(--text)]">
+    <header className={["space-y-2", className].filter(Boolean).join(" ")}>
+      <h2 className="font-serif text-[30px] font-semibold leading-tight text-[var(--text)]">
         {title}
       </h2>
       {subtitle ? (
-        <p className="max-w-[21rem] text-[15px] leading-7 text-[var(--muted)]">
+        <p className="max-w-[21rem] text-sm leading-6 text-[var(--muted)]">
           {subtitle}
         </p>
       ) : null}

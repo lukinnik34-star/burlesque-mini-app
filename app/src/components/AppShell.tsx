@@ -54,7 +54,7 @@ export function AppShell() {
     <main className="premium-scrollbar min-h-tg overflow-x-hidden bg-[var(--app-bg)] text-[var(--text)]">
       <div className="pointer-events-none fixed inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_50%_0%,rgba(246,217,200,0.72),transparent_70%)]" />
       <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+148px)] pt-[calc(env(safe-area-inset-top)+18px)]">
-        <header className="mb-7 flex items-center justify-between gap-3">
+        <header className="mb-5 flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
             <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[var(--burgundy)] font-serif text-xl font-semibold text-white shadow-[0_14px_28px_rgba(143,29,47,0.18)]">
               B
@@ -69,7 +69,7 @@ export function AppShell() {
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--line-soft)] bg-white/68 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--burgundy)] shadow-[var(--shadow-card)]">
+          <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--line-soft)] bg-white/56 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--burgundy)] shadow-[var(--shadow-card)]">
             MVP
           </div>
         </header>
