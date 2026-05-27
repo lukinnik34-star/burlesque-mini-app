@@ -15,80 +15,67 @@
 
 ### 2. Telegram Mini App runtime check — done
 
-Результат проверки:
+Результат:
 
 - приложение открылось внутри Telegram Mini App;
-- главная отображается корректно;
-- BottomNav виден;
-- вкладки кликаются;
-- Афиша, Игры, Призы и Профиль открываются;
-- Scratch Card demo и Wheel Of Prizes demo кликаются;
+- основные вкладки работают;
 - ассеты грузятся;
 - Vercel production URL подошел для Telegram WebView.
-
-Использованный URL:
-
-- `https://burlesque-mini-app.vercel.app/`
-
-Telegram test bot:
-
-- `n8ntest`
 
 ### 3. Telegram environment detection — done
 
 Результат:
 
 - добавлено frontend-only определение browser / Telegram runtime;
-- добавлена проверка наличия `window.Telegram.WebApp`;
-- добавлена проверка наличия `initData`;
-- добавлено безопасное чтение `initDataUnsafe.user` для demo UI;
-- профиль показывает компактный runtime status;
+- добавлена проверка `window.Telegram.WebApp`;
+- добавлен fallback parser для Telegram launch params из `location.hash`;
+- Telegram user preview читается из `tgWebAppData.user`, если WebApp API недоступен;
+- профиль показывает Telegram user и среду запуска без технического debug UI;
 - UI не сообщает, что пользователь авторизован;
 - backend, session и validation не добавлялись.
 
-### 4. Backend initData validation planning — next
+### 4. Telegram launch params fallback — done
+
+Результат:
+
+- подтверждено, что `window.Telegram.WebApp` может быть недоступен;
+- подтверждено, что launch params приходят через `location.hash`;
+- fallback используется только для runtime preview;
+- raw `tgWebAppData`, `hash`, `signature`, `query_id` не выводятся в UI.
+
+### 5. Backend initData validation planning — next
 
 Цель: описать backend endpoint и правила серверной проверки Telegram `initData`.
 
 Ожидаемый результат:
 
-- endpoint для приема `initData`;
+- endpoint для приема raw `initData`;
 - проверка подписи через bot token;
 - проверка `auth_date`;
 - модель безопасного user/session mapping;
 - правила, запрещающие выдавать реальные призы без backend validation.
 
-### 5. Backend planning
+### 6. Backend planning
 
-Цель: описать минимальный backend слой для:
+Цель: описать минимальный backend слой для событий, призов, игр и профиля.
 
-- Telegram `initData` validation;
-- user session mapping;
-- events API;
-- prizes API;
-- game attempt API.
-
-### 6. CRM integration planning
+### 7. CRM integration planning
 
 Цель: описать CRM API requirements, ownership данных, ограничения, rate limits и backend-only adapter.
 
-### 7. Prize rules model
+### 8. Prize rules model
 
 Цель: описать правила доступности, лимиты, статусы, срок действия и audit trail для призов.
 
-### 8. Real prize issuing flow
+### 9. Real prize issuing flow
 
 Цель: спроектировать безопасный flow выдачи и погашения призов без доверия frontend.
-
-### 9. Admin/data management
-
-Цель: определить, нужна ли простая админка, CMS, импорт из CRM или ручное управление данными.
 
 ### 10. Production deployment
 
 Цель: подготовить production hosting, env vars, monitoring, security checks и rollout plan.
 
-## Архив уже выполненных этапов
+## Архив выполненных этапов
 
 - Project documentation bootstrap.
 - Next.js + TypeScript + Tailwind bootstrap.
@@ -107,3 +94,4 @@ Telegram test bot:
 - MVP visual freeze and project state update.
 - Telegram Mini App runtime check.
 - Telegram environment detection.
+- Telegram launch params fallback.

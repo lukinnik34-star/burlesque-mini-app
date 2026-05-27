@@ -5,12 +5,15 @@
 - Проверить приложение внутри Telegram.
 - Добавить Telegram environment detection.
 - Добавить безопасное чтение Telegram WebApp окружения для demo UI.
+- Добавить fallback parsing Telegram launch params из `location.hash`.
+- Убрать debug UI из production view.
 
 ## Next
 
 - Подготовить backend endpoint для Telegram `initData` validation.
 - Подготовить safe `initData` validation plan.
 - Не выдавать реальные призы без backend validation.
+- После backend validation подключить реальный профиль / CRM.
 - Описать CRM API requirements.
 - Описать prize issuing rules.
 - Проверить реальные mobile devices.

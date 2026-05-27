@@ -2,7 +2,16 @@
 
 ## Принцип
 
-Telegram Mini App передает данные запуска, но их можно использовать для идентификации пользователя только после серверной проверки подписи. Frontend может читать наличие Telegram окружения и показывать demo/runtime status, но не должен считать пользователя авторизованным.
+Telegram Mini App передает данные запуска, но их можно использовать для идентификации пользователя только после серверной проверки подписи. Frontend может читать Telegram runtime signals и показывать demo/runtime status, но не должен считать пользователя авторизованным.
+
+## Итог текущей проверки
+
+- `window.Telegram.WebApp` может быть недоступен в текущем Telegram runtime.
+- Telegram launch params приходят через `location.hash`.
+- В `location.hash` доступен `tgWebAppData` с user, auth_date, signature и hash.
+- Frontend fallback parser использует эти данные только для runtime preview.
+- Parsed user нельзя считать авторизованным без server-side signature validation.
+- Для реального профиля, CRM, баллов и призов нужна backend validation.
 
 ## Источники данных на frontend
 
@@ -20,34 +29,12 @@ Telegram launch params могут содержать:
 
 Внутри `tgWebAppData` могут быть `query_id`, `user`, `auth_date`, `signature`, `hash`. На frontend допускается использовать только безопасный preview subset, например имя пользователя из `user`, и только для runtime/demo UI.
 
-## Task 017: frontend runtime detection
-
-Task 017 добавляет только безопасное frontend-only определение Telegram окружения:
-
-- открыт ли интерфейс в обычном браузере;
-- доступен ли `window.Telegram.WebApp`;
-- есть ли непустой `initData`;
-- есть ли `initDataUnsafe.user`;
-- есть ли Telegram launch params в `location.hash`;
-- какое имя можно аккуратно показать в demo UI.
-
-Важно:
-
-- `initData` / `tgWebAppData` читаются, но не валидируются;
-- данные не отправляются на backend;
-- `hash`, `signature`, `query_id` и полный payload не показываются в UI;
-- parsed user из launch params не считается авторизованным пользователем;
-- данные не сохраняются в `localStorage`, cookies или session.
-
 ## Что можно делать на frontend
 
 - Определять browser preview / Telegram WebView / Telegram Mini App runtime.
-- Вызывать `Telegram.WebApp.ready()`, если объект доступен.
-- Вызывать `Telegram.WebApp.expand()`, если это не ломает layout.
-- Показывать короткий статус: `Открыто в Telegram` или `Браузерный просмотр`.
 - Показывать display name из Telegram user, если он доступен через WebApp API или launch params.
-- Показывать platform/version как diagnostics.
-- Показывать длину initData, но не сам initData.
+- Показывать platform/version только в debug diagnostics.
+- Показывать длину initData в debug diagnostics, но не сам initData.
 
 ## Что нельзя делать на frontend
 
