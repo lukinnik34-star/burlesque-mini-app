@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram WebApp Test</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      background: #fff7ef;
+      color: #2b1014;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #ffffff;
+      border: 1px solid #ead8cd;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #8a6f64;
+    }
+  </style>
+</head>
+<body>
+  <h1>Telegram WebApp Test</h1>
+  <pre id="out">Loading...</pre>
+  <div class="note">
+    This page is static HTML from /public and does not use Next.js runtime.
+  </div>
+
+  <script>
+    function safeKeys(value) {
+      try {
+        if (!value || typeof value !== "object") return [];
+        return Object.keys(value).slice(0, 30);
+      } catch (error) {
+        return ["keys_error"];
+      }
+    }
+
+    function readTelegramState() {
+      const tg = window.Telegram;
+      const webApp = tg && tg.WebApp;
+
+      const data = {
+        href: window.location.href,
+        hash: window.location.hash,
+        userAgent: window.navigator.userAgent,
+        telegramExists: typeof window.Telegram !== "undefined",
+        telegramType: typeof window.Telegram,
+        telegramKeys: safeKeys(window.Telegram),
+        webAppExists: !!webApp,
+        webAppType: typeof webApp,
+        webAppKeys: safeKeys(webApp),
+        initDataLength: webApp && webApp.initData ? webApp.initData.length : 0,
+        hasInitDataUnsafe: !!(webApp && webApp.initDataUnsafe),
+        hasUser: !!(webApp && webApp.initDataUnsafe && webApp.initDataUnsafe.user),
+        version: webApp && webApp.version ? webApp.version : null,
+        platform: webApp && webApp.platform ? webApp.platform : null,
+        colorScheme: webApp && webApp.colorScheme ? webApp.colorScheme : null
+      };
+
+      document.getElementById("out").textContent = JSON.stringify(data, null, 2);
+
+      if (webApp && typeof webApp.ready === "function") {
+        webApp.ready();
+      }
+    }
+
+    readTelegramState();
+    setTimeout(readTelegramState, 250);
+    setTimeout(readTelegramState, 1000);
+    setTimeout(readTelegramState, 2500);
+  </script>
+</body>
+</html>
