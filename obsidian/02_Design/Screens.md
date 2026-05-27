@@ -169,3 +169,15 @@ Backend/auth/CRM/prize logic не менялись.
 - fallback icon для `Доступ к спецсобытию` заменен с цифры на CSS-only ornamental mark.
 
 Экран остается demo-only showcase будущих привилегий. Claim/redeem, real prize issuing, backend/auth/CRM не добавлялись.
+
+## Task 021 Games Card Compact Polish
+
+Экран `GamesScreen` уплотнен для Telegram mobile viewport:
+
+- visual-зоны Scratch Card и Wheel Of Prizes уменьшены примерно на 20–25%;
+- game visuals оставлены видимыми, но не занимают почти весь экран;
+- descriptions сокращены до одной короткой фразы;
+- vertical padding в карточках и CTA уменьшен;
+- добавлен небольшой bottom padding у screen container.
+
+Game result logic, prize logic, storage, backend/auth/CRM не менялись.

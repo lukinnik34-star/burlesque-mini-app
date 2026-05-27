@@ -32,13 +32,13 @@ export function GamesScreen({
     selectedGame?.id === "wheel-of-prizes" && isDemoPreview;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 pb-4">
       <ScreenHeader
         title="Игры"
         subtitle="Демо-механики для будущих клубных розыгрышей. Призы пока не выдаются."
       />
 
-      <div className="grid gap-4">
+      <div className="grid gap-3">
         {mockGames.map((game) => {
           const isAvailable = game.status === "available";
           const isSelected = game.id === demoState.selectedGameId;
@@ -59,31 +59,31 @@ export function GamesScreen({
             >
               <div
                 className={[
-                  "relative min-h-40 overflow-hidden p-5",
+                  "relative min-h-32 overflow-hidden px-4 py-4",
                   isScratch
                     ? "bg-[linear-gradient(145deg,#fff8ef_0%,#f6d9c8_100%)]"
                     : "bg-[linear-gradient(145deg,#fff8ef_0%,#ead0a2_100%)]",
                 ].join(" ")}
               >
-                <div className="pointer-events-none absolute -right-7 -top-8 size-32 rounded-full bg-white/45" />
-                <div className="pointer-events-none absolute bottom-0 right-0 size-40 rounded-full bg-white/28 blur-xl" />
+                <div className="pointer-events-none absolute -right-7 -top-8 size-28 rounded-full bg-white/45" />
+                <div className="pointer-events-none absolute bottom-0 right-0 size-32 rounded-full bg-white/28 blur-xl" />
                 {isScratch ? (
                   <div
-                    className="pointer-events-none absolute -bottom-1 right-1 h-[132px] w-[152px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute -bottom-2 right-1 h-[108px] w-[128px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 ) : (
                   <div
-                    className="pointer-events-none absolute bottom-1 right-3 size-[138px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute bottom-0 right-4 size-[112px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 )}
                 <div className="relative z-10 flex items-start justify-between gap-3">
                   <div className="max-w-[12rem]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--burgundy)]">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--burgundy)]">
                       {isScratch ? "Promo card" : "Prize wheel"}
                     </p>
-                    <h3 className="mt-2 font-serif text-2xl font-semibold text-[var(--text)]">
+                    <h3 className="mt-1.5 font-serif text-[22px] font-semibold text-[var(--text)]">
                       {game.title}
                     </h3>
                   </div>
@@ -93,12 +93,12 @@ export function GamesScreen({
                 </div>
               </div>
 
-              <div className="p-5">
-                <p className="text-sm leading-6 text-[var(--muted)]">
+              <div className="px-4 py-4">
+                <p className="text-sm leading-5 text-[var(--muted)]">
                   {game.description}
                 </p>
                 <Button
-                  className="mt-5 w-full"
+                  className="mt-4 min-h-11 w-full"
                   disabled={!isAvailable}
                   onClick={() => onPreviewGame(game.id)}
                 >

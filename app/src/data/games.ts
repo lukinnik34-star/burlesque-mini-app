@@ -5,7 +5,7 @@ export const mockGames: MockGame[] = [
     id: "scratch-card",
     title: "Scratch Card",
     description:
-      "Клубная карточка-сюрприз для будущих розыгрышей. Сейчас это визуальная демо-механика.",
+      "Клубная карточка-сюрприз для будущих розыгрышей.",
     status: "available",
     actionLabel: "Открыть",
   },
@@ -13,7 +13,7 @@ export const mockGames: MockGame[] = [
     id: "wheel-of-prizes",
     title: "Wheel Of Prizes",
     description:
-      "Колесо привилегий для промо-кампаний. Результаты пока не сохраняются.",
+      "Колесо привилегий для будущих промо-кампаний.",
     status: "available",
     actionLabel: "Открыть",
   },

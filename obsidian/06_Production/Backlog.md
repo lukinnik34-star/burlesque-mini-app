@@ -10,6 +10,7 @@
 - Выполнить MVP UI/UX polish pass with Stitch reference direction.
 - Выполнить final mobile viewport polish.
 - Упростить rewards card system на экране `Призы`.
+- Уплотнить game cards на экране `Игры`.
 
 ## Next
 
