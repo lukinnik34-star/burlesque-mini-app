@@ -6,8 +6,18 @@ import type {
 
 export type TelegramRuntimeStatus =
   | "browser"
+  | "telegram_webview_without_webapp"
   | "telegram_without_init_data"
   | "telegram_with_init_data";
+
+export type TelegramRuntimeDiagnostics = {
+  hasWindow: boolean;
+  hasTelegramObject: boolean;
+  hasWebAppObject: boolean;
+  hasInitDataUnsafe: boolean;
+  initDataLength: number;
+  userAgentIncludesTelegram: boolean;
+};
 
 export type TelegramRuntimeInfo = {
   status: TelegramRuntimeStatus;
@@ -25,15 +35,26 @@ export type TelegramRuntimeInfo = {
     isPremium?: boolean;
   };
   displayName: string;
+  diagnostics: TelegramRuntimeDiagnostics;
 };
 
 const fallbackDisplayName = "Гость Burlesque";
+
+const browserDiagnostics: TelegramRuntimeDiagnostics = {
+  hasWindow: false,
+  hasTelegramObject: false,
+  hasWebAppObject: false,
+  hasInitDataUnsafe: false,
+  initDataLength: 0,
+  userAgentIncludesTelegram: false,
+};
 
 export const browserRuntimeInfo: TelegramRuntimeInfo = {
   status: "browser",
   isTelegram: false,
   hasInitData: false,
   displayName: fallbackDisplayName,
+  diagnostics: browserDiagnostics,
 };
 
 const mockUser: TelegramWebAppUser = {
@@ -42,12 +63,26 @@ const mockUser: TelegramWebAppUser = {
   username: "burlesque_guest",
 };
 
-export function getTelegramWebApp(): TelegramWebApp | undefined {
-  if (typeof window === "undefined") {
-    return undefined;
-  }
+function getRuntimeParts() {
+  const hasWindow = typeof window !== "undefined";
+  const telegramObject = hasWindow ? window.Telegram : undefined;
+  const webApp = telegramObject?.WebApp;
+  const initData = webApp?.initData ?? "";
+  const userAgent = hasWindow ? window.navigator.userAgent.toLowerCase() : "";
+  const diagnostics: TelegramRuntimeDiagnostics = {
+    hasWindow,
+    hasTelegramObject: Boolean(telegramObject),
+    hasWebAppObject: Boolean(webApp),
+    hasInitDataUnsafe: Boolean(webApp?.initDataUnsafe),
+    initDataLength: initData.length,
+    userAgentIncludesTelegram: userAgent.includes("telegram"),
+  };
 
-  return window.Telegram?.WebApp;
+  return { diagnostics, webApp };
+}
+
+export function getTelegramWebApp(): TelegramWebApp | undefined {
+  return getRuntimeParts().webApp;
 }
 
 export function isTelegramMiniApp(): boolean {
@@ -92,13 +127,25 @@ function getDisplayName(user?: TelegramWebAppUser): string {
 }
 
 export function getTelegramRuntimeInfo(): TelegramRuntimeInfo {
-  const webApp = getTelegramWebApp();
+  const { diagnostics, webApp } = getRuntimeParts();
 
-  if (!webApp) {
+  if (!diagnostics.hasWindow) {
     return browserRuntimeInfo;
   }
 
-  const hasInitData = Boolean(webApp.initData?.trim());
+  if (!webApp) {
+    return {
+      status: diagnostics.userAgentIncludesTelegram
+        ? "telegram_webview_without_webapp"
+        : "browser",
+      isTelegram: diagnostics.userAgentIncludesTelegram,
+      hasInitData: false,
+      displayName: fallbackDisplayName,
+      diagnostics,
+    };
+  }
+
+  const hasInitData = diagnostics.initDataLength > 0;
   const user = webApp.initDataUnsafe?.user;
 
   return {
@@ -121,5 +168,6 @@ export function getTelegramRuntimeInfo(): TelegramRuntimeInfo {
         }
       : undefined,
     displayName: getDisplayName(user),
+    diagnostics,
   };
 }

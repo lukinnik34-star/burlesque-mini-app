@@ -21,13 +21,57 @@ const sessionStatusLabel = {
 };
 
 function getRuntimeEnvironmentLabel(runtimeInfo: TelegramRuntimeInfo): string {
-  if (!runtimeInfo.isTelegram) {
-    return "Browser preview";
+  if (runtimeInfo.status === "telegram_webview_without_webapp") {
+    return "Telegram WebView";
   }
 
-  return runtimeInfo.hasInitData
-    ? "Telegram Mini App"
-    : "Telegram без initData";
+  if (
+    runtimeInfo.status === "telegram_without_init_data" ||
+    runtimeInfo.status === "telegram_with_init_data"
+  ) {
+    return "Telegram Mini App";
+  }
+
+  return "Browser preview";
+}
+
+function getRuntimeBadgeLabel(runtimeInfo: TelegramRuntimeInfo): string {
+  if (runtimeInfo.status === "browser") {
+    return "Browser";
+  }
+
+  if (runtimeInfo.status === "telegram_webview_without_webapp") {
+    return "WebView";
+  }
+
+  return "Telegram";
+}
+
+function getRuntimeNote(runtimeInfo: TelegramRuntimeInfo): string {
+  if (runtimeInfo.status === "telegram_webview_without_webapp") {
+    return "Похоже на Telegram WebView, но WebApp API не найден.";
+  }
+
+  if (runtimeInfo.status === "telegram_without_init_data") {
+    return "WebApp API найден, initData пока пустой.";
+  }
+
+  if (runtimeInfo.status === "telegram_with_init_data") {
+    return "WebApp API и initData найдены. Авторизация еще не выполнена.";
+  }
+
+  return "Обычный браузерный просмотр.";
+}
+
+function RuntimeRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+      <span className="text-[var(--muted)]">{label}</span>
+      <span className="text-right font-semibold text-[var(--text)]">
+        {value}
+      </span>
+    </div>
+  );
 }
 
 export function ProfileScreen({
@@ -36,6 +80,8 @@ export function ProfileScreen({
   selectedGame,
   selectedPrize,
 }: ProfileScreenProps) {
+  const diagnostics = runtimeInfo.diagnostics;
+
   return (
     <div className="space-y-5">
       <ScreenHeader
@@ -52,25 +98,48 @@ export function ProfileScreen({
               Среда запуска
             </p>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
-              Данные профиля показаны для примера.
+              {getRuntimeNote(runtimeInfo)}
             </p>
           </div>
-          <Badge>{runtimeInfo.isTelegram ? "Telegram" : "Browser"}</Badge>
+          <Badge>{getRuntimeBadgeLabel(runtimeInfo)}</Badge>
         </div>
 
         <div className="mt-4 grid gap-2 text-sm">
-          <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
-            <span className="text-[var(--muted)]">Среда</span>
-            <span className="text-right font-semibold text-[var(--text)]">
-              {getRuntimeEnvironmentLabel(runtimeInfo)}
-            </span>
-          </div>
-          <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
-            <span className="text-[var(--muted)]">Telegram user</span>
-            <span className="text-right font-semibold text-[var(--text)]">
-              {runtimeInfo.user ? "найден" : "не найден"}
-            </span>
-          </div>
+          <RuntimeRow
+            label="Среда"
+            value={getRuntimeEnvironmentLabel(runtimeInfo)}
+          />
+          <RuntimeRow
+            label="Telegram object"
+            value={
+              diagnostics.hasTelegramObject || diagnostics.userAgentIncludesTelegram
+                ? "найден"
+                : "нет"
+            }
+          />
+          <RuntimeRow
+            label="WebApp API"
+            value={diagnostics.hasWebAppObject ? "найден" : "не найден"}
+          />
+          {runtimeInfo.status === "telegram_without_init_data" ||
+          runtimeInfo.status === "telegram_with_init_data" ? (
+            <RuntimeRow
+              label="initData"
+              value={runtimeInfo.hasInitData ? "найден" : "нет"}
+            />
+          ) : null}
+          <RuntimeRow
+            label="Telegram user"
+            value={runtimeInfo.user ? "найден" : "не найден"}
+          />
+          <RuntimeRow
+            label="UserAgent Telegram"
+            value={diagnostics.userAgentIncludesTelegram ? "да" : "нет"}
+          />
+          <RuntimeRow
+            label="initData length"
+            value={String(diagnostics.initDataLength)}
+          />
           <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
             <span className="text-[var(--muted)]">Авторизация</span>
             <span className="text-right font-semibold text-[var(--burgundy)]">
@@ -142,7 +211,7 @@ export function ProfileScreen({
         </p>
         <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
           {runtimeInfo.isTelegram
-            ? "Telegram найден только как среда запуска. Реальные данные гостя и авторизация будут подключены позже через backend."
+            ? "Telegram определяется только как среда запуска. Реальные данные гостя и авторизация будут подключены позже через backend."
             : "Браузерный просмотр. Реальные данные гостя и авторизация будут подключены позже через backend."}
         </p>
       </Card>
