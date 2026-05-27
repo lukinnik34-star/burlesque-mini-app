@@ -22,21 +22,21 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
 
   return (
     <section
-      className="relative overflow-hidden rounded-[32px] bg-[var(--burgundy)] bg-cover bg-center p-5 text-white shadow-[0_18px_42px_rgba(143,29,47,0.22)]"
+      className="relative overflow-hidden rounded-[34px] bg-[var(--burgundy)] bg-cover bg-center p-5 text-white shadow-[0_24px_58px_rgba(0,0,0,0.44)]"
       style={{
-        backgroundImage: `linear-gradient(145deg,rgba(74,10,22,0.86),rgba(143,29,47,0.76)),url(${burlesqueAssets.profile.memberCardBg})`,
+        backgroundImage: `linear-gradient(145deg,rgba(17,17,19,0.82),rgba(94,27,36,0.78)),url(${burlesqueAssets.profile.memberCardBg})`,
       }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.18),transparent_34%)]" />
       <div className="relative flex items-center gap-4">
-        <div className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-full border border-white/24 bg-white/14 font-serif text-2xl font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.22)]">
+        <div className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-full border border-[rgba(230,192,151,0.28)] bg-white/12 font-serif text-2xl font-semibold text-[var(--champagne)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
           {initials}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate text-lg font-semibold">{displayName}</p>
+          <p className="truncate text-xl font-semibold">{displayName}</p>
           <p className="mt-1 truncate text-sm text-white/72">{userHandle}</p>
         </div>
-        <div className="shrink-0 rounded-full bg-white/14 px-3 py-1 text-xs font-semibold text-white">
+        <div className="shrink-0 rounded-full border border-[rgba(230,192,151,0.24)] bg-white/10 px-3 py-1 text-xs font-semibold text-[var(--champagne)]">
           Silver
         </div>
       </div>
@@ -48,7 +48,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
           ["8", "событий"],
         ].map(([value, label]) => (
           <div
-            className="rounded-2xl border border-white/12 bg-white/10 px-3 py-3 text-center"
+            className="rounded-2xl border border-white/10 bg-white/[0.08] px-3 py-3 text-center"
             key={label}
           >
             <p className="text-base font-semibold">{value}</p>
@@ -57,7 +57,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
         ))}
       </div>
 
-      <p className="relative mt-4 rounded-2xl border border-white/12 bg-white/10 px-3 py-2 text-xs leading-5 text-white/76">
+      <p className="relative mt-4 rounded-2xl border border-white/10 bg-white/[0.08] px-3 py-2 text-xs leading-5 text-white/76">
         {note}
       </p>
     </section>

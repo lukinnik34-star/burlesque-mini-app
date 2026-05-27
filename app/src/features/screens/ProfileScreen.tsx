@@ -69,7 +69,7 @@ function getRuntimeNote(runtimeInfo: TelegramRuntimeInfo): string {
 
 function RuntimeRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+    <div className="flex items-center justify-between gap-3 rounded-2xl bg-white/[0.06] px-3 py-2">
       <span className="text-[var(--muted)]">{label}</span>
       <span className="text-right font-semibold text-[var(--text)]">
         {value}
@@ -87,7 +87,7 @@ export function ProfileScreen({
   const diagnostics = runtimeInfo.diagnostics;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-4 pb-4">
       <ScreenHeader
         title="Профиль"
         subtitle="Карта гостя, привилегии и история активности в демо-режиме."
@@ -95,11 +95,11 @@ export function ProfileScreen({
 
       <UserCard runtimeInfo={runtimeInfo} />
 
-      <Card className="p-5">
+      <Card className="bg-white/[0.05] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-sm font-semibold text-[var(--text)]">
-              Среда запуска
+              Статус Telegram
             </p>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
               {getRuntimeNote(runtimeInfo)}
@@ -108,7 +108,7 @@ export function ProfileScreen({
           <Badge>{getRuntimeBadgeLabel(runtimeInfo)}</Badge>
         </div>
 
-        <div className="mt-4 grid gap-2 text-sm">
+        <div className="mt-3 grid gap-1.5 text-sm">
           <RuntimeRow
             label="Среда"
             value={getRuntimeEnvironmentLabel(runtimeInfo)}
@@ -186,32 +186,38 @@ export function ProfileScreen({
         </Card>
       ) : null}
 
-      <Card className="p-5">
+      <Card className="bg-[var(--surface-soft)] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-sm font-semibold text-[var(--text)]">
-              До Gold Guest
+              До следующего уровня
             </p>
             <p className="mt-1 text-xs text-[var(--muted)]">
-              Следующий уровень привилегий
+              Пример будущей шкалы привилегий
             </p>
           </div>
-          <Badge>62%</Badge>
+          <Badge>пример</Badge>
         </div>
-        <div className="mt-4 h-3 overflow-hidden rounded-full bg-[var(--surface-soft)]">
+        <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-white/[0.08]">
           <div className="h-full w-[62%] rounded-full bg-[var(--burgundy)]" />
         </div>
+        <p className="mt-2 text-right text-xs font-semibold text-[var(--burgundy)]">
+          62%
+        </p>
       </Card>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2.5">
         {mockProfileStats.map((stat) => (
-          <Card className="rounded-[24px] px-4 py-4" key={stat.id}>
+          <Card
+            className="rounded-[24px] px-3.5 py-3.5 shadow-[0_12px_30px_rgba(0,0,0,0.16)]"
+            key={stat.id}
+          >
             <p className="text-xs text-[var(--muted)]">{stat.label}</p>
             <p className="mt-2 text-xl font-semibold text-[var(--burgundy)]">
               {stat.value}
             </p>
             {stat.hint ? (
-              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+              <p className="mt-1.5 text-xs leading-4 text-[var(--muted)]">
                 {stat.hint}
               </p>
             ) : null}
@@ -219,21 +225,21 @@ export function ProfileScreen({
         ))}
       </div>
 
-      <Card className="p-5">
+      <Card className="bg-white/[0.05] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
         <div className="flex items-center justify-between gap-3">
           <p className="text-sm font-semibold text-[var(--text)]">
             Текущая активность
           </p>
           <Badge>{sessionStatusLabel[demoState.sessionStatus]}</Badge>
         </div>
-        <div className="mt-4 space-y-3">
-          <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+        <div className="mt-3 grid gap-2">
+          <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-2.5">
             <p className="text-xs text-[var(--muted)]">Игра</p>
             <p className="mt-1 text-sm font-semibold text-[var(--text)]">
               {selectedGame?.title ?? "Не выбрана"}
             </p>
           </div>
-          <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+          <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-2.5">
             <p className="text-xs text-[var(--muted)]">Привилегия</p>
             <p className="mt-1 text-sm font-semibold text-[var(--text)]">
               {selectedPrize?.title ?? "Не выбрана"}

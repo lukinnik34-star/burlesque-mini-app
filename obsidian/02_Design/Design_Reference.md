@@ -1,5 +1,23 @@
 # Design Reference
 
+## Task 024 Experimental Direction: Dark Obsidian Noir
+
+Текущий визуальный direction prototype переведен в экспериментальное направление `dark Obsidian Noir`.
+
+Цель направления:
+
+- ощущение private club membership app;
+- темный graphite / warm charcoal фон;
+- glassmorphic cards с тонкими champagne borders;
+- deep plum, muted wine и dusty rose accents;
+- champagne highlights для активных элементов;
+- premium serif headings и чистая mobile-first иерархия;
+- компактный Telegram Mini App shell без лендингового ощущения.
+
+Из Stitch archive взяты только визуальные идеи: темная палитра, стеклянные поверхности, event pass cards, premium member card и floating bottom navigation. Stitch code, CDN, Material Symbols, Unsplash images, casino/roulette wording, white prizes screen, person avatars и чужой бренд не переносились.
+
+Это направление пока считается visual prototype. Backend, auth validation, CRM, реальные призы, claim/redeem, storage и Telegram parser не менялись.
+
 ## Финальное направление
 
 Текущее визуальное направление зафиксировано как `light premium Burlesque`.

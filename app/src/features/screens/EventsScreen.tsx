@@ -45,8 +45,8 @@ export function EventsScreen() {
               className={[
                 "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition active:translate-y-px",
                 isActive
-                  ? "border-[var(--burgundy)] bg-[var(--burgundy)] text-white shadow-[0_12px_24px_rgba(143,29,47,0.14)]"
-                  : "border-[var(--line-soft)] bg-white/70 text-[var(--muted-strong)] hover:border-[var(--line-strong)]",
+                  ? "border-[rgba(230,192,151,0.32)] bg-[rgba(255,178,183,0.12)] text-[var(--champagne)] shadow-[0_12px_24px_rgba(0,0,0,0.24)]"
+                  : "border-[var(--line-soft)] bg-white/[0.04] text-[var(--muted)] hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
               ].join(" ")}
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
@@ -114,7 +114,7 @@ export function EventsScreen() {
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             {selectedEvent.description}
           </p>
-          <p className="mt-4 rounded-2xl border border-[var(--line-soft)] bg-[var(--surface-soft)] px-3 py-2 text-xs leading-5 text-[var(--muted-strong)]">
+          <p className="mt-4 rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-2 text-xs leading-5 text-[var(--muted-strong)]">
             Демо-режим. Бронирование, регистрация и оплата будут подключены
             позже.
           </p>

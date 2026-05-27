@@ -52,11 +52,11 @@ export function AppShell() {
 
   return (
     <main className="premium-scrollbar min-h-tg overflow-x-hidden bg-[var(--app-bg)] text-[var(--text)]">
-      <div className="pointer-events-none fixed inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_50%_0%,rgba(246,217,200,0.72),transparent_70%)]" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(141,53,67,0.32),transparent_68%)]" />
       <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+136px)] pt-[calc(env(safe-area-inset-top)+14px)]">
         <header className="mb-4 flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--burgundy)] font-serif text-lg font-semibold text-white shadow-[0_14px_28px_rgba(143,29,47,0.18)]">
+            <div className="grid size-11 shrink-0 place-items-center rounded-full border border-[rgba(230,192,151,0.24)] bg-[linear-gradient(145deg,#7a2732,#23181f)] font-serif text-lg font-semibold text-[var(--champagne)] shadow-[0_14px_30px_rgba(0,0,0,0.28)]">
               B
             </div>
             <div className="min-w-0">
@@ -69,7 +69,7 @@ export function AppShell() {
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--line-soft)] bg-white/56 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--burgundy)] shadow-[var(--shadow-card)]">
+          <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--line-soft)] bg-white/[0.06] px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--champagne)] shadow-[var(--shadow-card)] backdrop-blur-xl">
             MVP
           </div>
         </header>
@@ -77,7 +77,7 @@ export function AppShell() {
         <section className="min-h-[360px]">{screen}</section>
 
         {SHOW_DEBUG_PANEL ? (
-          <section className="mt-5 rounded-[28px] border border-[var(--line-soft)] bg-white/70 p-4">
+          <section className="mt-5 rounded-[28px] border border-[var(--line-soft)] bg-white/[0.05] p-4">
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
               Shell status
             </p>

@@ -8,8 +8,8 @@ import type { MockPrize } from "@/types/mocks";
 const prizeStatusLabel = {
   mock: "Демо",
   available: "Демо",
-  claimed: "Получен",
-  expired: "Истек",
+  claimed: "Демо",
+  expired: "Позже",
 };
 
 type PrizesScreenProps = {
@@ -35,19 +35,19 @@ export function PrizesScreen({
           return (
             <Card
               className={[
-                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
-                isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
+                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
+                isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)
                 .join(" ")}
               key={prize.id}
             >
               <div className="flex items-start gap-3.5">
-                <div className="grid size-[68px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fff8ef,#ead0a2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.76),0_12px_24px_rgba(122,60,35,0.1)]">
+                <div className="grid size-[68px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(255,178,183,0.12),rgba(230,192,151,0.16))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.18)]">
                   {prize.iconSrc ? (
                     <div
                       className={[
-                        "bg-contain bg-center bg-no-repeat drop-shadow-[0_10px_14px_rgba(122,60,35,0.16)]",
+                        "bg-contain bg-center bg-no-repeat drop-shadow-[0_10px_14px_rgba(0,0,0,0.24)]",
                         prize.id === "discount-coupon"
                           ? "h-12 w-16"
                           : "size-14",
@@ -55,7 +55,7 @@ export function PrizesScreen({
                       style={{ backgroundImage: `url(${prize.iconSrc})` }}
                     />
                   ) : (
-                    <span className="relative grid size-9 place-items-center rounded-full bg-white/62 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+                    <span className="relative grid size-9 place-items-center rounded-full bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                       <span className="size-4 rotate-45 rounded-[4px] border border-[var(--burgundy)]/30 bg-[var(--burgundy)]/12" />
                     </span>
                   )}
@@ -112,7 +112,7 @@ export function PrizesScreen({
         </Card>
       ) : null}
 
-      <p className="rounded-2xl border border-[var(--line-soft)] bg-white/52 px-4 py-3 text-xs leading-5 text-[var(--muted)]">
+      <p className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
         Пока это демонстрационный раздел. Выдача привилегий будет подключена
         позже.
       </p>

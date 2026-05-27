@@ -23,21 +23,21 @@ export function HomeScreen({
 
   return (
     <div className="space-y-6 pb-6">
-      <section className="relative overflow-hidden rounded-[36px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fffdf8_0%,#fff0df_100%)] p-7 shadow-[var(--shadow-soft)]">
+      <section className="relative overflow-hidden rounded-[36px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(35,31,36,0.92)_0%,rgba(59,31,42,0.86)_55%,rgba(94,27,36,0.72)_100%)] p-7 shadow-[var(--shadow-soft)] backdrop-blur-xl">
         <div
-          className="animate-pulse-soft pointer-events-none absolute -right-12 -top-12 size-52 bg-contain bg-center bg-no-repeat"
+          className="animate-pulse-soft pointer-events-none absolute -right-12 -top-12 size-52 bg-contain bg-center bg-no-repeat opacity-45 mix-blend-screen"
           style={{
             backgroundImage: `url(${burlesqueAssets.hero.glowBlob})`,
           }}
         />
         <div
-          className="pointer-events-none absolute -bottom-16 -right-10 h-32 w-56 bg-contain bg-bottom bg-no-repeat opacity-18"
+          className="pointer-events-none absolute -bottom-16 -right-10 h-32 w-56 bg-contain bg-bottom bg-no-repeat opacity-20 mix-blend-screen"
           style={{
             backgroundImage: `url(${burlesqueAssets.hero.burgundyWave})`,
           }}
         />
         <div
-          className="animate-float-slow pointer-events-none absolute right-5 top-6 size-28 bg-contain bg-center bg-no-repeat opacity-45"
+          className="animate-float-slow pointer-events-none absolute right-5 top-6 size-28 bg-contain bg-center bg-no-repeat opacity-35 mix-blend-screen"
           style={{
             backgroundImage: `url(${burlesqueAssets.hero.softOrbit})`,
           }}
@@ -78,7 +78,7 @@ export function HomeScreen({
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
             {featuredEvent.subtitle}
           </p>
-          <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-4 py-3">
+          <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-white/[0.06] px-4 py-3">
             <div>
               <p className="text-xs text-[var(--muted)]">Начало</p>
               <p className="text-sm font-semibold text-[var(--text)]">
@@ -86,7 +86,7 @@ export function HomeScreen({
               </p>
             </div>
             <button
-              className="min-h-10 rounded-full px-3 text-sm font-semibold text-[var(--burgundy)] transition hover:bg-white/60 active:translate-y-px"
+              className="min-h-10 rounded-full px-3 text-sm font-semibold text-[var(--champagne)] transition hover:bg-white/[0.07] active:translate-y-px"
               onClick={onOpenEvents}
               type="button"
             >
@@ -99,11 +99,11 @@ export function HomeScreen({
       <div className="grid gap-3">
         {mockHomeActions.map((action) => (
           <Card
-            className="rounded-[26px] px-4 py-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]"
+            className="rounded-[26px] px-4 py-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]"
             key={action.id}
           >
             <div className="flex items-start gap-3">
-              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--burgundy-soft)] text-sm font-semibold text-[var(--burgundy)]">
+              <div className="grid size-10 shrink-0 place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--burgundy-soft)] text-sm font-semibold text-[var(--champagne)]">
                 {action.title.slice(0, 1)}
               </div>
               <div className="min-w-0 flex-1">

@@ -50,8 +50,8 @@ export function GamesScreen({
           return (
             <Card
               className={[
-                "overflow-hidden p-0 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
-                isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
+                "overflow-hidden p-0 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
+                isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)
                 .join(" ")}
@@ -61,20 +61,20 @@ export function GamesScreen({
                 className={[
                   "relative min-h-32 overflow-hidden px-4 py-4",
                   isScratch
-                    ? "bg-[linear-gradient(145deg,#fff8ef_0%,#f6d9c8_100%)]"
-                    : "bg-[linear-gradient(145deg,#fff8ef_0%,#ead0a2_100%)]",
+                    ? "bg-[linear-gradient(145deg,#211d22_0%,#5e1b24_100%)]"
+                    : "bg-[linear-gradient(145deg,#211d22_0%,#5a4634_100%)]",
                 ].join(" ")}
               >
-                <div className="pointer-events-none absolute -right-7 -top-8 size-28 rounded-full bg-white/45" />
-                <div className="pointer-events-none absolute bottom-0 right-0 size-32 rounded-full bg-white/28 blur-xl" />
+                <div className="pointer-events-none absolute -right-7 -top-8 size-28 rounded-full bg-white/10" />
+                <div className="pointer-events-none absolute bottom-0 right-0 size-32 rounded-full bg-[rgba(255,178,183,0.14)] blur-xl" />
                 {isScratch ? (
                   <div
-                    className="pointer-events-none absolute -bottom-2 right-1 h-[108px] w-[128px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute -bottom-2 right-1 h-[108px] w-[128px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-90 drop-shadow-[0_16px_24px_rgba(0,0,0,0.34)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 ) : (
                   <div
-                    className="pointer-events-none absolute bottom-0 right-4 size-[112px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute bottom-0 right-4 size-[112px] bg-contain bg-center bg-no-repeat opacity-90 drop-shadow-[0_16px_24px_rgba(0,0,0,0.34)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 )}

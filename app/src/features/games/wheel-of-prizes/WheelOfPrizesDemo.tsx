@@ -51,7 +51,7 @@ export function WheelOfPrizesDemo() {
           <div className="absolute size-64 rounded-full bg-[var(--burgundy-soft)] blur-xl" />
           <div
             className={[
-              "relative size-56 rounded-full border-[7px] border-white bg-contain bg-center bg-no-repeat shadow-[0_20px_42px_rgba(122,60,35,0.16)] transition-transform duration-700",
+              "relative size-56 rounded-full border-[7px] border-[rgba(230,192,151,0.2)] bg-contain bg-center bg-no-repeat shadow-[0_20px_42px_rgba(0,0,0,0.32)] transition-transform duration-700",
               isSpinning ? "rotate-[540deg]" : "",
               isRevealed ? "rotate-[315deg]" : "",
             ].join(" ")}
@@ -59,7 +59,7 @@ export function WheelOfPrizesDemo() {
               backgroundImage: `url(${burlesqueAssets.games.wheelOfPrizes})`,
             }}
           >
-            <div className="absolute inset-10 grid place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface)]/92 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
+            <div className="absolute inset-10 grid place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface)]/92 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--burgundy)]">
                   Демо

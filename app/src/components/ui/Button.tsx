@@ -9,11 +9,11 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClass: Record<ButtonVariant, string> = {
   primary:
-    "border-[var(--burgundy)] bg-[var(--burgundy)] text-white shadow-[0_14px_28px_rgba(143,29,47,0.18)] hover:bg-[var(--burgundy-strong)]",
+    "border-[rgba(255,178,183,0.34)] bg-[linear-gradient(135deg,#8d3543,#5e1b24)] text-[#fff7f4] shadow-[0_16px_32px_rgba(94,27,36,0.34)] hover:border-[rgba(230,192,151,0.42)]",
   secondary:
-    "border-[var(--line-strong)] bg-white/70 text-[var(--burgundy)] shadow-[0_10px_22px_rgba(122,60,35,0.06)] hover:border-[var(--burgundy)] hover:bg-white",
+    "border-[var(--line-soft)] bg-white/[0.06] text-[var(--champagne)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] hover:border-[rgba(230,192,151,0.34)] hover:bg-white/[0.09]",
   ghost:
-    "border-transparent bg-transparent text-[var(--burgundy)] hover:bg-[var(--burgundy-soft)]",
+    "border-transparent bg-transparent text-[var(--champagne)] hover:bg-white/[0.07]",
 };
 
 export function Button({
@@ -28,7 +28,7 @@ export function Button({
         "inline-flex min-h-12 items-center justify-center rounded-full border px-5 text-center text-sm font-semibold leading-none transition duration-200",
         "active:translate-y-px",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--burgundy)]",
-        "disabled:cursor-not-allowed disabled:border-[var(--line-soft)] disabled:bg-[#eee1d5] disabled:text-[#a69288] disabled:shadow-none disabled:hover:bg-[#eee1d5]",
+        "disabled:cursor-not-allowed disabled:border-[var(--line-soft)] disabled:bg-white/[0.05] disabled:text-[#7d7070] disabled:shadow-none disabled:hover:bg-white/[0.05]",
         variantClass[variant],
         className,
       ]

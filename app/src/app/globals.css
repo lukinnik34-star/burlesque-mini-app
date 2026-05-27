@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff7ee;
-  --foreground: #2a1717;
+  --background: #111113;
+  --foreground: #f1e8e7;
   --tg-viewport-height: 100dvh;
-  --app-bg: #fff7ee;
-  --surface: #fffdf8;
-  --surface-soft: #fff4e8;
-  --cream: #fff7ea;
-  --champagne: #ead0a2;
-  --peach: #f6d9c8;
-  --burgundy: #8f1d2f;
-  --burgundy-strong: #741522;
-  --burgundy-soft: rgba(143, 29, 47, 0.1);
-  --text: #2a1717;
-  --muted: #8a746b;
-  --muted-strong: #614d46;
-  --line-soft: rgba(133, 73, 50, 0.11);
-  --line-strong: rgba(143, 29, 47, 0.2);
-  --shadow-soft: 0 22px 54px rgba(122, 60, 35, 0.09);
-  --shadow-card: 0 16px 38px rgba(122, 60, 35, 0.07);
+  --app-bg: #111113;
+  --surface: rgba(32, 31, 33, 0.78);
+  --surface-soft: rgba(55, 42, 50, 0.62);
+  --cream: #201f21;
+  --champagne: #e6c097;
+  --peach: #ffb2b7;
+  --burgundy: #8d3543;
+  --burgundy-strong: #5e1b24;
+  --burgundy-soft: rgba(255, 178, 183, 0.11);
+  --text: #f1e8e7;
+  --muted: #c8b4b2;
+  --muted-strong: #e0cfca;
+  --line-soft: rgba(230, 192, 151, 0.14);
+  --line-strong: rgba(255, 178, 183, 0.28);
+  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.42);
+  --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
 @theme inline {
@@ -42,9 +42,10 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% -8%, rgba(246, 217, 200, 0.72), transparent 28rem),
-    radial-gradient(circle at 90% 2%, rgba(234, 208, 162, 0.36), transparent 24rem),
-    linear-gradient(180deg, #fff9f1 0%, #fff5e9 48%, #f9eadb 100%);
+    radial-gradient(circle at 18% -10%, rgba(141, 53, 67, 0.34), transparent 24rem),
+    radial-gradient(circle at 92% 4%, rgba(230, 192, 151, 0.18), transparent 22rem),
+    radial-gradient(circle at 50% 110%, rgba(94, 27, 36, 0.38), transparent 28rem),
+    linear-gradient(180deg, #151416 0%, #111113 46%, #171217 100%);
   color: var(--text);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overscroll-behavior: none;
@@ -55,14 +56,16 @@ body::before {
   inset: 0;
   pointer-events: none;
   content: "";
-  background-image: radial-gradient(rgba(143, 29, 47, 0.05) 1px, transparent 1px);
-  background-size: 26px 26px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), transparent 42%);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.34), transparent 58%);
 }
 
 ::selection {
-  background: rgba(143, 29, 47, 0.18);
-  color: var(--burgundy-strong);
+  background: rgba(255, 178, 183, 0.24);
+  color: #fff7f2;
 }
 
 button,
@@ -85,7 +88,7 @@ button {
 }
 
 .premium-scrollbar {
-  scrollbar-color: rgba(143, 29, 47, 0.36) rgba(255, 247, 238, 0.68);
+  scrollbar-color: rgba(230, 192, 151, 0.34) rgba(17, 17, 19, 0.72);
 }
 
 .premium-scrollbar::-webkit-scrollbar {
@@ -93,12 +96,12 @@ button {
 }
 
 .premium-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 247, 238, 0.68);
+  background: rgba(17, 17, 19, 0.72);
 }
 
 .premium-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: rgba(143, 29, 47, 0.32);
+  background: rgba(230, 192, 151, 0.28);
 }
 
 @keyframes burlesque-float-slow {
@@ -114,10 +117,10 @@ button {
 @keyframes burlesque-pulse-soft {
   0%,
   100% {
-    opacity: 0.52;
+    opacity: 0.32;
   }
   50% {
-    opacity: 0.78;
+    opacity: 0.58;
   }
 }
 

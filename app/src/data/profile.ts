@@ -5,24 +5,24 @@ export const mockProfileStats: MockProfileStat[] = [
     id: "visits",
     label: "Визиты",
     value: "12",
-    hint: "Количество посещений в демо-профиле.",
+    hint: "Показано для примера",
   },
   {
     id: "bonuses",
     label: "Баллы",
     value: "1 240",
-    hint: "Пример будущего бонусного баланса.",
+    hint: "Будущий бонусный баланс",
   },
   {
     id: "events",
     label: "События",
     value: "8",
-    hint: "История событий появится после подключения данных.",
+    hint: "История появится позже",
   },
   {
     id: "guest-status",
     label: "Статус",
     value: "Silver Guest",
-    hint: "Текущий уровень гостя в демо-профиле.",
+    hint: "Пример уровня гостя",
   },
 ];

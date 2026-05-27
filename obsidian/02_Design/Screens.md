@@ -1,5 +1,18 @@
 # Screens
 
+## Task 024 Dark Obsidian Noir Prototype
+
+Экраны переведены в экспериментальную темную визуальную оболочку:
+
+- `HomeScreen`: hero стал dark private club pass card с wine glow, champagne border и мягкими декоративными asset layers.
+- `EventsScreen`: афиша оформлена как dark event pass system; featured event использует velvet/wine overlay, compact cards стали темными glass cards.
+- `GamesScreen`: Scratch Card и Wheel Of Prizes поданы как premium promo mechanics без casino/gambling copy.
+- `PrizesScreen`: привилегии оформлены как dark compact glass cards с маленькими badge `Демо` и CTA `Подробнее`.
+- `ProfileScreen`: member area стала ближе к dark premium club card; runtime block остался компактным и без debug rows.
+- `BottomNav`: навигация стала dark translucent floating bar с champagne/dusty rose active state.
+
+Состояния остаются frontend-only/demo. Настоящая авторизация, CRM, реальные баллы, призы, бронирование и backend validation не добавлялись.
+
 ## Фактические экраны MVP
 
 ### HomeScreen
@@ -181,3 +194,15 @@ Backend/auth/CRM/prize logic не менялись.
 - добавлен небольшой bottom padding у screen container.
 
 Game result logic, prize logic, storage, backend/auth/CRM не менялись.
+
+## Task 023 Profile Member Area Visual Polish
+
+Экран `ProfileScreen` переработан как более цельная premium member area:
+
+- `UserCard` усилен как главный визуальный блок профиля;
+- runtime card переименован в `Статус Telegram` и визуально облегчен;
+- progress block стал честнее: `До следующего уровня`, `пример`, `62%`;
+- stats grid уплотнен, тексты стали короче;
+- current activity card стала легче и компактнее.
+
+Профиль остается demo/runtime preview. Настоящая авторизация, CRM, реальные баллы, история посещений и prize logic не добавлялись.

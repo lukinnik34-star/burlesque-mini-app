@@ -27,7 +27,7 @@ export function EventCard({
     return (
       <article
         className={[
-          "relative overflow-hidden rounded-[32px] bg-[linear-gradient(145deg,#741522_0%,#8f1d2f_58%,#b36b58_100%)] text-white shadow-[0_18px_42px_rgba(143,29,47,0.24)] transition duration-200",
+          "relative overflow-hidden rounded-[32px] bg-[linear-gradient(145deg,#241b22_0%,#5e1b24_58%,#7a2732_100%)] text-white shadow-[0_20px_52px_rgba(0,0,0,0.42)] transition duration-200",
           isSelected ? "ring-2 ring-[var(--champagne)]" : "",
         ]
           .filter(Boolean)
@@ -39,14 +39,14 @@ export function EventCard({
             style={{ backgroundImage: `url(${event.coverSrc})` }}
           />
         ) : null}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(73,10,21,0.92)_0%,rgba(143,29,47,0.78)_58%,rgba(64,13,21,0.76)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(20,15,19,0.92)_0%,rgba(94,27,36,0.78)_58%,rgba(17,17,19,0.78)_100%)]" />
         <div className="relative p-5">
           <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-white/10" />
           <div className="pointer-events-none absolute bottom-4 right-5 font-serif text-[86px] leading-none text-white/10">
             B
           </div>
           <div className="relative flex items-start justify-between gap-3">
-            <div className="grid size-14 place-items-center rounded-2xl border border-white/24 bg-white/14 text-xs font-semibold uppercase tracking-[0.14em] text-white">
+            <div className="grid size-14 place-items-center rounded-2xl border border-[rgba(230,192,151,0.24)] bg-white/10 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--champagne)]">
               {event.imageLabel ?? "Event"}
             </div>
             <span className="inline-flex min-h-7 items-center rounded-full border border-white/28 bg-white/18 px-3 py-1 text-xs font-semibold text-white">
@@ -68,7 +68,7 @@ export function EventCard({
           </div>
         </div>
 
-        <div className="relative space-y-4 border-t border-white/14 bg-[#64111d]/44 p-4 backdrop-blur-[1px]">
+        <div className="relative space-y-4 border-t border-white/10 bg-black/22 p-4 backdrop-blur-[2px]">
           <div className="flex flex-wrap gap-2">
             {event.tags.map((tag) => (
               <span
@@ -89,7 +89,7 @@ export function EventCard({
             </div>
             {onSelect ? (
               <button
-                className="min-h-10 shrink-0 rounded-full bg-white px-4 text-xs font-semibold text-[var(--burgundy)] shadow-[0_10px_22px_rgba(70,12,20,0.18)] transition hover:bg-[#fff7ee] active:translate-y-px disabled:cursor-not-allowed disabled:bg-white/40 disabled:text-white/70"
+                className="min-h-10 shrink-0 rounded-full border border-[rgba(230,192,151,0.28)] bg-white/[0.08] px-4 text-xs font-semibold text-[var(--champagne)] shadow-[0_10px_22px_rgba(0,0,0,0.22)] transition hover:bg-white/[0.12] active:translate-y-px disabled:cursor-not-allowed disabled:bg-white/[0.04] disabled:text-white/40"
                 disabled={event.status === "past"}
                 onClick={() => onSelect(event.id)}
                 type="button"
@@ -106,19 +106,19 @@ export function EventCard({
   return (
     <Card
       className={[
-        "rounded-[28px] p-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
-        isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
+        "rounded-[28px] p-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
+        isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
       ]
         .filter(Boolean)
         .join(" ")}
     >
       <div className="flex items-start gap-4">
         <div
-          className="grid size-[82px] shrink-0 place-items-center rounded-[24px] bg-[var(--surface-soft)] bg-cover bg-center text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--burgundy)] shadow-[0_10px_22px_rgba(122,60,35,0.08)]"
+          className="grid size-[82px] shrink-0 place-items-center rounded-[24px] bg-[var(--surface-soft)] bg-cover bg-center text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--champagne)] shadow-[0_10px_22px_rgba(0,0,0,0.24)]"
           style={
             event.coverSrc
               ? {
-                  backgroundImage: `linear-gradient(rgba(255,247,234,0.1),rgba(255,247,234,0.1)),url(${event.coverSrc})`,
+                  backgroundImage: `linear-gradient(rgba(17,17,19,0.18),rgba(17,17,19,0.18)),url(${event.coverSrc})`,
                 }
               : undefined
           }
@@ -145,7 +145,7 @@ export function EventCard({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+      <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-white/[0.05] px-3 py-3">
         <p className="min-w-0 truncate text-sm font-semibold text-[var(--muted-strong)]">
           {event.locationLabel}
         </p>

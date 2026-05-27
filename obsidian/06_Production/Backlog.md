@@ -1,5 +1,10 @@
 # Backlog
 
+## Task 024 Visual Direction Notes
+
+- Done: experimental dark Obsidian Noir visual direction prototype.
+- Next design check: compare light premium direction and dark Obsidian Noir prototype on real Telegram mobile viewport.
+
 ## Done
 
 - Проверить приложение внутри Telegram.
@@ -11,6 +16,7 @@
 - Выполнить final mobile viewport polish.
 - Упростить rewards card system на экране `Призы`.
 - Уплотнить game cards на экране `Игры`.
+- Отполировать profile member area.
 
 ## Next
 
