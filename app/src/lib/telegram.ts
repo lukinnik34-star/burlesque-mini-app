@@ -18,6 +18,7 @@ export type TelegramRuntimeDiagnostics = {
   hasInitDataUnsafe: boolean;
   initDataLength: number;
   userAgentIncludesTelegram: boolean;
+  telegramObjectKeys: string[];
 };
 
 export type TelegramRuntimeInfo = {
@@ -49,6 +50,7 @@ const browserDiagnostics: TelegramRuntimeDiagnostics = {
   hasInitDataUnsafe: false,
   initDataLength: 0,
   userAgentIncludesTelegram: false,
+  telegramObjectKeys: [],
 };
 
 export const browserRuntimeInfo: TelegramRuntimeInfo = {
@@ -75,6 +77,10 @@ function getRuntimeParts() {
   const telegramScript = hasDocument
     ? document.querySelector('script[src*="telegram-web-app.js"]')
     : null;
+  const telegramObjectKeys =
+    telegramObject && typeof telegramObject === "object"
+      ? Object.keys(telegramObject).slice(0, 20)
+      : [];
   const diagnostics: TelegramRuntimeDiagnostics = {
     hasWindow,
     hasTelegramObject: Boolean(telegramObject),
@@ -83,6 +89,7 @@ function getRuntimeParts() {
     hasInitDataUnsafe: Boolean(webApp?.initDataUnsafe),
     initDataLength: initData.length,
     userAgentIncludesTelegram: userAgent.includes("telegram"),
+    telegramObjectKeys,
   };
 
   return { diagnostics, webApp };

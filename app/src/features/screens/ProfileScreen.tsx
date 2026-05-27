@@ -125,6 +125,14 @@ export function ProfileScreen({
             label="Telegram script"
             value={diagnostics.hasTelegramScriptTag ? "найден" : "не найден"}
           />
+          <RuntimeRow
+            label="Telegram keys"
+            value={
+              diagnostics.telegramObjectKeys.length > 0
+                ? diagnostics.telegramObjectKeys.join(", ")
+                : "нет"
+            }
+          />
           {runtimeInfo.status === "telegram_without_init_data" ||
           runtimeInfo.status === "telegram_with_init_data" ? (
             <RuntimeRow
