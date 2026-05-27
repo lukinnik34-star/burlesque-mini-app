@@ -121,6 +121,10 @@ export function ProfileScreen({
             label="WebApp API"
             value={diagnostics.hasWebAppObject ? "найден" : "не найден"}
           />
+          <RuntimeRow
+            label="Telegram script"
+            value={diagnostics.hasTelegramScriptTag ? "найден" : "не найден"}
+          />
           {runtimeInfo.status === "telegram_without_init_data" ||
           runtimeInfo.status === "telegram_with_init_data" ? (
             <RuntimeRow

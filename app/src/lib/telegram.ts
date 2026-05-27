@@ -14,6 +14,7 @@ export type TelegramRuntimeDiagnostics = {
   hasWindow: boolean;
   hasTelegramObject: boolean;
   hasWebAppObject: boolean;
+  hasTelegramScriptTag: boolean;
   hasInitDataUnsafe: boolean;
   initDataLength: number;
   userAgentIncludesTelegram: boolean;
@@ -44,6 +45,7 @@ const browserDiagnostics: TelegramRuntimeDiagnostics = {
   hasWindow: false,
   hasTelegramObject: false,
   hasWebAppObject: false,
+  hasTelegramScriptTag: false,
   hasInitDataUnsafe: false,
   initDataLength: 0,
   userAgentIncludesTelegram: false,
@@ -65,14 +67,19 @@ const mockUser: TelegramWebAppUser = {
 
 function getRuntimeParts() {
   const hasWindow = typeof window !== "undefined";
+  const hasDocument = typeof document !== "undefined";
   const telegramObject = hasWindow ? window.Telegram : undefined;
   const webApp = telegramObject?.WebApp;
   const initData = webApp?.initData ?? "";
   const userAgent = hasWindow ? window.navigator.userAgent.toLowerCase() : "";
+  const telegramScript = hasDocument
+    ? document.querySelector('script[src*="telegram-web-app.js"]')
+    : null;
   const diagnostics: TelegramRuntimeDiagnostics = {
     hasWindow,
     hasTelegramObject: Boolean(telegramObject),
     hasWebAppObject: Boolean(webApp),
+    hasTelegramScriptTag: Boolean(telegramScript),
     hasInitDataUnsafe: Boolean(webApp?.initDataUnsafe),
     initDataLength: initData.length,
     userAgentIncludesTelegram: userAgent.includes("telegram"),
