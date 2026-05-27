@@ -14,7 +14,7 @@ type ProfileScreenProps = {
   selectedPrize: MockPrize | null;
 };
 
-const SHOW_TELEGRAM_DEBUG =
+const showTelegramDebug =
   process.env.NEXT_PUBLIC_SHOW_TELEGRAM_DEBUG === "true";
 
 const sessionStatusLabel = {
@@ -124,7 +124,7 @@ export function ProfileScreen({
         </div>
       </Card>
 
-      {SHOW_TELEGRAM_DEBUG ? (
+      {showTelegramDebug ? (
         <Card className="border-[var(--line-soft)] bg-[var(--surface-soft)] p-5">
           <div className="flex items-start justify-between gap-3">
             <div>
