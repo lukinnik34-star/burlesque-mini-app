@@ -14,13 +14,16 @@ export function useTelegramRuntime(): TelegramRuntimeInfo {
     useState<TelegramRuntimeInfo>(browserRuntimeInfo);
 
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
+    const updateRuntimeInfo = () => {
       const nextRuntimeInfo = getTelegramRuntimeInfo();
 
       callTelegramReady();
       expandTelegramWebApp();
       setRuntimeInfo(nextRuntimeInfo);
-    }, 0);
+    };
+
+    updateRuntimeInfo();
+    const timeoutId = window.setTimeout(updateRuntimeInfo, 250);
 
     return () => window.clearTimeout(timeoutId);
   }, []);
