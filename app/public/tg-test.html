@@ -53,13 +53,47 @@
       }
     }
 
+    function parseUserPreview(userRaw) {
+      if (!userRaw) return null;
+
+      try {
+        const user = JSON.parse(userRaw);
+
+        return {
+          first_name: user && user.first_name ? user.first_name : null,
+          username: user && user.username ? user.username : null
+        };
+      } catch (error) {
+        return { parse_error: true };
+      }
+    }
+
+    function readLaunchParams() {
+      const hash = window.location.hash ? window.location.hash.slice(1) : "";
+      const params = new URLSearchParams(hash);
+      const tgWebAppData = params.get("tgWebAppData") || "";
+      const initDataParams = new URLSearchParams(tgWebAppData);
+
+      return {
+        hasHash: hash.length > 0,
+        hashLength: hash.length,
+        hasTgWebAppData: tgWebAppData.length > 0,
+        tgWebAppDataLength: tgWebAppData.length,
+        tgWebAppVersion: params.get("tgWebAppVersion"),
+        tgWebAppPlatform: params.get("tgWebAppPlatform"),
+        hasUser: Boolean(initDataParams.get("user")),
+        userPreview: parseUserPreview(initDataParams.get("user"))
+      };
+    }
+
     function readTelegramState() {
       const tg = window.Telegram;
       const webApp = tg && tg.WebApp;
+      const launchParams = readLaunchParams();
 
       const data = {
-        href: window.location.href,
-        hash: window.location.hash,
+        origin: window.location.origin,
+        pathname: window.location.pathname,
         userAgent: window.navigator.userAgent,
         telegramExists: typeof window.Telegram !== "undefined",
         telegramType: typeof window.Telegram,
@@ -72,7 +106,8 @@
         hasUser: !!(webApp && webApp.initDataUnsafe && webApp.initDataUnsafe.user),
         version: webApp && webApp.version ? webApp.version : null,
         platform: webApp && webApp.platform ? webApp.platform : null,
-        colorScheme: webApp && webApp.colorScheme ? webApp.colorScheme : null
+        colorScheme: webApp && webApp.colorScheme ? webApp.colorScheme : null,
+        launchParams: launchParams
       };
 
       document.getElementById("out").textContent = JSON.stringify(data, null, 2);

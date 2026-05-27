@@ -21,6 +21,10 @@ const sessionStatusLabel = {
 };
 
 function getRuntimeEnvironmentLabel(runtimeInfo: TelegramRuntimeInfo): string {
+  if (runtimeInfo.status === "telegram_launch_params_without_webapp") {
+    return "Telegram Mini App";
+  }
+
   if (runtimeInfo.status === "telegram_webview_without_webapp") {
     return "Telegram WebView";
   }
@@ -48,6 +52,10 @@ function getRuntimeBadgeLabel(runtimeInfo: TelegramRuntimeInfo): string {
 }
 
 function getRuntimeNote(runtimeInfo: TelegramRuntimeInfo): string {
+  if (runtimeInfo.status === "telegram_launch_params_without_webapp") {
+    return "Telegram Mini App открыт. WebApp API недоступен, данные запуска найдены.";
+  }
+
   if (runtimeInfo.status === "telegram_webview_without_webapp") {
     return "Похоже на Telegram WebView, но WebApp API не найден.";
   }
@@ -133,8 +141,13 @@ export function ProfileScreen({
                 : "нет"
             }
           />
+          <RuntimeRow
+            label="Launch params"
+            value={diagnostics.hasLaunchParams ? "найдены" : "не найдены"}
+          />
           {runtimeInfo.status === "telegram_without_init_data" ||
-          runtimeInfo.status === "telegram_with_init_data" ? (
+          runtimeInfo.status === "telegram_with_init_data" ||
+          runtimeInfo.status === "telegram_launch_params_without_webapp" ? (
             <RuntimeRow
               label="initData"
               value={runtimeInfo.hasInitData ? "найден" : "нет"}
@@ -152,6 +165,12 @@ export function ProfileScreen({
             label="initData length"
             value={String(diagnostics.initDataLength)}
           />
+          {diagnostics.launchParamsPlatform ? (
+            <RuntimeRow label="Platform" value={diagnostics.launchParamsPlatform} />
+          ) : null}
+          {diagnostics.launchParamsVersion ? (
+            <RuntimeRow label="Version" value={diagnostics.launchParamsVersion} />
+          ) : null}
           <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
             <span className="text-[var(--muted)]">Авторизация</span>
             <span className="text-right font-semibold text-[var(--burgundy)]">
