@@ -1,16 +1,16 @@
-import { mockGames } from "@/data/games";
-import { burlesqueAssets } from "@/data/assets";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
+import { burlesqueAssets } from "@/data/assets";
+import { mockGames } from "@/data/games";
 import { ScratchCardDemo } from "@/features/games/scratch-card/ScratchCardDemo";
 import { WheelOfPrizesDemo } from "@/features/games/wheel-of-prizes/WheelOfPrizesDemo";
 import type { DemoState } from "@/types/demo-state";
 import type { MockGame } from "@/types/mocks";
 
 const gameStatusLabel = {
-  available: "Demo",
+  available: "Демо",
   coming_soon: "Скоро",
   locked: "Позже",
 };
@@ -35,7 +35,7 @@ export function GamesScreen({
     <div className="space-y-5">
       <ScreenHeader
         title="Игры"
-        subtitle="Промо-механики в демо-режиме. Реальные призы пока не выдаются."
+        subtitle="Демо-механики для будущих клубных розыгрышей. Призы пока не выдаются."
       />
 
       <div className="grid gap-4">
@@ -50,7 +50,7 @@ export function GamesScreen({
           return (
             <Card
               className={[
-                "overflow-hidden p-0",
+                "overflow-hidden p-0 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
                 isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
               ]
                 .filter(Boolean)
@@ -69,12 +69,12 @@ export function GamesScreen({
                 <div className="pointer-events-none absolute bottom-0 right-0 size-40 rounded-full bg-white/28 blur-xl" />
                 {isScratch ? (
                   <div
-                    className="pointer-events-none absolute -bottom-1 right-1 h-[138px] w-[156px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute -bottom-1 right-1 h-[142px] w-[162px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 ) : (
                   <div
-                    className="pointer-events-none absolute bottom-0 right-3 size-[146px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute bottom-1 right-3 size-[150px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 )}
@@ -122,10 +122,10 @@ export function GamesScreen({
                 {selectedGame.title}
               </p>
             </div>
-            <Badge>Demo</Badge>
+            <Badge>Демо</Badge>
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            Просмотр без настоящей механики и выдачи приза.
+            Визуальный сценарий без сохранения результата и выдачи приза.
           </p>
         </Card>
       ) : null}

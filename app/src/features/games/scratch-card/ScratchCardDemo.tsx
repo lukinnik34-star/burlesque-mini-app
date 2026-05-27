@@ -17,7 +17,7 @@ export function ScratchCardDemo() {
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-sm text-[var(--muted)]">Демо-режим</p>
+            <p className="text-sm text-[var(--muted)]">Демо-механика</p>
             <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
               Scratch Card
             </h3>
@@ -50,7 +50,7 @@ export function ScratchCardDemo() {
                 Burlesque
               </p>
               <p className="mt-2 text-sm leading-5 text-white/74">
-                Нажмите кнопку ниже, чтобы открыть demo.
+                Нажмите кнопку ниже, чтобы открыть демо.
               </p>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function ScratchCardDemo() {
             ].join(" ")}
           >
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--burgundy)]">
-              Demo result
+              Демо-результат
             </p>
             <p className="mt-3 font-serif text-3xl font-semibold text-[var(--burgundy)]">
               {scratchCardDemoResult.title}
@@ -79,7 +79,7 @@ export function ScratchCardDemo() {
       <div className="p-5">
         {!isRevealed ? (
           <Button className="w-full" onClick={() => setStatus("revealed")}>
-            Открыть demo
+            Открыть демо
           </Button>
         ) : (
           <Card className="rounded-[24px] bg-[var(--surface-soft)]">
@@ -90,7 +90,7 @@ export function ScratchCardDemo() {
         )}
 
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">
-          Демо-режим. Реальный приз пока не выдается.
+          Результат не сохраняется. Призы пока не выдаются.
         </p>
       </div>
     </Card>

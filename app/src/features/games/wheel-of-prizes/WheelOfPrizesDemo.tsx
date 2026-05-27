@@ -10,7 +10,7 @@ import type { WheelDemoStatus } from "@/features/games/wheel-of-prizes/types";
 
 const statusLabel = {
   idle: "Готово",
-  spinning: "Demo",
+  spinning: "Демо",
   revealed: "Открыто",
 };
 
@@ -36,7 +36,7 @@ export function WheelOfPrizesDemo() {
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-sm text-[var(--muted)]">Демо-режим</p>
+            <p className="text-sm text-[var(--muted)]">Демо-механика</p>
             <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
               Wheel Of Prizes
             </h3>
@@ -62,7 +62,7 @@ export function WheelOfPrizesDemo() {
             <div className="absolute inset-10 grid place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface)]/92 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]">
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--burgundy)]">
-                  Demo
+                  Демо
                 </p>
                 <p className="mt-1 font-serif text-xl font-semibold text-[var(--text)]">
                   Wheel
@@ -80,7 +80,7 @@ export function WheelOfPrizesDemo() {
             disabled={isSpinning}
             onClick={() => setStatus("spinning")}
           >
-            {isSpinning ? "Demo вращается..." : "Запустить demo"}
+            {isSpinning ? "Демо вращается..." : "Запустить демо"}
           </Button>
         ) : (
           <Card className="rounded-[24px] bg-[var(--surface-soft)]">
@@ -97,7 +97,7 @@ export function WheelOfPrizesDemo() {
         )}
 
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">
-          Демо-режим. Реальный приз пока не выдается.
+          Результат не сохраняется. Призы пока не выдаются.
         </p>
       </div>
     </Card>

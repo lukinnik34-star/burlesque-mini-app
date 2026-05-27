@@ -95,3 +95,15 @@
 - Telegram Mini App runtime check.
 - Telegram environment detection.
 - Telegram launch params fallback.
+- MVP UI/UX polish pass with Stitch reference direction.
+
+## Current Next Focus
+
+После Task 019 текущий visual MVP готов к демонстрации как frontend-only Telegram Mini App. Stitch reference использован только как inspiration для editorial spacing, typography и premium card treatment.
+
+Следующий крупный этап остается прежним:
+
+1. Backend initData validation planning.
+2. Безопасный backend endpoint для проверки Telegram `initData`.
+3. План подключения реального профиля/CRM только после server-side validation.
+4. Модель правил призов без доверия frontend.

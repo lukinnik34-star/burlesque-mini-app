@@ -1,13 +1,13 @@
-import { mockPrizes } from "@/data/prizes";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
+import { mockPrizes } from "@/data/prizes";
 import type { MockPrize } from "@/types/mocks";
 
 const prizeStatusLabel = {
-  mock: "Demo",
-  available: "Demo",
+  mock: "Демо-режим",
+  available: "Демо-режим",
   claimed: "Получен",
   expired: "Истек",
 };
@@ -25,7 +25,7 @@ export function PrizesScreen({
     <div className="space-y-5">
       <ScreenHeader
         title="Призы"
-        subtitle="Привилегии и специальные предложения для гостей Burlesque."
+        subtitle="Витрина будущих привилегий и специальных предложений для гостей Burlesque."
       />
 
       <div className="grid gap-3">
@@ -35,7 +35,7 @@ export function PrizesScreen({
           return (
             <Card
               className={[
-                "rounded-[28px] px-4 py-4",
+                "rounded-[28px] px-4 py-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
                 isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
               ]
                 .filter(Boolean)
@@ -43,7 +43,7 @@ export function PrizesScreen({
               key={prize.id}
             >
               <div className="flex items-start gap-3.5">
-                <div className="grid size-[68px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fff8ef,#ead0a2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.76),0_12px_24px_rgba(122,60,35,0.1)]">
+                <div className="grid size-[70px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fff8ef,#ead0a2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.76),0_12px_24px_rgba(122,60,35,0.1)]">
                   {prize.iconSrc ? (
                     <div
                       className={[
@@ -74,7 +74,7 @@ export function PrizesScreen({
                   </p>
                   <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-2">
                     <p className="text-xs leading-5 text-[var(--muted)]">
-                      Демо без выдачи
+                      Скоро доступно
                     </p>
                     <Button
                       className="min-h-9 px-4 text-xs"

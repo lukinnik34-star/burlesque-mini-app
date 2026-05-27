@@ -7,6 +7,7 @@
 - Добавить безопасное чтение Telegram WebApp окружения для demo UI.
 - Добавить fallback parsing Telegram launch params из `location.hash`.
 - Убрать debug UI из production view.
+- Выполнить MVP UI/UX polish pass with Stitch reference direction.
 
 ## Next
 
@@ -32,6 +33,7 @@
 - Добавить fourth prize icon для `Доступ к спецсобытию`.
 - Оптимизировать ассеты по весу.
 - Проверить изображения на реальных экранах iOS и Android.
+- Отложенный experiment: shader / animated background для hero или premium ambience.
 - Подготовить fallback visuals для отсутствующих cover assets.
 - Проверить читаемость overlay для event covers.
 - Подготовить empty/loading states.

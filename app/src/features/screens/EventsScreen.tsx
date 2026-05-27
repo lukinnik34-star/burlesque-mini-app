@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { mockEvents } from "@/data/events";
 import { EventCard } from "@/components/EventCard";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
+import { mockEvents } from "@/data/events";
 
 type EventFilter = "all" | "today" | "soon";
 
@@ -33,7 +33,7 @@ export function EventsScreen() {
     <div className="space-y-5">
       <ScreenHeader
         title="Афиша"
-        subtitle="Ближайшие события Burlesque. Бронь и регистрация пока не подключены."
+        subtitle="Ближайшие события Burlesque. Бронирование появится в следующем этапе."
       />
 
       <div className="flex gap-2 overflow-x-auto pb-1">
@@ -43,10 +43,10 @@ export function EventsScreen() {
           return (
             <button
               className={[
-                "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
+                "shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition active:translate-y-px",
                 isActive
-                  ? "border-[var(--burgundy)] bg-[var(--burgundy)] text-white"
-                  : "border-[var(--line-soft)] bg-white/70 text-[var(--muted-strong)]",
+                  ? "border-[var(--burgundy)] bg-[var(--burgundy)] text-white shadow-[0_12px_24px_rgba(143,29,47,0.14)]"
+                  : "border-[var(--line-soft)] bg-white/70 text-[var(--muted-strong)] hover:border-[var(--line-strong)]",
               ].join(" ")}
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
@@ -81,7 +81,7 @@ export function EventsScreen() {
                 {selectedEvent.title}
               </p>
             </div>
-            <Badge className="px-2.5 text-[11px]">Demo</Badge>
+            <Badge className="px-2.5 text-[11px]">Демо</Badge>
           </div>
 
           <div className="mt-5 grid grid-cols-2 gap-3">
@@ -97,13 +97,26 @@ export function EventsScreen() {
                 {selectedEvent.timeLabel}
               </p>
             </div>
+            <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+              <p className="text-xs text-[var(--muted)]">Локация</p>
+              <p className="mt-1 truncate text-sm font-semibold text-[var(--text)]">
+                {selectedEvent.locationLabel}
+              </p>
+            </div>
+            <div className="rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+              <p className="text-xs text-[var(--muted)]">Бронирование</p>
+              <p className="mt-1 text-sm font-semibold text-[var(--text)]">
+                Следующий этап
+              </p>
+            </div>
           </div>
 
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             {selectedEvent.description}
           </p>
           <p className="mt-4 rounded-2xl border border-[var(--line-soft)] bg-[var(--surface-soft)] px-3 py-2 text-xs leading-5 text-[var(--muted-strong)]">
-            Демо-режим. Реальная регистрация, бронь и оплата пока не подключены.
+            Демо-режим. Бронирование, регистрация и оплата будут подключены
+            позже.
           </p>
         </Card>
       ) : null}

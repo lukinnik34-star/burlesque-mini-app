@@ -1,8 +1,8 @@
-import { mockProfileStats } from "@/data/profile";
+import { UserCard } from "@/components/UserCard";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
-import { UserCard } from "@/components/UserCard";
+import { mockProfileStats } from "@/data/profile";
 import type { TelegramRuntimeInfo } from "@/lib/telegram";
 import type { DemoState } from "@/types/demo-state";
 import type { MockGame, MockPrize } from "@/types/mocks";
@@ -19,7 +19,7 @@ const showTelegramDebug =
 
 const sessionStatusLabel = {
   idle: "Ожидает",
-  preview: "Demo",
+  preview: "Демо",
   completed: "Готово",
 };
 
@@ -61,7 +61,7 @@ function getRuntimeNote(runtimeInfo: TelegramRuntimeInfo): string {
   }
 
   if (runtimeInfo.status === "telegram_webview_without_webapp") {
-    return "Открыто в Telegram WebView. Данные профиля пока демонстрационные.";
+    return "Открыто в Telegram WebView. Данные профиля показаны для примера.";
   }
 
   return "Браузерный просмотр. Данные профиля показаны для примера.";
@@ -90,7 +90,7 @@ export function ProfileScreen({
     <div className="space-y-5">
       <ScreenHeader
         title="Профиль"
-        subtitle="Карта гостя, баллы и привилегии в демо-режиме."
+        subtitle="Карта гостя, привилегии и история активности в демо-режиме."
       />
 
       <UserCard runtimeInfo={runtimeInfo} />
@@ -154,9 +154,7 @@ export function ProfileScreen({
             />
             <RuntimeRow
               label="Telegram script"
-              value={
-                diagnostics.hasTelegramScriptTag ? "найден" : "не найден"
-              }
+              value={diagnostics.hasTelegramScriptTag ? "найден" : "не найден"}
             />
             <RuntimeRow
               label="Launch params"
@@ -249,8 +247,8 @@ export function ProfileScreen({
           Демо-профиль
         </p>
         <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-          Реальные данные гостя, CRM и авторизация будут подключены позже через
-          backend.
+          Данные профиля показаны для примера. Реальные привилегии и история
+          появятся после безопасной проверки Telegram.
         </p>
       </Card>
     </div>

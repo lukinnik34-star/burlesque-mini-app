@@ -6,7 +6,7 @@
   --tg-viewport-height: 100dvh;
   --app-bg: #fff7ee;
   --surface: #fffdf8;
-  --surface-soft: #fff2e3;
+  --surface-soft: #fff4e8;
   --cream: #fff7ea;
   --champagne: #ead0a2;
   --peach: #f6d9c8;
@@ -16,10 +16,10 @@
   --text: #2a1717;
   --muted: #8a746b;
   --muted-strong: #614d46;
-  --line-soft: rgba(133, 73, 50, 0.14);
-  --line-strong: rgba(143, 29, 47, 0.22);
-  --shadow-soft: 0 18px 46px rgba(122, 60, 35, 0.1);
-  --shadow-card: 0 14px 34px rgba(122, 60, 35, 0.08);
+  --line-soft: rgba(133, 73, 50, 0.11);
+  --line-strong: rgba(143, 29, 47, 0.2);
+  --shadow-soft: 0 22px 54px rgba(122, 60, 35, 0.09);
+  --shadow-card: 0 16px 38px rgba(122, 60, 35, 0.07);
 }
 
 @theme inline {
@@ -48,6 +48,16 @@ body {
   color: var(--text);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overscroll-behavior: none;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image: radial-gradient(rgba(143, 29, 47, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), transparent 42%);
 }
 
 ::selection {
@@ -117,4 +127,19 @@ button {
 
 .animate-pulse-soft {
   animation: burlesque-pulse-soft 5.5s ease-in-out infinite;
+}
+
+.editorial-card-reveal {
+  animation: editorial-card-reveal 420ms ease-out both;
+}
+
+@keyframes editorial-card-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
