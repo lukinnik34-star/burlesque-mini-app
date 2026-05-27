@@ -25,17 +25,17 @@ export function PrizesScreen({
     <div className="space-y-5">
       <ScreenHeader
         title="Призы"
-        subtitle="Витрина будущих привилегий гостя."
+        subtitle="Будущие комплименты и предложения для гостей Burlesque."
       />
 
-      <div className="grid gap-3">
+      <div className="grid gap-2.5">
         {mockPrizes.map((prize) => {
           const isSelected = prize.id === selectedPrize?.id;
 
           return (
             <Card
               className={[
-                "rounded-[28px] px-4 py-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
+                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-[#fffaf3]",
                 isSelected ? "border-[var(--line-strong)] bg-[#fff9f1]" : "",
               ]
                 .filter(Boolean)
@@ -69,11 +69,11 @@ export function PrizesScreen({
                       {prizeStatusLabel[prize.status]}
                     </Badge>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+                  <p className="mt-1.5 text-sm leading-5 text-[var(--muted)]">
                     {prize.description}
                   </p>
                   <Button
-                    className="mt-4 min-h-9 px-4 text-xs"
+                    className="mt-3 min-h-8 px-3.5 text-xs"
                     onClick={() => onSelectPrize(prize.id)}
                     variant="secondary"
                   >
