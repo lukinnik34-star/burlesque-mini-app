@@ -157,3 +157,15 @@ MVP остается frontend-only. Telegram profile сейчас являетс
 - `HomeScreen`: заголовок поддерживает перенос длинного Telegram имени.
 
 Backend/auth/CRM/prize logic не менялись.
+
+## Task 021 Rewards Card System Polish
+
+Экран `PrizesScreen` упрощен после visual review:
+
+- из reward cards убрана отдельная status row;
+- в карточках остались icon, title, short description, compact badge и CTA `Подробнее`;
+- badge остается коротким: `Демо`;
+- общий disclaimer вынесен вниз экрана одним тихим текстом;
+- fallback icon для `Доступ к спецсобытию` заменен с цифры на CSS-only ornamental mark.
+
+Экран остается demo-only showcase будущих привилегий. Claim/redeem, real prize issuing, backend/auth/CRM не добавлялись.

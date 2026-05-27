@@ -9,6 +9,7 @@
 - Убрать debug UI из production view.
 - Выполнить MVP UI/UX polish pass with Stitch reference direction.
 - Выполнить final mobile viewport polish.
+- Упростить rewards card system на экране `Призы`.
 
 ## Next
 

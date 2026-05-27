@@ -25,11 +25,11 @@ export function PrizesScreen({
     <div className="space-y-5">
       <ScreenHeader
         title="Призы"
-        subtitle="Витрина будущих привилегий и специальных предложений для гостей Burlesque."
+        subtitle="Витрина будущих привилегий гостя."
       />
 
       <div className="grid gap-3">
-        {mockPrizes.map((prize, index) => {
+        {mockPrizes.map((prize) => {
           const isSelected = prize.id === selectedPrize?.id;
 
           return (
@@ -43,7 +43,7 @@ export function PrizesScreen({
               key={prize.id}
             >
               <div className="flex items-start gap-3.5">
-                <div className="grid size-[70px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fff8ef,#ead0a2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.76),0_12px_24px_rgba(122,60,35,0.1)]">
+                <div className="grid size-[68px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fff8ef,#ead0a2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.76),0_12px_24px_rgba(122,60,35,0.1)]">
                   {prize.iconSrc ? (
                     <div
                       className={[
@@ -55,8 +55,8 @@ export function PrizesScreen({
                       style={{ backgroundImage: `url(${prize.iconSrc})` }}
                     />
                   ) : (
-                    <span className="font-serif text-2xl font-semibold text-[var(--burgundy)]">
-                      {index + 1}
+                    <span className="relative grid size-9 place-items-center rounded-full bg-white/62 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+                      <span className="size-4 rotate-45 rounded-[4px] border border-[var(--burgundy)]/30 bg-[var(--burgundy)]/12" />
                     </span>
                   )}
                 </div>
@@ -72,18 +72,13 @@ export function PrizesScreen({
                   <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
                     {prize.description}
                   </p>
-                  <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-2">
-                    <p className="text-xs leading-5 text-[var(--muted)]">
-                      Скоро
-                    </p>
-                    <Button
-                      className="min-h-9 px-4 text-xs"
-                      onClick={() => onSelectPrize(prize.id)}
-                      variant="secondary"
-                    >
-                      Подробнее
-                    </Button>
-                  </div>
+                  <Button
+                    className="mt-4 min-h-9 px-4 text-xs"
+                    onClick={() => onSelectPrize(prize.id)}
+                    variant="secondary"
+                  >
+                    Подробнее
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -116,6 +111,11 @@ export function PrizesScreen({
           ) : null}
         </Card>
       ) : null}
+
+      <p className="rounded-2xl border border-[var(--line-soft)] bg-white/52 px-4 py-3 text-xs leading-5 text-[var(--muted)]">
+        Пока это демонстрационный раздел. Выдача привилегий будет подключена
+        позже.
+      </p>
     </div>
   );
 }
