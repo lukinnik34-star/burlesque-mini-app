@@ -53,10 +53,10 @@ export function AppShell() {
   return (
     <main className="premium-scrollbar min-h-tg overflow-x-hidden bg-[var(--app-bg)] text-[var(--text)]">
       <div className="pointer-events-none fixed inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_50%_0%,rgba(246,217,200,0.72),transparent_70%)]" />
-      <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+148px)] pt-[calc(env(safe-area-inset-top)+18px)]">
-        <header className="mb-5 flex items-center justify-between gap-3">
+      <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+136px)] pt-[calc(env(safe-area-inset-top)+14px)]">
+        <header className="mb-4 flex items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[var(--burgundy)] font-serif text-xl font-semibold text-white shadow-[0_14px_28px_rgba(143,29,47,0.18)]">
+            <div className="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--burgundy)] font-serif text-lg font-semibold text-white shadow-[0_14px_28px_rgba(143,29,47,0.18)]">
               B
             </div>
             <div className="min-w-0">

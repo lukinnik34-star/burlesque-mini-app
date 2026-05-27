@@ -96,6 +96,7 @@
 - Telegram environment detection.
 - Telegram launch params fallback.
 - MVP UI/UX polish pass with Stitch reference direction.
+- Final mobile viewport polish.
 
 ## Current Next Focus
 

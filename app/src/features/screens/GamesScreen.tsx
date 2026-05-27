@@ -59,7 +59,7 @@ export function GamesScreen({
             >
               <div
                 className={[
-                  "relative min-h-44 overflow-hidden p-5",
+                  "relative min-h-40 overflow-hidden p-5",
                   isScratch
                     ? "bg-[linear-gradient(145deg,#fff8ef_0%,#f6d9c8_100%)]"
                     : "bg-[linear-gradient(145deg,#fff8ef_0%,#ead0a2_100%)]",
@@ -69,12 +69,12 @@ export function GamesScreen({
                 <div className="pointer-events-none absolute bottom-0 right-0 size-40 rounded-full bg-white/28 blur-xl" />
                 {isScratch ? (
                   <div
-                    className="pointer-events-none absolute -bottom-1 right-1 h-[142px] w-[162px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute -bottom-1 right-1 h-[132px] w-[152px] rotate-[-7deg] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 ) : (
                   <div
-                    className="pointer-events-none absolute bottom-1 right-3 size-[150px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
+                    className="pointer-events-none absolute bottom-1 right-3 size-[138px] bg-contain bg-center bg-no-repeat opacity-95 drop-shadow-[0_16px_24px_rgba(122,60,35,0.16)]"
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 )}

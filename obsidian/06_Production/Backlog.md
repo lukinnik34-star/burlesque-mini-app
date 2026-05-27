@@ -8,6 +8,7 @@
 - Добавить fallback parsing Telegram launch params из `location.hash`.
 - Убрать debug UI из production view.
 - Выполнить MVP UI/UX polish pass with Stitch reference direction.
+- Выполнить final mobile viewport polish.
 
 ## Next
 

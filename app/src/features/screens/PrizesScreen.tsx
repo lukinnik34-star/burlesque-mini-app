@@ -6,8 +6,8 @@ import { mockPrizes } from "@/data/prizes";
 import type { MockPrize } from "@/types/mocks";
 
 const prizeStatusLabel = {
-  mock: "Демо-режим",
-  available: "Демо-режим",
+  mock: "Демо",
+  available: "Демо",
   claimed: "Получен",
   expired: "Истек",
 };
@@ -74,7 +74,7 @@ export function PrizesScreen({
                   </p>
                   <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-2">
                     <p className="text-xs leading-5 text-[var(--muted)]">
-                      Скоро доступно
+                      Скоро
                     </p>
                     <Button
                       className="min-h-9 px-4 text-xs"

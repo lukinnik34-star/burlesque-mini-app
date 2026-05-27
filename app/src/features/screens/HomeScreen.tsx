@@ -45,7 +45,7 @@ export function HomeScreen({
 
         <div className="relative">
           <Badge>Burlesque</Badge>
-          <h2 className="mt-6 max-w-[17rem] font-serif text-[42px] font-semibold leading-[0.95] text-[var(--text)]">
+          <h2 className="mt-6 max-w-[17rem] break-words font-serif text-[42px] font-semibold leading-[0.95] text-[var(--text)]">
             {welcomeName
               ? `Добро пожаловать, ${welcomeName}`
               : "Добро пожаловать"}

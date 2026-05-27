@@ -5,15 +5,14 @@ import type { AppTab } from "@/types/navigation";
 type BottomNavItem = {
   id: AppTab;
   label: string;
-  mark: string;
 };
 
 const items: BottomNavItem[] = [
-  { id: "home", label: "Главная", mark: "•" },
-  { id: "events", label: "Афиша", mark: "◇" },
-  { id: "games", label: "Игры", mark: "✦" },
-  { id: "prizes", label: "Призы", mark: "□" },
-  { id: "profile", label: "Профиль", mark: "○" },
+  { id: "home", label: "Главная" },
+  { id: "events", label: "Афиша" },
+  { id: "games", label: "Игры" },
+  { id: "prizes", label: "Призы" },
+  { id: "profile", label: "Профиль" },
 ];
 
 type BottomNavProps = {
@@ -32,7 +31,7 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
             <button
               aria-current={isActive ? "page" : undefined}
               className={[
-                "grid h-[52px] min-w-0 place-items-center rounded-[21px] px-0.5 text-center text-[9px] font-semibold leading-tight transition duration-200 active:translate-y-px",
+                "grid h-11 min-w-0 place-items-center rounded-[20px] px-0.5 text-center text-[10px] font-semibold leading-tight transition duration-200 active:translate-y-px",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--burgundy)]",
                 isActive
                   ? "bg-[var(--burgundy-soft)] text-[var(--burgundy)] shadow-[inset_0_1px_0_rgba(255,255,255,0.74)]"
@@ -42,9 +41,6 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               onClick={() => onTabChange(item.id)}
               type="button"
             >
-              <span className="grid size-5 place-items-center rounded-full text-[12px] leading-none">
-                {item.mark}
-              </span>
               <span className="block whitespace-nowrap">{item.label}</span>
             </button>
           );

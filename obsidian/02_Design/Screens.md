@@ -145,3 +145,15 @@ UI/UX polish pass выполнен для текущего frontend-only MVP. St
 - `ProfileScreen`: runtime block очищен от debug-строк, обычный UI показывает только среду запуска, наличие Telegram user и статус будущей авторизации.
 
 MVP остается frontend-only. Telegram profile сейчас является runtime preview, а не настоящей авторизацией. Контент и бренд Stitch не копировались.
+
+## Task 019.2 Final Mobile Viewport Polish
+
+Финальный mobile polish после удаления повторяющихся headers:
+
+- `AppShell`: верхняя шапка стала ниже, `MVP` badge сделан тише.
+- `BottomNav`: убраны верхние символы, оставлены только русские labels для лучшей читаемости на 375–430 px.
+- `GamesScreen`: верхние визуальные зоны карточек слегка уплотнены.
+- `PrizesScreen`: badge сокращен до `Демо`, подпись статуса сокращена до `Скоро`.
+- `HomeScreen`: заголовок поддерживает перенос длинного Telegram имени.
+
+Backend/auth/CRM/prize logic не менялись.
