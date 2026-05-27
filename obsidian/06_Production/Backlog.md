@@ -3,14 +3,14 @@
 ## Done
 
 - Проверить приложение внутри Telegram.
-
-Результат: visual MVP успешно открылся внутри Telegram Mini App через Vercel production URL `https://burlesque-mini-app.vercel.app/` и тестового бота `n8ntest`.
+- Добавить Telegram environment detection.
+- Добавить безопасное чтение Telegram WebApp окружения для demo UI.
 
 ## Next
 
-- Добавить Telegram environment detection.
-- Добавить безопасное чтение Telegram WebApp окружения.
+- Подготовить backend endpoint для Telegram `initData` validation.
 - Подготовить safe `initData` validation plan.
+- Не выдавать реальные призы без backend validation.
 - Описать CRM API requirements.
 - Описать prize issuing rules.
 - Проверить реальные mobile devices.

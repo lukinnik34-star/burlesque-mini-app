@@ -1,10 +1,17 @@
 export type TelegramWebAppUser = {
-  id: number;
-  first_name: string;
+  id?: number;
+  first_name?: string;
   last_name?: string;
   username?: string;
-  photo_url?: string;
   language_code?: string;
+  is_premium?: boolean;
+};
+
+export type TelegramWebAppInitDataUnsafe = {
+  user?: TelegramWebAppUser;
+  query_id?: string;
+  auth_date?: number;
+  hash?: string;
 };
 
 export type TelegramThemeParams = {
@@ -19,16 +26,21 @@ export type TelegramThemeParams = {
 
 export type TelegramWebApp = {
   initData?: string;
-  initDataUnsafe?: {
-    user?: TelegramWebAppUser;
-  };
+  initDataUnsafe?: TelegramWebAppInitDataUnsafe;
+  platform?: string;
+  version?: string;
+  colorScheme?: "light" | "dark";
   themeParams?: TelegramThemeParams;
   ready?: () => void;
   expand?: () => void;
 };
 
-export type TelegramWindow = Window & {
-  Telegram?: {
-    WebApp?: TelegramWebApp;
-  };
-};
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp?: TelegramWebApp;
+    };
+  }
+}
+
+export {};

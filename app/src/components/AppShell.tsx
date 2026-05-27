@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import { BottomNav } from "@/components/BottomNav";
 import { useDemoState } from "@/features/demo-state/useDemoState";
 import { EventsScreen } from "@/features/screens/EventsScreen";
@@ -8,79 +8,22 @@ import { GamesScreen } from "@/features/screens/GamesScreen";
 import { HomeScreen } from "@/features/screens/HomeScreen";
 import { PrizesScreen } from "@/features/screens/PrizesScreen";
 import { ProfileScreen } from "@/features/screens/ProfileScreen";
-import {
-  callTelegramReady,
-  expandTelegramWebApp,
-  getCurrentUser,
-  getTelegramThemeParams,
-  isTelegramMiniApp,
-} from "@/lib/telegram";
+import { useTelegramRuntime } from "@/features/telegram/useTelegramRuntime";
 import type { AppTab } from "@/types/navigation";
-import type { TelegramWebAppUser } from "@/types/telegram";
-
-type TelegramSnapshot = {
-  isTelegram: boolean;
-  themeNote: string;
-  user: TelegramWebAppUser;
-};
 
 const SHOW_DEBUG_PANEL = false;
-
-const serverSnapshot: TelegramSnapshot = {
-  isTelegram: false,
-  themeNote: "Theme params недоступны",
-  user: getCurrentUser(),
-};
-
-let cachedSnapshot = serverSnapshot;
-let cachedSnapshotKey = "";
-
-function getTelegramSnapshot(): TelegramSnapshot {
-  const themeParams = getTelegramThemeParams();
-  const user = getCurrentUser();
-  const snapshot = {
-    isTelegram: isTelegramMiniApp(),
-    themeNote:
-      Object.keys(themeParams).length > 0
-        ? "Theme params доступны"
-        : "Theme params недоступны",
-    user,
-  };
-  const snapshotKey = JSON.stringify(snapshot);
-
-  if (snapshotKey !== cachedSnapshotKey) {
-    cachedSnapshot = snapshot;
-    cachedSnapshotKey = snapshotKey;
-  }
-
-  return cachedSnapshot;
-}
-
-function subscribeToTelegramSnapshot(onStoreChange: () => void) {
-  const timeoutId = window.setTimeout(onStoreChange, 0);
-
-  return () => window.clearTimeout(timeoutId);
-}
 
 export function AppShell() {
   const [activeTab, setActiveTab] = useState<AppTab>("home");
   const demo = useDemoState();
-  const { isTelegram, themeNote, user } = useSyncExternalStore(
-    subscribeToTelegramSnapshot,
-    getTelegramSnapshot,
-    () => serverSnapshot,
-  );
-
-  useEffect(() => {
-    callTelegramReady();
-    expandTelegramWebApp();
-  }, []);
+  const runtimeInfo = useTelegramRuntime();
 
   const screen = {
     home: (
       <HomeScreen
         onOpenEvents={() => setActiveTab("events")}
         onOpenPrizes={() => setActiveTab("prizes")}
+        runtimeInfo={runtimeInfo}
       />
     ),
     events: <EventsScreen />,
@@ -100,10 +43,9 @@ export function AppShell() {
     profile: (
       <ProfileScreen
         demoState={demo.demoState}
-        isTelegram={isTelegram}
+        runtimeInfo={runtimeInfo}
         selectedGame={demo.selectedGame}
         selectedPrize={demo.selectedPrize}
-        user={user}
       />
     ),
   }[activeTab];
@@ -168,7 +110,7 @@ export function AppShell() {
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">
                 <p className="text-[var(--muted)]">Telegram</p>
                 <p className="mt-1 font-medium text-[var(--burgundy)]">
-                  {themeNote}
+                  {runtimeInfo.status}
                 </p>
               </div>
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">

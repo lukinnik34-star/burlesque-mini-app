@@ -34,22 +34,29 @@ Telegram test bot:
 
 - `n8ntest`
 
-### 3. Telegram environment detection — next
+### 3. Telegram environment detection — done
 
-Цель: аккуратно определить, запущено ли приложение внутри Telegram или в browser preview, без вывода лишнего debug UI гостю.
+Результат:
+
+- добавлено frontend-only определение browser / Telegram runtime;
+- добавлена проверка наличия `window.Telegram.WebApp`;
+- добавлена проверка наличия `initData`;
+- добавлено безопасное чтение `initDataUnsafe.user` для demo UI;
+- профиль показывает компактный runtime status;
+- UI не сообщает, что пользователь авторизован;
+- backend, session и validation не добавлялись.
+
+### 4. Backend initData validation planning — next
+
+Цель: описать backend endpoint и правила серверной проверки Telegram `initData`.
 
 Ожидаемый результат:
 
-- безопасные client-side helpers для чтения Telegram WebApp окружения;
-- понятное различение Telegram runtime и browser preview;
-- без реальной авторизации;
-- без доверия frontend-данным.
-
-### 4. Safe Telegram initData reading without real auth
-
-Цель: подготовить безопасное чтение `initData` на клиенте без признания пользователя авторизованным и без доверия frontend-данным.
-
-Важно: полноценная валидация `initData` должна выполняться только на backend.
+- endpoint для приема `initData`;
+- проверка подписи через bot token;
+- проверка `auth_date`;
+- модель безопасного user/session mapping;
+- правила, запрещающие выдавать реальные призы без backend validation.
 
 ### 5. Backend planning
 
@@ -99,3 +106,4 @@ Telegram test bot:
 - Asset visual polish.
 - MVP visual freeze and project state update.
 - Telegram Mini App runtime check.
+- Telegram environment detection.

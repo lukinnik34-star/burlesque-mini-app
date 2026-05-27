@@ -3,16 +3,15 @@ import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ScreenHeader } from "@/components/ui/ScreenHeader";
 import { UserCard } from "@/components/UserCard";
+import type { TelegramRuntimeInfo } from "@/lib/telegram";
 import type { DemoState } from "@/types/demo-state";
 import type { MockGame, MockPrize } from "@/types/mocks";
-import type { TelegramWebAppUser } from "@/types/telegram";
 
 type ProfileScreenProps = {
   demoState: DemoState;
-  isTelegram: boolean;
+  runtimeInfo: TelegramRuntimeInfo;
   selectedGame: MockGame | null;
   selectedPrize: MockPrize | null;
-  user: TelegramWebAppUser;
 };
 
 const sessionStatusLabel = {
@@ -21,12 +20,21 @@ const sessionStatusLabel = {
   completed: "Готово",
 };
 
+function getRuntimeEnvironmentLabel(runtimeInfo: TelegramRuntimeInfo): string {
+  if (!runtimeInfo.isTelegram) {
+    return "Browser preview";
+  }
+
+  return runtimeInfo.hasInitData
+    ? "Telegram Mini App"
+    : "Telegram без initData";
+}
+
 export function ProfileScreen({
   demoState,
-  isTelegram,
+  runtimeInfo,
   selectedGame,
   selectedPrize,
-  user,
 }: ProfileScreenProps) {
   return (
     <div className="space-y-5">
@@ -35,7 +43,42 @@ export function ProfileScreen({
         subtitle="Карта гостя, баллы и привилегии в демо-режиме."
       />
 
-      <UserCard isTelegram={isTelegram} user={user} />
+      <UserCard runtimeInfo={runtimeInfo} />
+
+      <Card className="p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-sm font-semibold text-[var(--text)]">
+              Среда запуска
+            </p>
+            <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+              Данные профиля показаны для примера.
+            </p>
+          </div>
+          <Badge>{runtimeInfo.isTelegram ? "Telegram" : "Browser"}</Badge>
+        </div>
+
+        <div className="mt-4 grid gap-2 text-sm">
+          <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+            <span className="text-[var(--muted)]">Среда</span>
+            <span className="text-right font-semibold text-[var(--text)]">
+              {getRuntimeEnvironmentLabel(runtimeInfo)}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+            <span className="text-[var(--muted)]">Telegram user</span>
+            <span className="text-right font-semibold text-[var(--text)]">
+              {runtimeInfo.user ? "найден" : "не найден"}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3 rounded-2xl bg-[var(--surface-soft)] px-3 py-3">
+            <span className="text-[var(--muted)]">Авторизация</span>
+            <span className="text-right font-semibold text-[var(--burgundy)]">
+              будет подключена позже
+            </span>
+          </div>
+        </div>
+      </Card>
 
       <Card className="p-5">
         <div className="flex items-center justify-between gap-3">
@@ -98,7 +141,9 @@ export function ProfileScreen({
           Демо-профиль
         </p>
         <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-          Авторизация и реальные данные гостя будут подключены позже.
+          {runtimeInfo.isTelegram
+            ? "Telegram найден только как среда запуска. Реальные данные гостя и авторизация будут подключены позже через backend."
+            : "Браузерный просмотр. Реальные данные гостя и авторизация будут подключены позже через backend."}
         </p>
       </Card>
     </div>

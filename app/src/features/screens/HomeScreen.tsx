@@ -4,15 +4,23 @@ import { burlesqueAssets } from "@/data/assets";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import type { TelegramRuntimeInfo } from "@/lib/telegram";
 
 const featuredEvent = mockEvents[0];
 
 type HomeScreenProps = {
   onOpenEvents: () => void;
   onOpenPrizes: () => void;
+  runtimeInfo?: TelegramRuntimeInfo;
 };
 
-export function HomeScreen({ onOpenEvents, onOpenPrizes }: HomeScreenProps) {
+export function HomeScreen({
+  onOpenEvents,
+  onOpenPrizes,
+  runtimeInfo,
+}: HomeScreenProps) {
+  const welcomeName = runtimeInfo?.user?.firstName;
+
   return (
     <div className="space-y-5 pb-4">
       <section className="relative overflow-hidden rounded-[34px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#fffdf8_0%,#fff0df_100%)] p-6 shadow-[var(--shadow-soft)]">
@@ -37,7 +45,9 @@ export function HomeScreen({ onOpenEvents, onOpenPrizes }: HomeScreenProps) {
         <div className="relative">
           <Badge>Burlesque</Badge>
           <h2 className="mt-5 max-w-[15rem] font-serif text-[38px] font-semibold leading-[0.98] text-[var(--text)]">
-            Добро пожаловать
+            {welcomeName
+              ? `Добро пожаловать, ${welcomeName}`
+              : "Добро пожаловать"}
           </h2>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             {homeIntro.description}
