@@ -91,10 +91,10 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
             <button
               aria-current={isActive ? "page" : undefined}
               className={[
-                "tap-lift group grid h-[54px] min-w-0 place-items-center rounded-[23px] px-0.5 text-center text-[10px] font-semibold leading-tight transition duration-200 active:scale-[0.97]",
+                "tap-lift group grid h-[54px] min-w-0 place-items-center rounded-[23px] px-0.5 text-center text-[10px] font-semibold leading-tight transition duration-200 active:scale-[0.96]",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--lavender)]",
                 isActive
-                  ? "bg-[rgba(185,156,255,0.16)] text-[var(--lavender)] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_22px_rgba(143,109,255,0.2)]"
+                  ? "bg-[rgba(185,156,255,0.22)] text-[var(--lavender)] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_12px_28px_rgba(143,109,255,0.28)]"
                   : "text-[#9b91aa] hover:bg-white/[0.06] hover:text-[var(--text)]",
               ].join(" ")}
               key={item.id}
@@ -104,8 +104,8 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               <span className="grid place-items-center gap-1">
                 <span
                   className={[
-                    "transition duration-200 group-active:scale-[1.04]",
-                    isActive ? "-translate-y-0.5 scale-[1.04]" : "",
+                    "transition duration-200 group-active:scale-[1.08]",
+                    isActive ? "-translate-y-0.5 scale-[1.08]" : "",
                   ].join(" ")}
                 >
                 <NavIcon icon={item.icon} />

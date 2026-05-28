@@ -36,7 +36,9 @@ export function PrizesScreen({
             <Card
               className={[
                 "tap-lift rounded-[24px] px-3.5 py-3 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
-                isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
+                isSelected
+                  ? "border-[var(--line-strong)] bg-white/[0.08] shadow-[0_18px_42px_rgba(143,109,255,0.18)]"
+                  : "",
               ]
                 .filter(Boolean)
                 .join(" ")}

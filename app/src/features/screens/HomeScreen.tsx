@@ -31,8 +31,8 @@ export function HomeScreen({
   return (
     <div className="space-y-3.5 pb-[150px]">
       <section className="relative overflow-hidden rounded-[32px] border border-[var(--line-soft)] bg-[linear-gradient(180deg,rgba(26,18,34,0.9),rgba(15,10,21,0.82))] px-6 py-4.5 text-center shadow-[var(--shadow-soft)] backdrop-blur-xl">
-        <div className="ambient-drift pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-[rgba(185,156,255,0.18)] blur-3xl" />
-        <div className="ambient-drift pointer-events-none absolute left-1/2 top-8 h-24 w-40 -translate-x-1/2 rounded-full bg-[rgba(123,51,79,0.16)] blur-2xl [animation-delay:-4s]" />
+        <div className="ambient-drift pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-[rgba(185,156,255,0.24)] blur-3xl" />
+        <div className="ambient-drift pointer-events-none absolute left-1/2 top-8 h-28 w-48 -translate-x-1/2 rounded-full bg-[rgba(123,51,79,0.22)] blur-2xl [animation-delay:-4s]" />
         <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(185,156,255,0.5),transparent)]" />
 
         <div className="relative mx-auto max-w-[19rem]">
