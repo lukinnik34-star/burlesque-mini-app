@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { EventCard } from "@/components/EventCard";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -36,6 +37,10 @@ function EventDetailSheet({
   onClose: () => void;
 }) {
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         onClose();
@@ -44,83 +49,92 @@ function EventDetailSheet({
 
     document.addEventListener("keydown", handleKeyDown);
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [onClose]);
 
-  return (
-    <div
-      aria-modal="true"
-      className="fixed inset-0 z-40 flex items-end justify-center bg-black/62 px-3 pb-[calc(env(safe-area-inset-bottom)+12px)] backdrop-blur-sm"
-      onClick={onClose}
-      role="dialog"
-    >
-      <div
-        className="screen-soft-enter max-h-[82vh] w-full max-w-md overflow-hidden rounded-t-[34px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(180deg,rgba(31,22,42,0.96),rgba(13,9,18,0.98))] shadow-[0_-24px_70px_rgba(0,0,0,0.58)]"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="mx-auto mt-3 h-1.5 w-12 rounded-full bg-white/18" />
+  if (typeof document === "undefined") {
+    return null;
+  }
 
-        <div className="max-h-[calc(82vh-18px)] overflow-y-auto p-5 pt-4">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
-                Детали события
-              </p>
-              <h3 className="mt-2 font-serif text-[30px] font-semibold leading-none text-[var(--text)]">
-                {event.title}
-              </h3>
-            </div>
-            <button
-              aria-label="Закрыть детали события"
-              className="tap-lift grid size-10 shrink-0 place-items-center rounded-full border border-[var(--line-soft)] bg-white/[0.06] text-xl leading-none text-[var(--muted-strong)] transition hover:border-[var(--line-strong)] hover:bg-white/[0.09]"
-              onClick={onClose}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
+  return createPortal(
+    <div aria-modal="true" className="fixed inset-0 z-50" role="dialog">
+      <button
+        aria-label="Закрыть детали события"
+        className="bottom-sheet-backdrop absolute inset-0 bg-black/64 backdrop-blur-sm"
+        onClick={onClose}
+        type="button"
+      />
 
-          <div className="mt-5 grid grid-cols-2 gap-3">
-            {[
-              ["Дата", event.dateLabel],
-              ["Время", event.timeLabel],
-              ["Локация", event.locationLabel],
-              ["Статус", "Будет позже"],
-            ].map(([label, value]) => (
-              <div
-                className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3"
-                key={label}
-              >
-                <p className="text-xs text-[var(--muted)]">{label}</p>
-                <p className="mt-1 truncate text-sm font-semibold text-[var(--text)]">
-                  {value}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center">
+        <div className="bottom-sheet-panel pointer-events-auto w-full max-w-md overflow-hidden rounded-t-[34px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(180deg,rgba(31,22,42,0.98),rgba(13,9,18,0.99))] shadow-[0_-24px_70px_rgba(0,0,0,0.62)]">
+          <div className="mx-auto mt-3 h-1.5 w-12 rounded-full bg-white/18" />
+
+          <div className="max-h-[82vh] overflow-y-auto px-5 pb-[calc(env(safe-area-inset-bottom)+20px)] pt-4">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
+                  Детали события
                 </p>
+                <h3 className="mt-2 font-serif text-[30px] font-semibold leading-none text-[var(--text)]">
+                  {event.title}
+                </h3>
               </div>
-            ))}
-          </div>
-
-          <p className="mt-5 text-sm leading-6 text-[var(--muted-strong)]">
-            {event.description}
-          </p>
-
-          <div className="mt-5 rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold text-[var(--text)]">
-                Бронирование появится в следующем этапе.
-              </p>
-              <Badge className="px-2.5 text-[11px]">Демо</Badge>
+              <button
+                aria-label="Закрыть детали события"
+                className="tap-lift grid size-10 shrink-0 place-items-center rounded-full border border-[var(--line-soft)] bg-white/[0.06] text-xl leading-none text-[var(--muted-strong)] transition hover:border-[var(--line-strong)] hover:bg-white/[0.09]"
+                onClick={onClose}
+                type="button"
+              >
+                ×
+              </button>
             </div>
-            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-              Регистрация и оплата будут подключены позже.
-            </p>
-          </div>
 
-          <Button className="mt-5 w-full" onClick={onClose} variant="secondary">
-            Понятно
-          </Button>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {[
+                ["Дата", event.dateLabel],
+                ["Время", event.timeLabel],
+                ["Локация", event.locationLabel],
+                ["Статус", "Будет позже"],
+              ].map(([label, value]) => (
+                <div
+                  className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3"
+                  key={label}
+                >
+                  <p className="text-xs text-[var(--muted)]">{label}</p>
+                  <p className="mt-1 truncate text-sm font-semibold text-[var(--text)]">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-5 text-sm leading-6 text-[var(--muted-strong)]">
+              {event.description}
+            </p>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-sm font-semibold text-[var(--text)]">
+                  Бронирование появится в следующем этапе.
+                </p>
+                <Badge className="px-2.5 text-[11px]">Демо</Badge>
+              </div>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                Регистрация и оплата будут подключены позже.
+              </p>
+            </div>
+
+            <Button className="mt-5 w-full" onClick={onClose} variant="secondary">
+              Понятно
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
