@@ -1,5 +1,32 @@
 # Backlog
 
+## Current Priority After Frontend MVP Freeze
+
+1. Real Telegram QA checklist.
+2. Проверить приложение на телефоне в Telegram.
+3. Проверить все вкладки и CTA:
+   - Главная;
+   - Афиша;
+   - Игры;
+   - Призы;
+   - Профиль.
+4. Зафиксировать баги, если будут.
+5. Product data planning:
+   - события;
+   - игры;
+   - призы;
+   - профиль;
+   - бронь;
+   - источники данных.
+
+## Later
+
+- Backend Telegram initData validation.
+- CRM integration.
+- Real rewards.
+- Real booking.
+- Analytics.
+
 ## Task 026 Visual Direction Notes
 
 - Done: adopted new Stitch guest app direction as a frontend-only UI prototype.

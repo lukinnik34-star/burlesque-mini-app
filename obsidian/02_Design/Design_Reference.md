@@ -1,5 +1,26 @@
 # Design Reference
 
+## Current Accepted Direction
+
+Текущий принятый дизайн: `Dark Stitch Guest App Direction`.
+
+Это темный mobile-first club app style:
+
+- dark plum / near black background;
+- lavender / soft violet primary accent;
+- dark glass surfaces;
+- warm white / pale lavender text;
+- muted gray-lavender secondary text;
+- bottom nav with icons;
+- centered Home greeting;
+- strong event pass cards;
+- member dashboard profile;
+- compact demo cards for games and rewards.
+
+Предыдущее cream/burgundy направление больше не является текущей дизайн-базой. Его можно считать архивным этапом.
+
+Без отдельного явного решения не делать новый global redesign. Следующие изменения должны быть только точечными QA/polish-правками или задачами по продуктовым данным.
+
 ## Task 026 Guest App Direction
 
 Текущий visual direction обновлен в сторону `dark premium club guest app`.

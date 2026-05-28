@@ -1,5 +1,29 @@
 # Burlesque Telegram Mini App
 
+## Current MVP Freeze
+
+- Текущая версия зафиксирована как `frontend MVP`.
+- Дизайн-база: `Dark Stitch Guest App Direction`.
+- Приложение работает через Vercel: `https://burlesque-mini-app.vercel.app/`.
+- Приложение открывается внутри Telegram Mini App.
+- Telegram user/avatar отображается во frontend preview, если данные доступны через Telegram launch params.
+- Готовы 5 вкладок:
+  - Главная;
+  - Афиша;
+  - Игры;
+  - Призы;
+  - Профиль.
+- Demo UX работает:
+  - переходы с Главной;
+  - фильтры Афиши;
+  - детали события;
+  - Scratch Card demo;
+  - Wheel Of Prizes demo;
+  - детали призов;
+  - activity в профиле.
+- Backend, настоящая auth validation, CRM и реальная выдача призов пока не реализованы.
+- Следующий этап после freeze: real Telegram QA на телефоне и фиксация найденных багов.
+
 ## Назначение проекта
 
 Telegram Mini App для Burlesque — рабочее маркетинговое приложение внутри Telegram. Оно должно стать единой точкой входа для гостей: афиша, мероприятия, промо-игры, призы, профиль, адреса клубов и быстрые действия.

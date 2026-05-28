@@ -1,5 +1,39 @@
 # Roadmap
 
+## Frontend MVP Freeze — current
+
+Текущая версия зафиксирована как frontend MVP. Код приложения на этом этапе не меняется, следующий шаг — реальная проверка внутри Telegram на телефоне.
+
+### Done
+
+- Visual MVP — done.
+- Dark Stitch Guest App Direction — done.
+- Telegram launch params frontend preview — done.
+- Frontend demo UX — done.
+- Telegram script hydration warning fix — done.
+
+### Next
+
+1. Real Telegram QA.
+2. Product data planning.
+3. Backend/Auth/CRM planning позже, после проверки frontend MVP и продуктовых данных.
+
+## Upcoming Order
+
+1. Real Telegram QA.
+2. Проверка приложения на телефоне в Telegram.
+3. Фиксация багов, если будут.
+4. Product data planning:
+   - события;
+   - игры;
+   - призы;
+   - профиль;
+   - бронь;
+   - источники данных.
+5. Backend Telegram initData validation planning.
+6. CRM integration planning.
+7. Real rewards / booking / analytics planning.
+
 ## Текущий порядок этапов
 
 ### 1. Visual MVP freeze — done
