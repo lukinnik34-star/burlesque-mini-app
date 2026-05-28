@@ -5,7 +5,7 @@ import type { MockEvent } from "@/types/mocks";
 
 const eventStatusLabel = {
   upcoming: "Скоро",
-  sold_out: "Sold out",
+  sold_out: "Мест нет",
   past: "Прошло",
   mock: "Демо",
 };
@@ -27,7 +27,7 @@ export function EventCard({
     return (
       <article
         className={[
-          "relative overflow-hidden rounded-[34px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_24px_64px_rgba(0,0,0,0.48)] transition duration-200 active:scale-[0.995]",
+          "relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_22px_56px_rgba(0,0,0,0.46)] transition duration-200 active:scale-[0.995]",
           isSelected ? "ring-2 ring-[var(--lavender)]" : "",
         ]
           .filter(Boolean)
@@ -41,18 +41,18 @@ export function EventCard({
         ) : null}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(185,156,255,0.26),transparent_30%),linear-gradient(145deg,rgba(15,10,21,0.58),rgba(67,26,57,0.76))]" />
 
-        <div className="relative p-5">
-          <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
+        <div className="relative p-4">
+          <div className="flex items-center justify-between gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
             <span>{event.dateLabel}</span>
             <span>{event.timeLabel}</span>
             <Badge>{eventStatusLabel[event.status]}</Badge>
           </div>
 
-          <div className="mt-12 max-w-[17rem]">
+          <div className="mt-9 max-w-[17rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
               {event.imageLabel ?? "Event"}
             </p>
-            <h3 className="mt-2 font-serif text-[34px] font-semibold leading-none text-white">
+            <h3 className="mt-2 font-serif text-[31px] font-semibold leading-none text-white">
               {event.title}
             </h3>
             {event.subtitle ? (
@@ -63,7 +63,7 @@ export function EventCard({
           </div>
         </div>
 
-        <div className="relative space-y-4 border-t border-white/10 bg-black/24 p-4 backdrop-blur-sm">
+        <div className="relative space-y-3 border-t border-white/10 bg-black/24 p-4 backdrop-blur-sm">
           <div className="flex flex-wrap gap-2">
             {event.tags.map((tag) => (
               <span
@@ -75,7 +75,7 @@ export function EventCard({
             ))}
           </div>
 
-          <div className="flex items-center justify-between gap-3 rounded-2xl bg-white/[0.08] px-3 py-3">
+          <div className="flex items-center justify-between gap-3 rounded-2xl bg-white/[0.08] px-3 py-2.5">
             <div className="min-w-0">
               <p className="text-xs text-white/56">Зал</p>
               <p className="truncate text-sm font-semibold text-white">

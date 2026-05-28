@@ -62,7 +62,7 @@ export function ProfileScreen({
     <div className="space-y-4 pb-4">
       <ScreenHeader
         title="Профиль"
-        subtitle="Member area с будущими привилегиями и активностью гостя."
+        subtitle="Профиль гостя с будущими привилегиями и активностью."
       />
 
       <UserCard runtimeInfo={runtimeInfo} />

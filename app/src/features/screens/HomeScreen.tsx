@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { burlesqueAssets } from "@/data/assets";
 import { mockEvents } from "@/data/events";
 import type { TelegramRuntimeInfo } from "@/lib/telegram";
 
@@ -20,32 +19,26 @@ export function HomeScreen({
   const welcomeName = runtimeInfo?.user?.firstName;
 
   return (
-    <div className="space-y-7 pb-6">
-      <section className="relative overflow-hidden rounded-[36px] border border-[var(--line-soft)] bg-[linear-gradient(180deg,rgba(26,18,34,0.92),rgba(15,10,21,0.84))] px-6 py-8 text-center shadow-[var(--shadow-soft)] backdrop-blur-xl">
-        <div
-          className="animate-pulse-soft pointer-events-none absolute -right-16 -top-16 size-56 bg-contain bg-center bg-no-repeat opacity-45 mix-blend-screen"
-          style={{ backgroundImage: `url(${burlesqueAssets.hero.glowBlob})` }}
-        />
-        <div
-          className="animate-float-slow pointer-events-none absolute left-1/2 top-6 size-32 -translate-x-1/2 bg-contain bg-center bg-no-repeat opacity-30 mix-blend-screen"
-          style={{ backgroundImage: `url(${burlesqueAssets.hero.softOrbit})` }}
-        />
+    <div className="space-y-5 pb-6">
+      <section className="relative overflow-hidden rounded-[34px] border border-[var(--line-soft)] bg-[linear-gradient(180deg,rgba(26,18,34,0.9),rgba(15,10,21,0.82))] px-6 py-6 text-center shadow-[var(--shadow-soft)] backdrop-blur-xl">
+        <div className="animate-pulse-soft pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-[rgba(185,156,255,0.18)] blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-8 h-24 w-40 -translate-x-1/2 rounded-full bg-[rgba(123,51,79,0.16)] blur-2xl" />
         <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(185,156,255,0.5),transparent)]" />
 
         <div className="relative mx-auto max-w-[19rem]">
-          <p className="mx-auto mb-5 inline-flex rounded-full border border-[var(--line-soft)] bg-white/[0.06] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
+          <p className="mx-auto mb-3 inline-flex rounded-full border border-[var(--line-soft)] bg-white/[0.06] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
             Burlesque Club
           </p>
-          <h2 className="break-words font-serif text-[44px] font-semibold leading-[0.96] text-[var(--text)]">
+          <h2 className="break-words font-serif text-[40px] font-semibold leading-[0.98] text-[var(--text)]">
             Добро пожаловать{welcomeName ? "," : ""}
             {welcomeName ? (
               <span className="block text-[var(--lavender)]">{welcomeName}</span>
             ) : null}
           </h2>
-          <p className="mx-auto mt-5 max-w-[17rem] text-[15px] leading-7 text-[var(--muted)]">
+          <p className="mx-auto mt-4 max-w-[17rem] text-[14px] leading-6 text-[var(--muted)]">
             Афиша, клубные механики и привилегии гостя в одном приложении.
           </p>
-          <div className="mt-7 grid gap-3">
+          <div className="mt-5 grid gap-2.5">
             <Button onClick={onOpenEvents}>Смотреть афишу</Button>
             <Button onClick={onOpenPrizes} variant="secondary">
               Мои привилегии
@@ -65,33 +58,33 @@ export function HomeScreen({
             </span>
           </div>
 
-          <article className="relative overflow-hidden rounded-[34px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(145deg,#1a1022_0%,#3b1630_54%,#101018_100%)] p-5 shadow-[0_24px_60px_rgba(0,0,0,0.44)]">
+          <article className="relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(145deg,#1a1022_0%,#3b1630_54%,#101018_100%)] p-4 shadow-[0_22px_54px_rgba(0,0,0,0.42)]">
             <div
-              className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-45 mix-blend-screen"
+              className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-42 mix-blend-screen"
               style={
                 featuredEvent.coverSrc
                   ? { backgroundImage: `url(${featuredEvent.coverSrc})` }
                   : undefined
               }
             />
-            <div className="pointer-events-none absolute -right-12 -top-12 size-44 rounded-full bg-[rgba(185,156,255,0.22)] blur-2xl" />
+            <div className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-[rgba(185,156,255,0.2)] blur-2xl" />
             <div className="relative">
-              <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+              <div className="flex items-center justify-between gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                 <span>{featuredEvent.dateLabel}</span>
                 <span>{featuredEvent.timeLabel}</span>
               </div>
-              <h4 className="mt-8 font-serif text-[34px] font-semibold leading-none">
+              <h4 className="mt-6 font-serif text-[31px] font-semibold leading-none">
                 {featuredEvent.title}
               </h4>
-              <p className="mt-3 max-w-[15rem] text-sm leading-6 text-[var(--muted-strong)]">
+              <p className="mt-2.5 max-w-[15rem] text-sm leading-5 text-[var(--muted-strong)]">
                 {featuredEvent.subtitle}
               </p>
-              <div className="mt-6 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/20 px-3 py-3 backdrop-blur-sm">
+              <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/20 px-3 py-2.5 backdrop-blur-sm">
                 <p className="min-w-0 truncate text-sm text-[var(--muted)]">
                   {featuredEvent.locationLabel}
                 </p>
                 <Button
-                  className="min-h-9 shrink-0 px-4 text-xs"
+                  className="min-h-8 shrink-0 px-3.5 text-xs"
                   onClick={onOpenEvents}
                 >
                   Подробнее
@@ -107,11 +100,11 @@ export function HomeScreen({
           ["Афиша", "События рядом"],
           ["Игры", "Демо-механики"],
           ["Призы", "Будущие привилегии"],
-          ["Профиль", "Member preview"],
+          ["Профиль", "Профиль гостя"],
         ].map(([title, description]) => (
-          <Card className="rounded-[26px] px-4 py-4" key={title}>
+          <Card className="rounded-[24px] px-4 py-3.5" key={title}>
             <p className="font-semibold text-[var(--text)]">{title}</p>
-            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+            <p className="mt-1.5 text-xs leading-5 text-[var(--muted)]">
               {description}
             </p>
           </Card>

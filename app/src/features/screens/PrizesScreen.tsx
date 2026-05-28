@@ -35,7 +35,7 @@ export function PrizesScreen({
           return (
             <Card
               className={[
-                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
+                "rounded-[24px] px-3.5 py-3 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
                 isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)
@@ -43,14 +43,14 @@ export function PrizesScreen({
               key={prize.id}
             >
               <div className="flex items-center gap-3.5">
-                <div className="grid size-[64px] shrink-0 place-items-center rounded-[23px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(185,156,255,0.14),rgba(123,51,79,0.18))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.18)]">
+                <div className="grid size-[58px] shrink-0 place-items-center rounded-[21px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(185,156,255,0.14),rgba(123,51,79,0.18))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.18)]">
                   {prize.iconSrc ? (
                     <div
                       className={[
                         "bg-contain bg-center bg-no-repeat drop-shadow-[0_10px_14px_rgba(0,0,0,0.24)]",
                         prize.id === "discount-coupon"
-                          ? "h-11 w-16"
-                          : "size-[52px]",
+                          ? "h-10 w-14"
+                          : "size-12",
                       ].join(" ")}
                       style={{ backgroundImage: `url(${prize.iconSrc})` }}
                     />
@@ -73,7 +73,7 @@ export function PrizesScreen({
                     {prize.description}
                   </p>
                   <Button
-                    className="mt-3 min-h-8 px-3.5 text-xs"
+                    className="mt-2.5 min-h-7 px-3 text-xs"
                     onClick={() => onSelectPrize(prize.id)}
                     variant="secondary"
                   >

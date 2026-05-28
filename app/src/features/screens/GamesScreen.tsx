@@ -57,21 +57,22 @@ export function GamesScreen({
                 .join(" ")}
               key={game.id}
             >
-              <div className="flex min-h-[154px] items-stretch">
-                <div className="relative w-[42%] shrink-0 overflow-hidden bg-[linear-gradient(145deg,#1b1024,#3d1740)]">
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_30%,rgba(185,156,255,0.22),transparent_40%)]" />
+              <div className="flex min-h-[142px] items-stretch">
+                <div className="relative w-[38%] shrink-0 overflow-hidden bg-[linear-gradient(145deg,#1b1024,#3d1740)]">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(185,156,255,0.28),transparent_38%),radial-gradient(circle_at_20%_10%,rgba(123,51,79,0.26),transparent_36%)]" />
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(214,184,255,0.12)] bg-white/[0.04]" />
                   <div
                     className={[
                       "absolute bg-contain bg-center bg-no-repeat drop-shadow-[0_16px_24px_rgba(0,0,0,0.34)]",
                       isScratch
-                        ? "-bottom-2 left-1/2 h-[116px] w-[132px] -translate-x-1/2 rotate-[-7deg]"
-                        : "bottom-2 left-1/2 size-[118px] -translate-x-1/2",
+                        ? "left-1/2 top-1/2 h-[106px] w-[122px] -translate-x-1/2 -translate-y-1/2 rotate-[-7deg]"
+                        : "left-1/2 top-1/2 size-[108px] -translate-x-1/2 -translate-y-1/2",
                     ].join(" ")}
                     style={{ backgroundImage: `url(${visualSrc})` }}
                   />
                 </div>
 
-                <div className="flex min-w-0 flex-1 flex-col justify-between p-4">
+                <div className="flex min-w-0 flex-1 flex-col justify-between p-3.5">
                   <div>
                     <div className="flex items-start justify-between gap-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--lavender)]">
@@ -81,15 +82,15 @@ export function GamesScreen({
                         {gameStatusLabel[game.status]}
                       </Badge>
                     </div>
-                    <h3 className="mt-2 font-serif text-[23px] font-semibold leading-tight text-[var(--text)]">
+                    <h3 className="mt-1.5 font-serif text-[22px] font-semibold leading-tight text-[var(--text)]">
                       {game.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-5 text-[var(--muted)]">
+                    <p className="mt-1.5 text-sm leading-5 text-[var(--muted)]">
                       {game.description}
                     </p>
                   </div>
                   <Button
-                    className="mt-4 min-h-9 w-full px-4 text-xs"
+                    className="mt-3 min-h-8 w-full px-4 text-xs"
                     disabled={!isAvailable}
                     onClick={() => onPreviewGame(game.id)}
                   >
