@@ -95,18 +95,20 @@ function parseTelegramUser(userRaw: string | null): TelegramWebAppUser | undefin
   }
 }
 
-function getTelegramLaunchParamsFromHash(): TelegramLaunchParams | null {
+function getTelegramLaunchParamsFromLocation(): TelegramLaunchParams | null {
   if (typeof window === "undefined") {
     return null;
   }
 
   const hash = window.location.hash.replace(/^#/, "");
+  const search = window.location.search.replace(/^\?/, "");
+  const launchParamsSource = hash.includes("tgWebAppData") ? hash : search;
 
-  if (!hash) {
+  if (!launchParamsSource) {
     return null;
   }
 
-  const launchParams = new URLSearchParams(hash);
+  const launchParams = new URLSearchParams(launchParamsSource);
   const initData = launchParams.get("tgWebAppData");
 
   if (!initData) {
@@ -129,7 +131,7 @@ function getRuntimeParts() {
   const hasDocument = typeof document !== "undefined";
   const telegramObject = hasWindow ? window.Telegram : undefined;
   const webApp = telegramObject?.WebApp;
-  const launchParams = getTelegramLaunchParamsFromHash();
+  const launchParams = getTelegramLaunchParamsFromLocation();
   const webAppInitData = webApp?.initData ?? "";
   const initData = webAppInitData || launchParams?.initData || "";
   const userAgent = hasWindow ? window.navigator.userAgent.toLowerCase() : "";

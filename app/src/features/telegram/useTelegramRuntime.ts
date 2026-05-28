@@ -23,6 +23,17 @@ function hasTelegramUserAgent(): boolean {
   return window.navigator.userAgent.toLowerCase().includes("telegram");
 }
 
+function hasTelegramLaunchParamsSignal(): boolean {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return (
+    window.location.hash.includes("tgWebAppData") ||
+    window.location.search.includes("tgWebAppData")
+  );
+}
+
 function findTelegramScript(): HTMLScriptElement | null {
   if (typeof document === "undefined") {
     return null;
@@ -90,7 +101,10 @@ export function useTelegramRuntime(): TelegramRuntimeInfo {
     };
 
     const requestFallbackScript = () => {
-      if (fallbackScriptRequested || !hasTelegramUserAgent()) {
+      if (
+        fallbackScriptRequested ||
+        (!hasTelegramUserAgent() && !hasTelegramLaunchParamsSignal())
+      ) {
         return;
       }
 
@@ -117,6 +131,7 @@ export function useTelegramRuntime(): TelegramRuntimeInfo {
 
       if (
         nextRuntimeInfo.status === "telegram_webview_without_webapp" ||
+        nextRuntimeInfo.status === "telegram_launch_params_without_webapp" ||
         (nextRuntimeInfo.diagnostics.hasTelegramObject &&
           !nextRuntimeInfo.diagnostics.hasWebAppObject)
       ) {
