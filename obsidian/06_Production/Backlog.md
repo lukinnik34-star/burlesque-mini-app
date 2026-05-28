@@ -1,5 +1,10 @@
 # Backlog
 
+## Task 026 Visual Direction Notes
+
+- Done: adopted new Stitch guest app direction as a frontend-only UI prototype.
+- Next design check: compare the new dark lavender guest app direction against the previous Obsidian Noir and light premium versions in Telegram WebView.
+
 ## Task 024 Visual Direction Notes
 
 - Done: experimental dark Obsidian Noir visual direction prototype.

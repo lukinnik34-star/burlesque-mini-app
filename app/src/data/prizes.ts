@@ -5,9 +5,9 @@ export const mockPrizes: MockPrize[] = [
   {
     id: "welcome-drink",
     title: "Приветственный напиток",
-    description: "Комплимент для первого визита гостя.",
+    description: "Комплимент для первого визита.",
     status: "mock",
-    note: "Демо-режим. Приз пока не выдается.",
+    note: "Демо-режим. Привилегия будет подключена позже.",
     iconSrc: burlesqueAssets.prizes.drink,
   },
   {
@@ -15,7 +15,7 @@ export const mockPrizes: MockPrize[] = [
     title: "Купон на скидку",
     description: "Персональное предложение для будущей брони.",
     status: "mock",
-    note: "Демо-режим. Промокод пока показан только как пример.",
+    note: "Демо-режим. Промокод показан только как пример.",
     iconSrc: burlesqueAssets.prizes.discount,
   },
   {

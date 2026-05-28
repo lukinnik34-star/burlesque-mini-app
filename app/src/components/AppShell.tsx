@@ -52,25 +52,25 @@ export function AppShell() {
 
   return (
     <main className="premium-scrollbar min-h-tg overflow-x-hidden bg-[var(--app-bg)] text-[var(--text)]">
-      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(141,53,67,0.32),transparent_68%)]" />
-      <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+136px)] pt-[calc(env(safe-area-inset-top)+14px)]">
-        <header className="mb-4 flex items-center justify-between gap-3">
+      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(185,156,255,0.24),transparent_68%)]" />
+      <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+142px)] pt-[calc(env(safe-area-inset-top)+12px)]">
+        <header className="mb-6 flex items-center justify-between gap-3 rounded-full border border-[var(--line-soft)] bg-white/[0.045] px-3 py-2 shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="grid size-11 shrink-0 place-items-center rounded-full border border-[rgba(230,192,151,0.24)] bg-[linear-gradient(145deg,#7a2732,#23181f)] font-serif text-lg font-semibold text-[var(--champagne)] shadow-[0_14px_30px_rgba(0,0,0,0.28)]">
+            <div className="grid size-10 shrink-0 place-items-center rounded-full border border-[rgba(214,184,255,0.28)] bg-[linear-gradient(145deg,#2a1b39,#120c18)] font-serif text-lg font-semibold text-[var(--lavender)] shadow-[0_12px_24px_rgba(0,0,0,0.28)]">
               B
             </div>
             <div className="min-w-0">
               <h1 className="truncate text-base font-semibold leading-tight text-[var(--text)]">
-                Burlesque Mini App
+                Burlesque Club
               </h1>
               <p className="mt-0.5 truncate text-xs text-[var(--muted)]">
-                мини-приложение
+                Mini App
               </p>
             </div>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--line-soft)] bg-white/[0.06] px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--champagne)] shadow-[var(--shadow-card)] backdrop-blur-xl">
-            MVP
+          <div className="grid size-9 shrink-0 place-items-center rounded-full border border-[var(--line-soft)] bg-white/[0.05] text-[var(--muted)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--lavender)] shadow-[0_0_14px_rgba(185,156,255,0.7)]" />
           </div>
         </header>
 
@@ -83,26 +83,26 @@ export function AppShell() {
             </p>
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">
-                <p className="text-[var(--muted)]">Навигация</p>
-                <p className="mt-1 font-medium text-[var(--burgundy)]">
+                <p className="text-[var(--muted)]">Navigation</p>
+                <p className="mt-1 font-medium text-[var(--lavender)]">
                   {activeTab}
                 </p>
               </div>
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">
                 <p className="text-[var(--muted)]">Demo state</p>
-                <p className="mt-1 font-medium text-[var(--burgundy)]">
+                <p className="mt-1 font-medium text-[var(--lavender)]">
                   {demo.demoState.sessionStatus}
                 </p>
               </div>
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">
                 <p className="text-[var(--muted)]">Telegram</p>
-                <p className="mt-1 font-medium text-[var(--burgundy)]">
+                <p className="mt-1 font-medium text-[var(--lavender)]">
                   {runtimeInfo.status}
                 </p>
               </div>
               <div className="rounded-2xl bg-[var(--surface-soft)] p-3">
                 <p className="text-[var(--muted)]">Storage</p>
-                <p className="mt-1 font-medium text-[var(--burgundy)]">
+                <p className="mt-1 font-medium text-[var(--lavender)]">
                   Session only
                 </p>
               </div>

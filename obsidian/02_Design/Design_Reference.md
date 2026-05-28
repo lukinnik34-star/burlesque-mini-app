@@ -1,5 +1,25 @@
 # Design Reference
 
+## Task 026 Guest App Direction
+
+Текущий visual direction обновлен в сторону `dark premium club guest app`.
+
+Новый ориентир:
+
+- темный plum / near black фон;
+- dark purple-black surfaces;
+- lavender / soft violet primary accent;
+- muted wine как вторичный клубный акцент;
+- warm white / pale lavender text;
+- floating island BottomNav с иконками;
+- centered Home greeting;
+- strong event pass card;
+- member dashboard profile.
+
+Stitch screens `burlesque_club_final_2` и `burlesque_club_island_nav` использованы только как visual/interface reference. Stitch code, external fonts/icons/images, AI portraits, white rewards screen, casino wording и active booking/claim/redeem logic не переносились.
+
+Это frontend-only UI direction. Backend, CRM, auth validation, storage, routes и Telegram parser не менялись.
+
 ## Task 024 Experimental Direction: Dark Obsidian Noir
 
 Текущий визуальный direction prototype переведен в экспериментальное направление `dark Obsidian Noir`.

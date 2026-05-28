@@ -27,22 +27,22 @@ export function ScratchCardDemo() {
       </div>
 
       <div className="px-5">
-        <div className="relative grid min-h-64 place-items-center overflow-hidden rounded-[30px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#201d22,#4c202b)] p-4 text-center">
-          <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-white/10" />
-          <div className="pointer-events-none absolute left-5 top-5 h-16 w-24 rotate-[-10deg] rounded-[20px] border border-[rgba(230,192,151,0.18)] bg-white/[0.06]" />
-          <div className="pointer-events-none absolute bottom-4 right-6 font-serif text-[92px] leading-none text-[var(--champagne)]/10">
+        <div className="relative grid min-h-64 place-items-center overflow-hidden rounded-[30px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#1a1022,#3d1740)] p-4 text-center">
+          <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-[rgba(185,156,255,0.16)] blur-xl" />
+          <div className="pointer-events-none absolute left-5 top-5 h-16 w-24 rotate-[-10deg] rounded-[20px] border border-[rgba(214,184,255,0.18)] bg-white/[0.06]" />
+          <div className="pointer-events-none absolute bottom-4 right-6 font-serif text-[92px] leading-none text-[var(--lavender)]/10">
             B
           </div>
           <div
             className={[
-              "absolute inset-4 grid place-items-center rounded-[26px] border border-[var(--champagne)]/45 bg-[linear-gradient(135deg,#5e1b24_0%,#8d3543_54%,#2b2026_100%)] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_18px_34px_rgba(0,0,0,0.3)] transition duration-500",
+              "absolute inset-4 grid place-items-center rounded-[26px] border border-[var(--line-strong)] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_18px_34px_rgba(0,0,0,0.32)] transition duration-500",
               isRevealed ? "opacity-0" : "opacity-100",
             ].join(" ")}
             style={{
-              backgroundImage: `linear-gradient(135deg,rgba(94,27,36,0.52),rgba(19,19,21,0.22)),url(${burlesqueAssets.games.scratchCard})`,
+              backgroundImage: `linear-gradient(135deg,rgba(31,16,45,0.52),rgba(12,8,17,0.2)),url(${burlesqueAssets.games.scratchCard})`,
             }}
           >
-            <div className="relative rounded-3xl bg-[#64111d]/36 px-5 py-4 backdrop-blur-[1px]">
+            <div className="relative rounded-3xl bg-[#140b1d]/56 px-5 py-4 backdrop-blur-[1px]">
               <p className="text-xs uppercase tracking-[0.22em] text-white/72">
                 Promo card
               </p>
@@ -63,7 +63,7 @@ export function ScratchCardDemo() {
                 : "translate-y-2 opacity-0",
             ].join(" ")}
           >
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--champagne)]">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--lavender)]">
               Демо-результат
             </p>
             <p className="mt-3 font-serif text-3xl font-semibold text-[var(--text)]">

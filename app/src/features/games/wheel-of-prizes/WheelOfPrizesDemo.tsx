@@ -47,11 +47,11 @@ export function WheelOfPrizesDemo() {
 
       <div className="grid place-items-center px-5">
         <div className="relative grid size-64 place-items-center">
-          <div className="absolute -top-1 z-10 h-0 w-0 border-x-[13px] border-t-[26px] border-x-transparent border-t-[var(--burgundy)] drop-shadow-[0_6px_10px_rgba(143,29,47,0.18)]" />
-          <div className="absolute size-64 rounded-full bg-[var(--burgundy-soft)] blur-xl" />
+          <div className="absolute -top-1 z-10 h-0 w-0 border-x-[13px] border-t-[26px] border-x-transparent border-t-[var(--lavender)] drop-shadow-[0_6px_10px_rgba(143,109,255,0.2)]" />
+          <div className="absolute size-64 rounded-full bg-[rgba(185,156,255,0.16)] blur-xl" />
           <div
             className={[
-              "relative size-56 rounded-full border-[7px] border-[rgba(230,192,151,0.2)] bg-contain bg-center bg-no-repeat shadow-[0_20px_42px_rgba(0,0,0,0.32)] transition-transform duration-700",
+              "relative size-56 rounded-full border-[7px] border-[rgba(214,184,255,0.22)] bg-contain bg-center bg-no-repeat shadow-[0_20px_42px_rgba(0,0,0,0.34)] transition-transform duration-700",
               isSpinning ? "rotate-[540deg]" : "",
               isRevealed ? "rotate-[315deg]" : "",
             ].join(" ")}
@@ -61,7 +61,7 @@ export function WheelOfPrizesDemo() {
           >
             <div className="absolute inset-10 grid place-items-center rounded-full border border-[var(--line-soft)] bg-[var(--surface)]/92 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-[var(--burgundy)]">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--lavender)]">
                   Демо
                 </p>
                 <p className="mt-1 font-serif text-xl font-semibold text-[var(--text)]">
@@ -84,7 +84,7 @@ export function WheelOfPrizesDemo() {
           </Button>
         ) : (
           <Card className="rounded-[24px] bg-[var(--surface-soft)]">
-            <p className="font-serif text-2xl font-semibold text-[var(--burgundy)]">
+            <p className="font-serif text-2xl font-semibold text-[var(--lavender)]">
               {wheelDemoResult.title}
             </p>
             <p className="mt-2 text-sm leading-6 text-[var(--muted)]">

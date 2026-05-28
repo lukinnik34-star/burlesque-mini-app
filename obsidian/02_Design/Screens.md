@@ -1,5 +1,18 @@
 # Screens
 
+## Task 026 New Stitch Guest App Direction
+
+Экраны перестроены ближе к dark premium guest app composition:
+
+- `HomeScreen`: centered greeting, two clean CTA buttons, nearest event section and large visual event card.
+- `EventsScreen`: compact screen header, dark chips, featured event pass and compact secondary event cards.
+- `GamesScreen`: compact dark digital promo mechanic cards for Scratch Card and Wheel Of Prizes.
+- `PrizesScreen`: dark compact privilege cards with badge `Демо` and CTA `Подробнее`.
+- `ProfileScreen`: member dashboard composition with strong member card, optional Telegram avatar, stats, progress and activity. Visible Telegram status card removed from normal UI.
+- `BottomNav`: floating dark island with inline SVG icons and lavender active state.
+
+Все экраны остаются frontend-only/demo. Настоящая авторизация, CRM, реальные призы, реальная бронь и backend validation не добавлялись.
+
 ## Task 024 Dark Obsidian Noir Prototype
 
 Экраны переведены в экспериментальную темную визуальную оболочку:

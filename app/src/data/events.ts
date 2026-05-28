@@ -7,7 +7,7 @@ export const mockEvents: MockEvent[] = [
     title: "Velvet Nights",
     subtitle: "Вечернее шоу и special menu",
     description:
-      "Ближайший вечер Burlesque в демо-афише. В следующем этапе здесь появится переход к лендингу или бронированию.",
+      "Ближайший вечер Burlesque в демо-афише. На следующем этапе здесь появится переход к лендингу или бронированию.",
     dateLabel: "Пт, 14 июня",
     timeLabel: "21:00",
     locationLabel: "Burlesque Club Center",
@@ -44,6 +44,6 @@ export const mockEvents: MockEvent[] = [
     status: "sold_out",
     imageLabel: "Club",
     tags: ["Private", "Lounge"],
-    ctaLabel: "Смотреть",
+    ctaLabel: "Подробнее",
   },
 ];

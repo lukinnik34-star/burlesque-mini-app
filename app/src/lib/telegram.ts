@@ -38,6 +38,7 @@ export type TelegramRuntimeInfo = {
     firstName?: string;
     lastName?: string;
     username?: string;
+    photoUrl?: string;
     languageCode?: string;
     isPremium?: boolean;
   };
@@ -214,6 +215,7 @@ function mapTelegramUser(user?: TelegramWebAppUser): TelegramRuntimeInfo["user"]
     firstName: user.first_name,
     lastName: user.last_name,
     username: user.username,
+    photoUrl: user.photo_url,
     languageCode: user.language_code,
     isPremium: user.is_premium,
   };

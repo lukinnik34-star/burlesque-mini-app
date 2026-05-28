@@ -35,28 +35,28 @@ export function PrizesScreen({
           return (
             <Card
               className={[
-                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
+                "rounded-[26px] px-4 py-3.5 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
                 isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)
                 .join(" ")}
               key={prize.id}
             >
-              <div className="flex items-start gap-3.5">
-                <div className="grid size-[68px] shrink-0 place-items-center rounded-[24px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(255,178,183,0.12),rgba(230,192,151,0.16))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.18)]">
+              <div className="flex items-center gap-3.5">
+                <div className="grid size-[64px] shrink-0 place-items-center rounded-[23px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,rgba(185,156,255,0.14),rgba(123,51,79,0.18))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_24px_rgba(0,0,0,0.18)]">
                   {prize.iconSrc ? (
                     <div
                       className={[
                         "bg-contain bg-center bg-no-repeat drop-shadow-[0_10px_14px_rgba(0,0,0,0.24)]",
                         prize.id === "discount-coupon"
-                          ? "h-12 w-16"
-                          : "size-14",
+                          ? "h-11 w-16"
+                          : "size-[52px]",
                       ].join(" ")}
                       style={{ backgroundImage: `url(${prize.iconSrc})` }}
                     />
                   ) : (
-                    <span className="relative grid size-9 place-items-center rounded-full bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-                      <span className="size-4 rotate-45 rounded-[4px] border border-[var(--burgundy)]/30 bg-[var(--burgundy)]/12" />
+                    <span className="grid size-9 place-items-center rounded-full bg-white/[0.08]">
+                      <span className="size-4 rotate-45 rounded-[4px] border border-[var(--lavender)]/40 bg-[var(--lavender)]/14" />
                     </span>
                   )}
                 </div>
@@ -90,7 +90,7 @@ export function PrizesScreen({
         <Card className="p-5">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--burgundy)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
                 Детали привилегии
               </p>
               <p className="mt-2 font-serif text-2xl font-semibold leading-tight">
@@ -113,8 +113,7 @@ export function PrizesScreen({
       ) : null}
 
       <p className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
-        Пока это демонстрационный раздел. Выдача привилегий будет подключена
-        позже.
+        Пока это демонстрационный раздел. Выдача привилегий будет подключена позже.
       </p>
     </div>
   );
