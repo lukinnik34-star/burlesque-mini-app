@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { mockEvents } from "@/data/events";
 import type { TelegramRuntimeInfo } from "@/lib/telegram";
 
@@ -7,16 +6,27 @@ const featuredEvent = mockEvents[0];
 
 type HomeScreenProps = {
   onOpenEvents: () => void;
+  onOpenGames: () => void;
+  onOpenProfile: () => void;
   onOpenPrizes: () => void;
   runtimeInfo?: TelegramRuntimeInfo;
 };
 
 export function HomeScreen({
   onOpenEvents,
+  onOpenGames,
+  onOpenProfile,
   onOpenPrizes,
   runtimeInfo,
 }: HomeScreenProps) {
   const welcomeName = runtimeInfo?.user?.firstName;
+
+  const quickCards = [
+    ["Афиша", "События рядом", onOpenEvents],
+    ["Игры", "Демо-механики", onOpenGames],
+    ["Призы", "Будущие привилегии", onOpenPrizes],
+    ["Профиль", "Профиль гостя", onOpenProfile],
+  ] as const;
 
   return (
     <div className="space-y-3.5 pb-[150px]">
@@ -96,18 +106,18 @@ export function HomeScreen({
       ) : null}
 
       <div className="grid grid-cols-2 gap-3">
-        {[
-          ["Афиша", "События рядом"],
-          ["Игры", "Демо-механики"],
-          ["Призы", "Будущие привилегии"],
-          ["Профиль", "Профиль гостя"],
-        ].map(([title, description]) => (
-          <Card className="rounded-[24px] px-4 py-3.5" key={title}>
+        {quickCards.map(([title, description, onClick]) => (
+          <button
+            className="editorial-card-reveal rounded-[24px] border border-[var(--line-soft)] bg-[var(--surface)] px-4 py-3.5 text-left text-[var(--text)] shadow-[var(--shadow-card)] backdrop-blur-xl transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.98]"
+            key={title}
+            onClick={onClick}
+            type="button"
+          >
             <p className="font-semibold text-[var(--text)]">{title}</p>
             <p className="mt-1.5 text-xs leading-5 text-[var(--muted)]">
               {description}
             </p>
-          </Card>
+          </button>
         ))}
       </div>
     </div>

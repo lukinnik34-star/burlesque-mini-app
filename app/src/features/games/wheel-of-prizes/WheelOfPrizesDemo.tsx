@@ -97,7 +97,7 @@ export function WheelOfPrizesDemo() {
         )}
 
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">
-          Результат не сохраняется. Призы пока не выдаются.
+          Демо-механика. Результат не сохраняется, призы пока не выдаются.
         </p>
       </div>
     </Card>

@@ -7,7 +7,7 @@ export const mockPrizes: MockPrize[] = [
     title: "Приветственный напиток",
     description: "Комплимент для первого визита.",
     status: "mock",
-    note: "Демо-режим. Привилегия будет подключена позже.",
+    note: "Демо-привилегия. Реальная выдача будет подключена позже.",
     iconSrc: burlesqueAssets.prizes.drink,
   },
   {
@@ -15,7 +15,7 @@ export const mockPrizes: MockPrize[] = [
     title: "Купон на скидку",
     description: "Персональное предложение для будущей брони.",
     status: "mock",
-    note: "Демо-режим. Промокод показан только как пример.",
+    note: "Эта привилегия показана как пример будущего сценария.",
     iconSrc: burlesqueAssets.prizes.discount,
   },
   {
@@ -23,7 +23,7 @@ export const mockPrizes: MockPrize[] = [
     title: "Бонус на резерв стола",
     description: "Привилегия для сценария с бронированием.",
     status: "mock",
-    note: "Демо-режим. Проверка бонуса появится на следующем этапе.",
+    note: "Демо-привилегия. Проверка бонуса появится на следующем этапе.",
     iconSrc: burlesqueAssets.prizes.table,
   },
   {
@@ -31,6 +31,6 @@ export const mockPrizes: MockPrize[] = [
     title: "Доступ к спецсобытию",
     description: "Персональный доступ к закрытому вечеру.",
     status: "mock",
-    note: "Демо-режим. Регистрация будет подключена позже.",
+    note: "Показано для примера. Регистрация будет подключена позже.",
   },
 ];

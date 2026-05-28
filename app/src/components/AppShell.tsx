@@ -22,6 +22,8 @@ export function AppShell() {
     home: (
       <HomeScreen
         onOpenEvents={() => setActiveTab("events")}
+        onOpenGames={() => setActiveTab("games")}
+        onOpenProfile={() => setActiveTab("profile")}
         onOpenPrizes={() => setActiveTab("prizes")}
         runtimeInfo={runtimeInfo}
       />

@@ -6,13 +6,13 @@ export const mockGames: MockGame[] = [
     title: "Scratch Card",
     description: "Клубная карточка-сюрприз для будущих розыгрышей.",
     status: "available",
-    actionLabel: "Открыть",
+    actionLabel: "Открыть демо",
   },
   {
     id: "wheel-of-prizes",
     title: "Wheel Of Prizes",
     description: "Колесо привилегий для будущих промо-кампаний.",
     status: "available",
-    actionLabel: "Открыть",
+    actionLabel: "Открыть демо",
   },
 ];

@@ -57,7 +57,7 @@ export function GamesScreen({
                 .join(" ")}
               key={game.id}
             >
-                <div className="flex min-h-[136px] items-stretch">
+              <div className="flex min-h-[136px] items-stretch">
                 <div className="relative w-[38%] shrink-0 overflow-hidden bg-[linear-gradient(145deg,#1b1024,#3d1740)]">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(185,156,255,0.28),transparent_38%),radial-gradient(circle_at_20%_10%,rgba(123,51,79,0.26),transparent_36%)]" />
                   <div className="pointer-events-none absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(214,184,255,0.12)] bg-white/[0.04]" />
@@ -118,7 +118,7 @@ export function GamesScreen({
             <Badge>Демо</Badge>
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            Визуальный сценарий без сохранения результата и выдачи приза.
+            Демо-механика. Результат не сохраняется, призы пока не выдаются.
           </p>
         </Card>
       ) : null}
