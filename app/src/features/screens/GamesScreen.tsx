@@ -32,7 +32,7 @@ export function GamesScreen({
     selectedGame?.id === "wheel-of-prizes" && isDemoPreview;
 
   return (
-    <div className="space-y-5 pb-4">
+    <div className="space-y-5 pb-12">
       <ScreenHeader
         title="Игры"
         subtitle="Демо-механики для будущих клубных розыгрышей. Призы пока не выдаются."
@@ -57,7 +57,7 @@ export function GamesScreen({
                 .join(" ")}
               key={game.id}
             >
-              <div className="flex min-h-[142px] items-stretch">
+                <div className="flex min-h-[136px] items-stretch">
                 <div className="relative w-[38%] shrink-0 overflow-hidden bg-[linear-gradient(145deg,#1b1024,#3d1740)]">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(185,156,255,0.28),transparent_38%),radial-gradient(circle_at_20%_10%,rgba(123,51,79,0.26),transparent_36%)]" />
                   <div className="pointer-events-none absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(214,184,255,0.12)] bg-white/[0.04]" />
@@ -72,7 +72,7 @@ export function GamesScreen({
                   />
                 </div>
 
-                <div className="flex min-w-0 flex-1 flex-col justify-between p-3.5">
+                <div className="flex min-w-0 flex-1 flex-col justify-between p-3">
                   <div>
                     <div className="flex items-start justify-between gap-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--lavender)]">

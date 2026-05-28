@@ -25,7 +25,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(185,156,255,0.28),transparent_34%),radial-gradient(circle_at_90%_24%,rgba(123,51,79,0.28),transparent_36%)]" />
       <div className="relative flex items-center gap-4">
-        <div className="grid size-[72px] shrink-0 place-items-center overflow-hidden rounded-full border border-[rgba(214,184,255,0.36)] bg-[linear-gradient(145deg,#2b1a3a,#6f4ce8_54%,#1a1024)] font-serif text-2xl font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_16px_34px_rgba(0,0,0,0.32)]">
+        <div className="grid size-[72px] shrink-0 place-items-center overflow-hidden rounded-full border border-[rgba(214,184,255,0.26)] bg-[linear-gradient(145deg,#171020,#2b1b3d_54%,#0f0a16)] font-serif text-2xl font-semibold text-[var(--lavender)] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_34px_rgba(0,0,0,0.32)]">
           {photoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img

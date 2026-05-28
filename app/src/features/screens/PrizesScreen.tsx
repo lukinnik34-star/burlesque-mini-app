@@ -22,7 +22,7 @@ export function PrizesScreen({
   onSelectPrize,
 }: PrizesScreenProps) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 pb-12">
       <ScreenHeader
         title="Призы"
         subtitle="Будущие комплименты и предложения для гостей Burlesque."
@@ -73,7 +73,7 @@ export function PrizesScreen({
                     {prize.description}
                   </p>
                   <Button
-                    className="mt-2.5 min-h-7 px-3 text-xs"
+                    className="mt-2.5 h-7 min-h-0 px-3 py-0 text-xs"
                     onClick={() => onSelectPrize(prize.id)}
                     variant="secondary"
                   >

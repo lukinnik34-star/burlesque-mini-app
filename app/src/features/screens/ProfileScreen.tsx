@@ -59,7 +59,7 @@ export function ProfileScreen({
   const diagnostics = runtimeInfo.diagnostics;
 
   return (
-    <div className="space-y-4 pb-4">
+    <div className="space-y-4 pb-12">
       <ScreenHeader
         title="Профиль"
         subtitle="Профиль гостя с будущими привилегиями и активностью."
