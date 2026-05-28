@@ -19,7 +19,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
 
   return (
     <section
-      className="relative overflow-hidden rounded-[34px] border border-[rgba(214,184,255,0.2)] bg-cover bg-center p-5 text-white shadow-[0_26px_64px_rgba(0,0,0,0.48)]"
+      className="ambient-pass relative overflow-hidden rounded-[34px] border border-[rgba(214,184,255,0.2)] bg-cover bg-center p-5 text-white shadow-[0_26px_64px_rgba(0,0,0,0.48)]"
       style={{
         backgroundImage: `linear-gradient(145deg,rgba(17,10,24,0.9),rgba(65,30,64,0.82),rgba(14,10,18,0.86)),url(${burlesqueAssets.profile.memberCardBg})`,
       }}

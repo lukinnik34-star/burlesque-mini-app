@@ -27,7 +27,7 @@ export function EventCard({
     return (
       <article
         className={[
-          "editorial-card-reveal tap-lift relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_22px_56px_rgba(0,0,0,0.46)] transition duration-200",
+          "ambient-card editorial-card-reveal tap-lift relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_22px_56px_rgba(0,0,0,0.46)] transition duration-200",
           isSelected ? "ring-2 ring-[var(--lavender)]" : "",
         ]
           .filter(Boolean)

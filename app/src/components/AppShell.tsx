@@ -54,8 +54,8 @@ export function AppShell() {
 
   return (
     <main className="premium-scrollbar min-h-tg overflow-x-hidden bg-[var(--app-bg)] text-[var(--text)]">
-      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_50%_0%,rgba(185,156,255,0.24),transparent_68%)]" />
-      <div className="relative mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+178px)] pt-[calc(env(safe-area-inset-top)+12px)]">
+      <div className="ambient-shell" />
+      <div className="relative z-10 mx-auto flex min-h-tg w-full max-w-md flex-col px-5 pb-[calc(env(safe-area-inset-bottom)+178px)] pt-[calc(env(safe-area-inset-top)+12px)]">
         <header className="mb-6 flex items-center justify-between gap-3 rounded-full border border-[var(--line-soft)] bg-white/[0.045] px-3 py-2 shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
           <div className="flex min-w-0 items-center gap-3">
             <div className="grid size-10 shrink-0 place-items-center rounded-full border border-[rgba(214,184,255,0.28)] bg-[linear-gradient(145deg,#2a1b39,#120c18)] font-serif text-lg font-semibold text-[var(--lavender)] shadow-[0_12px_24px_rgba(0,0,0,0.28)]">
