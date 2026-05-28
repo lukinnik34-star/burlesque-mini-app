@@ -27,7 +27,7 @@ export function EventCard({
     return (
       <article
         className={[
-          "relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_22px_56px_rgba(0,0,0,0.46)] transition duration-200 active:scale-[0.995]",
+          "editorial-card-reveal tap-lift relative overflow-hidden rounded-[32px] border border-[rgba(214,184,255,0.22)] bg-[linear-gradient(145deg,#191021_0%,#3f1738_56%,#110c18_100%)] text-white shadow-[0_22px_56px_rgba(0,0,0,0.46)] transition duration-200",
           isSelected ? "ring-2 ring-[var(--lavender)]" : "",
         ]
           .filter(Boolean)
@@ -100,7 +100,7 @@ export function EventCard({
   return (
     <Card
       className={[
-        "rounded-[28px] p-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
+        "tap-lift rounded-[28px] p-4 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
         isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
       ]
         .filter(Boolean)

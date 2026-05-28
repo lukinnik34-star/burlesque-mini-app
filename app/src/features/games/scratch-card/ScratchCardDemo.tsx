@@ -13,7 +13,7 @@ export function ScratchCardDemo() {
   const isRevealed = status === "revealed";
 
   return (
-    <Card className="overflow-hidden p-0">
+    <Card className="screen-soft-enter overflow-hidden p-0">
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -35,7 +35,7 @@ export function ScratchCardDemo() {
           </div>
           <div
             className={[
-              "absolute inset-4 grid place-items-center rounded-[26px] border border-[var(--line-strong)] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_18px_34px_rgba(0,0,0,0.32)] transition duration-500",
+              "demo-shimmer absolute inset-4 grid place-items-center overflow-hidden rounded-[26px] border border-[var(--line-strong)] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_18px_34px_rgba(0,0,0,0.32)] transition duration-500",
               isRevealed ? "opacity-0" : "opacity-100",
             ].join(" ")}
             style={{

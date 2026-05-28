@@ -65,7 +65,9 @@ export function ProfileScreen({
         subtitle="Профиль гостя с будущими привилегиями и активностью."
       />
 
-      <UserCard runtimeInfo={runtimeInfo} />
+      <div className="screen-soft-enter">
+        <UserCard runtimeInfo={runtimeInfo} />
+      </div>
 
       {showTelegramDebug ? (
         <Card className="border-[var(--line-soft)] bg-[var(--surface-soft)] p-5">
@@ -130,7 +132,7 @@ export function ProfileScreen({
           <Badge>пример</Badge>
         </div>
         <div className="relative mt-4 h-2.5 overflow-hidden rounded-full bg-white/[0.08]">
-          <div className="h-full w-[62%] rounded-full bg-[linear-gradient(90deg,#b99cff,#7b334f)]" />
+          <div className="profile-progress-fill h-full w-[62%] rounded-full bg-[linear-gradient(90deg,#b99cff,#7b334f)]" />
         </div>
         <p className="relative mt-2 text-right text-xs font-semibold text-[var(--lavender)]">
           62%
@@ -140,7 +142,7 @@ export function ProfileScreen({
       <div className="grid grid-cols-2 gap-2.5">
         {mockProfileStats.map((stat) => (
           <Card
-            className="rounded-[24px] px-3.5 py-3.5 shadow-[0_12px_30px_rgba(0,0,0,0.16)]"
+            className="editorial-card-reveal rounded-[24px] px-3.5 py-3.5 shadow-[0_12px_30px_rgba(0,0,0,0.16)]"
             key={stat.id}
           >
             <p className="text-xs text-[var(--muted)]">{stat.label}</p>

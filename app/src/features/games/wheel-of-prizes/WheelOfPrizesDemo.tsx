@@ -32,7 +32,7 @@ export function WheelOfPrizesDemo() {
   }, [isSpinning]);
 
   return (
-    <Card className="overflow-hidden p-0">
+    <Card className="screen-soft-enter overflow-hidden p-0">
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">

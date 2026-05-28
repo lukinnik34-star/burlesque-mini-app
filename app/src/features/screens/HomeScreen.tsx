@@ -31,8 +31,8 @@ export function HomeScreen({
   return (
     <div className="space-y-3.5 pb-[150px]">
       <section className="relative overflow-hidden rounded-[32px] border border-[var(--line-soft)] bg-[linear-gradient(180deg,rgba(26,18,34,0.9),rgba(15,10,21,0.82))] px-6 py-4.5 text-center shadow-[var(--shadow-soft)] backdrop-blur-xl">
-        <div className="animate-pulse-soft pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-[rgba(185,156,255,0.18)] blur-3xl" />
-        <div className="pointer-events-none absolute left-1/2 top-8 h-24 w-40 -translate-x-1/2 rounded-full bg-[rgba(123,51,79,0.16)] blur-2xl" />
+        <div className="ambient-drift pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-[rgba(185,156,255,0.18)] blur-3xl" />
+        <div className="ambient-drift pointer-events-none absolute left-1/2 top-8 h-24 w-40 -translate-x-1/2 rounded-full bg-[rgba(123,51,79,0.16)] blur-2xl [animation-delay:-4s]" />
         <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(185,156,255,0.5),transparent)]" />
 
         <div className="relative mx-auto max-w-[19rem]">
@@ -68,7 +68,7 @@ export function HomeScreen({
             </span>
           </div>
 
-          <article className="relative overflow-hidden rounded-[30px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(145deg,#1a1022_0%,#3b1630_54%,#101018_100%)] p-3.5 shadow-[0_22px_54px_rgba(0,0,0,0.42)]">
+          <article className="editorial-card-reveal tap-lift relative overflow-hidden rounded-[30px] border border-[rgba(214,184,255,0.2)] bg-[linear-gradient(145deg,#1a1022_0%,#3b1630_54%,#101018_100%)] p-3.5 shadow-[0_22px_54px_rgba(0,0,0,0.42)]">
             <div
               className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-42 mix-blend-screen"
               style={
@@ -108,7 +108,7 @@ export function HomeScreen({
       <div className="grid grid-cols-2 gap-3">
         {quickCards.map(([title, description, onClick]) => (
           <button
-            className="editorial-card-reveal rounded-[24px] border border-[var(--line-soft)] bg-[var(--surface)] px-4 py-3.5 text-left text-[var(--text)] shadow-[var(--shadow-card)] backdrop-blur-xl transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.98]"
+            className="editorial-card-reveal tap-lift rounded-[24px] border border-[var(--line-soft)] bg-[var(--surface)] px-4 py-3.5 text-left text-[var(--text)] shadow-[var(--shadow-card)] backdrop-blur-xl transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]"
             key={title}
             onClick={onClick}
             type="button"

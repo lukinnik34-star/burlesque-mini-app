@@ -76,7 +76,9 @@ export function AppShell() {
           </div>
         </header>
 
-        <section className="min-h-[360px]">{screen}</section>
+        <section className="screen-soft-enter min-h-[360px]" key={activeTab}>
+          {screen}
+        </section>
 
         {SHOW_DEBUG_PANEL ? (
           <section className="mt-5 rounded-[28px] border border-[var(--line-soft)] bg-white/[0.05] p-4">

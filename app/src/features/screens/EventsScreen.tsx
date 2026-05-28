@@ -74,13 +74,18 @@ export function EventsScreen() {
 
       <div className="grid gap-4">
         {visibleEvents.map((event, index) => (
-          <EventCard
-            event={event}
-            isFeatured={index === 0 && activeFilter !== "today"}
-            isSelected={event.id === selectedEventId}
+          <div
+            className="editorial-card-reveal"
             key={event.id}
-            onSelect={setSelectedEventId}
-          />
+            style={{ animationDelay: `${index * 45}ms` }}
+          >
+            <EventCard
+              event={event}
+              isFeatured={index === 0 && activeFilter !== "today"}
+              isSelected={event.id === selectedEventId}
+              onSelect={setSelectedEventId}
+            />
+          </div>
         ))}
       </div>
 

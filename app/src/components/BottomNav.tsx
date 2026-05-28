@@ -91,7 +91,7 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
             <button
               aria-current={isActive ? "page" : undefined}
               className={[
-                "grid h-[54px] min-w-0 place-items-center rounded-[23px] px-0.5 text-center text-[10px] font-semibold leading-tight transition duration-200 active:scale-[0.97]",
+                "tap-lift group grid h-[54px] min-w-0 place-items-center rounded-[23px] px-0.5 text-center text-[10px] font-semibold leading-tight transition duration-200 active:scale-[0.97]",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--lavender)]",
                 isActive
                   ? "bg-[rgba(185,156,255,0.16)] text-[var(--lavender)] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_22px_rgba(143,109,255,0.2)]"
@@ -102,7 +102,14 @@ export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
               type="button"
             >
               <span className="grid place-items-center gap-1">
+                <span
+                  className={[
+                    "transition duration-200 group-active:scale-[1.04]",
+                    isActive ? "-translate-y-0.5 scale-[1.04]" : "",
+                  ].join(" ")}
+                >
                 <NavIcon icon={item.icon} />
+                </span>
                 <span className="block whitespace-nowrap">{item.label}</span>
               </span>
             </button>

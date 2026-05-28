@@ -25,8 +25,8 @@ export function Button({
   return (
     <button
       className={[
-        "inline-flex min-h-11 items-center justify-center rounded-full border px-5 text-center text-sm font-semibold leading-none transition duration-200",
-        "active:translate-y-px",
+        "tap-lift inline-flex min-h-11 items-center justify-center rounded-full border px-5 text-center text-sm font-semibold leading-none transition duration-200",
+        "active:scale-[0.975]",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--lavender)]",
         "disabled:cursor-not-allowed disabled:border-[var(--line-soft)] disabled:bg-white/[0.05] disabled:text-[#7d7070] disabled:shadow-none disabled:hover:bg-white/[0.05]",
         variantClass[variant],

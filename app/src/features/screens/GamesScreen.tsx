@@ -50,7 +50,7 @@ export function GamesScreen({
           return (
             <Card
               className={[
-                "overflow-hidden p-0 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
+                "tap-lift overflow-hidden p-0 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
                 isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)

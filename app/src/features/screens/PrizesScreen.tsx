@@ -35,7 +35,7 @@ export function PrizesScreen({
           return (
             <Card
               className={[
-                "rounded-[24px] px-3.5 py-3 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06] active:scale-[0.995]",
+                "tap-lift rounded-[24px] px-3.5 py-3 transition duration-200 hover:border-[var(--line-strong)] hover:bg-white/[0.06]",
                 isSelected ? "border-[var(--line-strong)] bg-white/[0.07]" : "",
               ]
                 .filter(Boolean)
@@ -87,7 +87,7 @@ export function PrizesScreen({
       </div>
 
       {selectedPrize ? (
-        <Card className="p-5">
+        <Card className="screen-soft-enter p-5">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lavender)]">
