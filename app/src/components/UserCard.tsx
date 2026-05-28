@@ -8,6 +8,7 @@ type UserCardProps = {
 export function UserCard({ runtimeInfo }: UserCardProps) {
   const hasTelegramUser = Boolean(runtimeInfo.user);
   const displayName = hasTelegramUser ? runtimeInfo.displayName : "Демо-гость";
+  const isFallbackUser = !hasTelegramUser;
   const initials = displayName.slice(0, 1).toUpperCase();
   const userHandle = runtimeInfo.user?.username
     ? `@${runtimeInfo.user.username}`
@@ -39,7 +40,12 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="truncate font-serif text-2xl font-semibold leading-tight">
+          <p
+            className={[
+              "font-serif font-semibold leading-tight",
+              isFallbackUser ? "text-[22px]" : "truncate text-2xl",
+            ].join(" ")}
+          >
             {displayName}
           </p>
           <p className="mt-1 truncate text-sm text-white/72">{userHandle}</p>

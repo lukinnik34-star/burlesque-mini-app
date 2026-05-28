@@ -30,7 +30,7 @@ export function EventsScreen() {
         : mockEvents.filter((event) => event.status !== "past");
 
   return (
-    <div className="space-y-5 pb-12">
+    <div className="space-y-5 pb-[170px]">
       <ScreenHeader
         title="Афиша"
         subtitle="Ближайшие события Burlesque. Бронирование появится в следующем этапе."

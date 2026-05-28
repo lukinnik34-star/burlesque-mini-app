@@ -22,7 +22,7 @@ export function PrizesScreen({
   onSelectPrize,
 }: PrizesScreenProps) {
   return (
-    <div className="space-y-5 pb-12">
+    <div className="space-y-5 pb-[170px]">
       <ScreenHeader
         title="Призы"
         subtitle="Будущие комплименты и предложения для гостей Burlesque."
