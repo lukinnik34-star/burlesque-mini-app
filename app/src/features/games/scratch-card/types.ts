@@ -1,4 +1,4 @@
-export type ScratchCardDemoStatus = "closed" | "revealed";
+export type ScratchCardDemoStatus = "closed" | "revealing" | "revealed";
 
 export type ScratchCardDemoResult = {
   title: string;

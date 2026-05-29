@@ -14,7 +14,13 @@ const statusLabel = {
   revealed: "Открыто",
 };
 
-export function WheelOfPrizesDemo() {
+type WheelOfPrizesDemoProps = {
+  embedded?: boolean;
+};
+
+export function WheelOfPrizesDemo({
+  embedded = false,
+}: WheelOfPrizesDemoProps) {
   const [status, setStatus] = useState<WheelDemoStatus>("idle");
   const isSpinning = status === "spinning";
   const isRevealed = status === "revealed";
@@ -26,33 +32,42 @@ export function WheelOfPrizesDemo() {
 
     const timeoutId = window.setTimeout(() => {
       setStatus("revealed");
-    }, 900);
+    }, 1180);
 
     return () => window.clearTimeout(timeoutId);
   }, [isSpinning]);
 
   return (
-    <Card className="screen-soft-enter overflow-hidden p-0">
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-sm text-[var(--muted)]">Демо-механика</p>
-            <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
-              Wheel Of Prizes
-            </h3>
+    <Card
+      className={[
+        "screen-soft-enter overflow-hidden p-0",
+        embedded ? "border-[var(--line-soft)] bg-white/[0.035]" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      {!embedded ? (
+        <div className="p-5">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-sm text-[var(--muted)]">Демо-механика</p>
+              <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
+                Wheel Of Prizes
+              </h3>
+            </div>
+            <Badge>{statusLabel[status]}</Badge>
           </div>
-          <Badge>{statusLabel[status]}</Badge>
         </div>
-      </div>
+      ) : null}
 
-      <div className="grid place-items-center px-5">
+      <div className="grid place-items-center">
         <div className="relative grid size-64 place-items-center">
           <div className="absolute -top-1 z-10 h-0 w-0 border-x-[13px] border-t-[26px] border-x-transparent border-t-[var(--lavender)] drop-shadow-[0_6px_10px_rgba(143,109,255,0.2)]" />
           <div className="absolute size-64 rounded-full bg-[rgba(185,156,255,0.16)] blur-xl" />
           <div
             className={[
               "relative size-56 rounded-full border-[7px] border-[rgba(214,184,255,0.22)] bg-contain bg-center bg-no-repeat shadow-[0_20px_42px_rgba(0,0,0,0.34)] transition-transform duration-700",
-              isSpinning ? "rotate-[540deg]" : "",
+              isSpinning ? "wheel-demo-spin" : "",
               isRevealed ? "rotate-[315deg]" : "",
             ].join(" ")}
             style={{
@@ -73,7 +88,7 @@ export function WheelOfPrizesDemo() {
         </div>
       </div>
 
-      <div className="p-5">
+      <div className={embedded ? "pt-4" : "p-5"}>
         {!isRevealed ? (
           <Button
             className="w-full"
@@ -85,13 +100,13 @@ export function WheelOfPrizesDemo() {
         ) : (
           <Card className="rounded-[24px] bg-[var(--surface-soft)]">
             <p className="font-serif text-2xl font-semibold text-[var(--lavender)]">
-              {wheelDemoResult.title}
+              Пример результата
             </p>
             <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
               {wheelDemoResult.description}
             </p>
             <p className="mt-3 text-xs leading-5 text-[var(--muted-strong)]">
-              {wheelDemoResult.note}
+              Результат не сохраняется.
             </p>
           </Card>
         )}
