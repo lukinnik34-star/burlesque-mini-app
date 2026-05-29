@@ -41,7 +41,7 @@ export function EventCard({
         ) : null}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(185,156,255,0.26),transparent_30%),linear-gradient(145deg,rgba(15,10,21,0.58),rgba(67,26,57,0.76))]" />
 
-        <div className="relative p-4">
+        <div className="relative z-[1] p-4">
           <div className="flex items-center justify-between gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
             <span>{event.dateLabel}</span>
             <span>{event.timeLabel}</span>
@@ -63,7 +63,7 @@ export function EventCard({
           </div>
         </div>
 
-        <div className="relative space-y-3 border-t border-white/10 bg-black/24 p-4 backdrop-blur-sm">
+        <div className="relative z-[1] space-y-3 border-t border-white/10 bg-black/24 p-4 backdrop-blur-sm">
           <div className="flex flex-wrap gap-2">
             {event.tags.map((tag) => (
               <span

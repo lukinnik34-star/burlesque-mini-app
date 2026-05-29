@@ -25,7 +25,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
       }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(185,156,255,0.28),transparent_34%),radial-gradient(circle_at_90%_24%,rgba(123,51,79,0.28),transparent_36%)]" />
-      <div className="relative flex items-center gap-4">
+      <div className="relative z-[1] flex items-center gap-4">
         <div className="grid size-[72px] shrink-0 place-items-center overflow-hidden rounded-full border border-[rgba(214,184,255,0.26)] bg-[linear-gradient(145deg,#171020,#2b1b3d_54%,#0f0a16)] font-serif text-2xl font-semibold text-[var(--lavender)] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_16px_34px_rgba(0,0,0,0.32)]">
           {photoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -55,7 +55,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
         </div>
       </div>
 
-      <div className="relative mt-6 grid grid-cols-3 gap-2">
+      <div className="relative z-[1] mt-6 grid grid-cols-3 gap-2">
         {[
           ["12", "визитов"],
           ["1 240", "баллов"],
@@ -71,7 +71,7 @@ export function UserCard({ runtimeInfo }: UserCardProps) {
         ))}
       </div>
 
-      <p className="relative mt-4 rounded-2xl border border-white/10 bg-white/[0.08] px-3 py-2 text-xs leading-5 text-white/74">
+      <p className="relative z-[1] mt-4 rounded-2xl border border-white/10 bg-white/[0.08] px-3 py-2 text-xs leading-5 text-white/74">
         Данные профиля показаны для примера.
       </p>
     </section>

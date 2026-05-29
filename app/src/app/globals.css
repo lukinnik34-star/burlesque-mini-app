@@ -253,105 +253,135 @@ button {
 }
 
 .ambient-hero::before {
-  right: -22%;
-  top: -26%;
-  width: 16rem;
-  height: 16rem;
-  background: radial-gradient(circle, rgba(185, 156, 255, 0.34), transparent 66%);
-  filter: blur(34px);
-  opacity: 0.38;
-  animation: ambient-hero-breathe 18s ease-in-out infinite;
+  left: -76%;
+  top: -38%;
+  z-index: 0;
+  width: 220%;
+  height: 170%;
+  border-radius: 36%;
+  background: linear-gradient(
+    112deg,
+    transparent 18%,
+    rgba(185, 156, 255, 0.04) 34%,
+    rgba(185, 156, 255, 0.24) 47%,
+    rgba(223, 199, 157, 0.09) 53%,
+    rgba(123, 51, 79, 0.2) 62%,
+    transparent 78%
+  );
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  opacity: 0.24;
+  animation: elegant-wave-sweep 8s cubic-bezier(0.45, 0, 0.25, 1) infinite;
 }
 
 .ambient-hero::after {
-  left: -18%;
-  bottom: -30%;
-  width: 15rem;
-  height: 15rem;
-  background: radial-gradient(circle, rgba(123, 51, 79, 0.34), transparent 68%);
-  filter: blur(36px);
-  opacity: 0.32;
-  animation: ambient-hero-breathe 20s ease-in-out infinite reverse;
+  right: -18%;
+  bottom: -28%;
+  z-index: 0;
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(circle, rgba(123, 51, 79, 0.24), transparent 68%);
+  filter: blur(38px);
+  opacity: 0.22;
 }
 
 .ambient-card::before {
-  right: -18%;
-  top: -16%;
-  width: 15rem;
-  height: 15rem;
-  background: radial-gradient(circle, rgba(185, 156, 255, 0.24), transparent 68%);
-  filter: blur(32px);
-  opacity: 0.36;
-  animation: ambient-card-haze 20s ease-in-out infinite;
+  left: -88%;
+  top: -42%;
+  z-index: 0;
+  width: 230%;
+  height: 178%;
+  border-radius: 38%;
+  background: linear-gradient(
+    106deg,
+    transparent 20%,
+    rgba(123, 51, 79, 0.08) 36%,
+    rgba(185, 156, 255, 0.24) 50%,
+    rgba(223, 199, 157, 0.1) 57%,
+    rgba(123, 51, 79, 0.18) 66%,
+    transparent 82%
+  );
+  filter: blur(16px);
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  animation: elegant-wave-sweep-reverse 9s cubic-bezier(0.45, 0, 0.25, 1) infinite;
 }
 
 .ambient-card::after {
-  right: -34%;
-  bottom: -42%;
-  width: 20rem;
-  height: 11rem;
-  background: linear-gradient(110deg, transparent 8%, rgba(223, 199, 157, 0.12) 42%, rgba(123, 51, 79, 0.18) 74%, transparent 100%);
-  filter: blur(24px);
-  opacity: 0.38;
-  transform: rotate(-10deg);
-  animation: ambient-card-haze 24s ease-in-out infinite reverse;
+  right: -18%;
+  top: -18%;
+  z-index: 0;
+  width: 15rem;
+  height: 15rem;
+  background: radial-gradient(circle, rgba(185, 156, 255, 0.18), transparent 70%);
+  filter: blur(34px);
+  opacity: 0.2;
 }
 
 .ambient-pass::before {
-  left: -18%;
-  top: -22%;
-  width: 17rem;
-  height: 17rem;
-  background: radial-gradient(circle, rgba(95, 43, 87, 0.36), transparent 68%);
-  filter: blur(36px);
-  opacity: 0.44;
-  animation: ambient-pass-breathe 22s ease-in-out infinite;
+  left: -80%;
+  top: -44%;
+  z-index: 0;
+  width: 220%;
+  height: 175%;
+  border-radius: 38%;
+  background: linear-gradient(
+    118deg,
+    transparent 22%,
+    rgba(95, 43, 87, 0.1) 36%,
+    rgba(185, 156, 255, 0.22) 49%,
+    rgba(223, 199, 157, 0.08) 56%,
+    rgba(123, 51, 79, 0.16) 66%,
+    transparent 82%
+  );
+  filter: blur(17px);
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  animation: elegant-wave-sweep 8.8s cubic-bezier(0.45, 0, 0.25, 1) infinite;
 }
 
 .ambient-pass::after {
   right: -14%;
   bottom: -24%;
+  z-index: 0;
   width: 15rem;
   height: 15rem;
-  background: radial-gradient(circle, rgba(185, 156, 255, 0.2), transparent 68%);
+  background: radial-gradient(circle, rgba(185, 156, 255, 0.16), transparent 68%);
   filter: blur(32px);
-  opacity: 0.32;
-  animation: ambient-pass-breathe 24s ease-in-out infinite reverse;
+  opacity: 0.2;
 }
 
-@keyframes ambient-hero-breathe {
+@keyframes elegant-wave-sweep {
   0%,
-  100% {
-    opacity: 0.28;
-    transform: translate3d(0, 0, 0) scale(1);
+  12% {
+    opacity: 0;
+    transform: translate3d(-40%, 0, 0) rotate(-10deg) scale(1);
   }
-  50% {
-    opacity: 0.46;
-    transform: translate3d(-12px, 10px, 0) scale(1.05);
-  }
-}
-
-@keyframes ambient-card-haze {
-  0%,
-  100% {
+  38%,
+  62% {
     opacity: 0.26;
-    transform: translate3d(0, 0, 0) scale(1) rotate(-8deg);
   }
-  50% {
-    opacity: 0.48;
-    transform: translate3d(-14px, 8px, 0) scale(1.04) rotate(-4deg);
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate3d(42%, 0, 0) rotate(-10deg) scale(1.035);
   }
 }
 
-@keyframes ambient-pass-breathe {
+@keyframes elegant-wave-sweep-reverse {
   0%,
-  100% {
-    opacity: 0.3;
-    transform: translate3d(0, 0, 0) scale(1);
+  12% {
+    opacity: 0;
+    transform: translate3d(42%, 0, 0) rotate(-8deg) scale(1);
   }
-  50% {
-    opacity: 0.5;
-    transform: translate3d(12px, -8px, 0) scale(1.045);
+  38%,
+  62% {
+    opacity: 0.24;
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-42%, 0, 0) rotate(-8deg) scale(1.035);
   }
 }
 
