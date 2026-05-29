@@ -111,7 +111,7 @@ export function PrizesScreen({
           eyebrow="Детали привилегии"
           footer={
             <Button
-              className="w-full"
+              className="min-h-10 w-full"
               onClick={() => setSheetPrize(null)}
               variant="secondary"
             >
@@ -130,7 +130,7 @@ export function PrizesScreen({
             </Badge>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3">
+          <div className="mt-4 rounded-2xl bg-white/[0.05] px-3 py-2.5">
             <p className="text-sm font-semibold text-[var(--text)]">
               Эта привилегия показана как пример будущего сценария.
             </p>
@@ -140,7 +140,7 @@ export function PrizesScreen({
           </div>
 
           {sheetPrize.note ? (
-            <p className="mt-4 rounded-2xl border border-[var(--line-soft)] bg-[var(--surface-soft)] px-3 py-2 text-xs leading-5 text-[var(--muted-strong)]">
+            <p className="mt-3 text-xs leading-5 text-[var(--muted-strong)]">
               {sheetPrize.note}
             </p>
           ) : null}

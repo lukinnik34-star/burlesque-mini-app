@@ -29,107 +29,93 @@ export function ScratchCardDemo({ embedded = false }: ScratchCardDemoProps) {
     return () => window.clearTimeout(timeoutId);
   }, [isRevealing]);
 
-  return (
-    <Card
-      className={[
-        "screen-soft-enter overflow-hidden p-0",
-        embedded ? "border-[var(--line-soft)] bg-white/[0.035]" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
-    >
+  const content = (
+    <>
       {!embedded ? (
-        <div className="p-5">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <p className="text-sm text-[var(--muted)]">Демо-механика</p>
-              <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
-                Scratch Card
-              </h3>
-            </div>
-            <Badge>{isRevealed ? "Открыто" : "Закрыто"}</Badge>
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-sm text-[var(--muted)]">Демо-механика</p>
+            <h3 className="mt-1 font-serif text-2xl font-semibold text-[var(--text)]">
+              Scratch Card
+            </h3>
           </div>
+          <Badge>{isRevealed ? "Открыто" : "Закрыто"}</Badge>
         </div>
       ) : null}
 
-      <div className={embedded ? "px-0" : "px-5"}>
-        <div className="relative grid min-h-64 place-items-center overflow-hidden rounded-[30px] border border-[var(--line-soft)] bg-[linear-gradient(145deg,#1a1022,#3d1740)] p-4 text-center">
-          <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-[rgba(185,156,255,0.16)] blur-xl" />
-          <div className="pointer-events-none absolute left-5 top-5 h-16 w-24 rotate-[-10deg] rounded-[20px] border border-[rgba(214,184,255,0.18)] bg-white/[0.06]" />
-          <div className="pointer-events-none absolute bottom-4 right-6 font-serif text-[92px] leading-none text-[var(--lavender)]/10">
-            B
+      <div className="relative grid min-h-[212px] place-items-center overflow-hidden rounded-[26px] bg-[linear-gradient(145deg,#1a1022,#3d1740)] p-3 text-center shadow-[inset_0_0_0_1px_rgba(214,184,255,0.12)]">
+        <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-[rgba(185,156,255,0.14)] blur-xl" />
+        <div className="pointer-events-none absolute bottom-3 right-5 font-serif text-[78px] leading-none text-[var(--lavender)]/10">
+          B
+        </div>
+        <div
+          className={[
+            "scratch-demo-cover demo-shimmer absolute inset-3 grid place-items-center overflow-hidden rounded-[22px] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_14px_28px_rgba(0,0,0,0.28)] transition duration-700",
+            isRevealing ? "scratch-demo-wipe" : "",
+            isRevealed ? "translate-x-[115%] opacity-0" : "opacity-100",
+          ].join(" ")}
+          style={{
+            backgroundImage: `linear-gradient(135deg,rgba(31,16,45,0.5),rgba(12,8,17,0.18)),url(${burlesqueAssets.games.scratchCard})`,
+          }}
+        >
+          <div className="relative rounded-2xl bg-[#140b1d]/50 px-4 py-3 backdrop-blur-[1px]">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/72">
+              Promo card
+            </p>
+            <p className="mt-2 font-serif text-2xl font-semibold">Burlesque</p>
           </div>
-          <div
-            className={[
-              "scratch-demo-cover demo-shimmer absolute inset-4 grid place-items-center overflow-hidden rounded-[26px] border border-[var(--line-strong)] bg-[length:88%_auto] bg-center bg-no-repeat p-4 text-white shadow-[0_18px_34px_rgba(0,0,0,0.32)] transition duration-700",
-              isRevealing ? "scratch-demo-wipe" : "",
-              isRevealed ? "translate-x-[115%] opacity-0" : "opacity-100",
-            ].join(" ")}
-            style={{
-              backgroundImage: `linear-gradient(135deg,rgba(31,16,45,0.52),rgba(12,8,17,0.2)),url(${burlesqueAssets.games.scratchCard})`,
-            }}
-          >
-            <div className="relative rounded-3xl bg-[#140b1d]/56 px-5 py-4 backdrop-blur-[1px]">
-              <p className="text-xs uppercase tracking-[0.22em] text-white/72">
-                Promo card
-              </p>
-              <p className="mt-3 font-serif text-3xl font-semibold">
-                Burlesque
-              </p>
-              <p className="mt-2 text-sm leading-5 text-white/74">
-                Нажмите кнопку ниже, чтобы открыть демо.
-              </p>
-            </div>
-          </div>
+        </div>
 
-          <div
-            className={[
-              "relative transition duration-500",
-              isRevealed
-                ? "translate-y-0 opacity-100"
-                : "translate-y-2 opacity-0",
-            ].join(" ")}
-          >
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--lavender)]">
-              Демо-просмотр
-            </p>
-            <p className="mt-3 font-serif text-3xl font-semibold text-[var(--text)]">
-              {scratchCardDemoResult.title}
-            </p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-              {scratchCardDemoResult.description}
-            </p>
-          </div>
+        <div
+          className={[
+            "relative transition duration-500",
+            isRevealed ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
+          ].join(" ")}
+        >
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--lavender)]">
+            Демо-просмотр
+          </p>
+          <p className="mt-2 font-serif text-2xl font-semibold text-[var(--text)]">
+            {scratchCardDemoResult.title}
+          </p>
+          <p className="mt-1.5 text-sm leading-5 text-[var(--muted)]">
+            {scratchCardDemoResult.description}
+          </p>
         </div>
       </div>
 
-      <div className={embedded ? "pt-4" : "p-5"}>
+      <div className="pt-3.5">
         {!isRevealed ? (
           <Button
-            className="w-full"
+            className="w-full min-h-10"
             disabled={isRevealing}
             onClick={() => setStatus("revealing")}
           >
             {isRevealing ? "Демо открывается..." : "Запустить демо"}
           </Button>
         ) : (
-          <Card className="rounded-[24px] bg-[var(--surface-soft)]">
-            <p className="font-serif text-2xl font-semibold text-[var(--lavender)]">
-              Пример результата
+          <div className="rounded-2xl bg-white/[0.05] px-3 py-2.5">
+            <p className="font-semibold text-[var(--lavender)]">
+              Демо-просмотр
             </p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted-strong)]">
-              {scratchCardDemoResult.note}
-            </p>
-            <p className="mt-3 text-xs leading-5 text-[var(--muted)]">
+            <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
               Результат не сохраняется.
             </p>
-          </Card>
+          </div>
         )}
 
-        <p className="mt-4 text-xs leading-5 text-[var(--muted)]">
-          Демо-механика. Результат не сохраняется, призы пока не выдаются.
-        </p>
+        {!embedded ? (
+          <p className="mt-3 text-xs leading-5 text-[var(--muted)]">
+            Демо-механика. Результат не сохраняется, призы пока не выдаются.
+          </p>
+        ) : null}
       </div>
-    </Card>
+    </>
   );
+
+  if (embedded) {
+    return <div className="screen-soft-enter">{content}</div>;
+  }
+
+  return <Card className="screen-soft-enter overflow-hidden">{content}</Card>;
 }

@@ -517,7 +517,7 @@ button {
 }
 
 .bottom-sheet-backdrop {
-  animation: bottom-sheet-backdrop 240ms ease-out both;
+  animation: bottom-sheet-backdrop 220ms ease-out both;
 }
 
 @keyframes bottom-sheet-backdrop {
@@ -530,13 +530,13 @@ button {
 }
 
 .bottom-sheet-panel {
-  animation: bottom-sheet-panel 250ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: bottom-sheet-panel 230ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes bottom-sheet-panel {
   from {
     opacity: 0;
-    transform: translate3d(0, 18px, 0);
+    transform: translate3d(0, 12px, 0);
   }
   to {
     opacity: 1;

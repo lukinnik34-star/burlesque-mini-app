@@ -47,7 +47,7 @@ function EventDetailSheet({
       onClose={onClose}
       title={event.title}
     >
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2.5">
         {[
           ["Дата", event.dateLabel],
           ["Время", event.timeLabel],
@@ -55,7 +55,7 @@ function EventDetailSheet({
           ["Статус", "Будет позже"],
         ].map(([label, value]) => (
           <div
-            className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3"
+            className="rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-2.5"
             key={label}
           >
             <p className="text-xs text-[var(--muted)]">{label}</p>
@@ -66,18 +66,18 @@ function EventDetailSheet({
         ))}
       </div>
 
-      <p className="mt-5 text-sm leading-6 text-[var(--muted-strong)]">
+      <p className="mt-4 text-sm leading-6 text-[var(--muted-strong)]">
         {event.description}
       </p>
 
-      <div className="mt-5 rounded-2xl border border-[var(--line-soft)] bg-white/[0.05] px-3 py-3">
+      <div className="mt-4 rounded-2xl bg-white/[0.05] px-3 py-2.5">
         <div className="flex items-center justify-between gap-3">
           <p className="text-sm font-semibold text-[var(--text)]">
             Бронирование появится в следующем этапе.
           </p>
           <Badge className="px-2.5 text-[11px]">Демо</Badge>
         </div>
-        <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+        <p className="mt-1.5 text-xs leading-5 text-[var(--muted)]">
           Регистрация и оплата будут подключены позже.
         </p>
       </div>

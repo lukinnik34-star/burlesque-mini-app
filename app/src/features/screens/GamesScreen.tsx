@@ -122,7 +122,7 @@ export function GamesScreen({
         >
           <div className="mb-4 flex items-center justify-between gap-3">
             <p className="text-sm leading-6 text-[var(--muted-strong)]">
-              Демо-механика. Результат не сохраняется, призы пока не выдаются.
+              Результат не сохраняется, призы пока не выдаются.
             </p>
             <Badge className="shrink-0 px-2.5 text-[11px]">Демо</Badge>
           </div>
